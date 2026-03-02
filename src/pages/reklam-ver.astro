@@ -1,160 +1,246 @@
 ---
-// reklam-ver.astro
+// src/pages/reklam-ver.astro
 import Layout from '../layouts/Layout.astro';
-
-const meta = {
-  title: 'Reklam Ver | Dersini Tanıt & Site Reklamı | İstanbul Eğitim Merkezi',
-  description: 'İstanbul Eğitim Merkezi\'nde reklam verin. Eğitmen olarak derslerinizi tanıtın veya sitenizde reklam gösterin.'
-};
+import PageTemplate from '../components/PageTemplate.astro';
+import ContactButtons from '../components/ContactButtons.astro';
 ---
 
-<Layout title={meta.title} description={meta.description}>
-  <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
-    <!-- Başlık -->
-    <div class="text-center mb-12">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Reklam Ver</h1>
-      <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-        İstanbul Eğitim Merkezi'nde iki farklı reklam seçeneği ile hedef kitlenize ulaşın.
-      </p>
-    </div>
+<Layout 
+  title="Reklam Ver - Villa Bungalov Tatil" 
+  description="Villanızı veya işletmenizi Villa Bungalov Tatil'de üst sıralara taşıyın. Google Ads, Sosyal Medya ve site içi reklam çözümleri."
+>
+  <PageTemplate 
+    title="Reklam Ver" 
+    subtitle="Villanızı öne çıkarın, daha çok görünün, daha çok kazanın"
+  >
+    <div class="space-y-8">
+      
+      <!-- Hero Mesaj -->
+      <div class="text-center py-6">
+        <span class="text-6xl mb-4 block">📢</span>
+        <h2 class="text-3xl font-bold text-gray-800 mb-3">
+          Daha Çok Görün, Daha Çok Kazan
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Villa Bungalov Tatil'de reklam vererek villanızı binlerce tatilcinin önüne çıkarın. 
+          Size özel reklam paketlerimizle hedef kitlenize kolayca ulaşın.
+        </p>
+      </div>
 
-    <!-- İki Seçenekli Kartlar -->
-    <div class="grid md:grid-cols-2 gap-8 mb-16">
-      <!-- Seçenek 1: Eğitmen Reklamı -->
-      <div class="bg-white rounded-2xl shadow-xl border-2 border-indigo-100 hover:border-indigo-300 transition overflow-hidden">
-        <div class="bg-gradient-to-r from-indigo-600 to-green-500 text-white p-6 text-center">
-          <span class="text-6xl mb-3 block">👨‍🏫</span>
-          <h2 class="text-2xl md:text-3xl font-bold">Eğitmen Reklamı</h2>
-          <p class="text-indigo-200">Derslerini tanıt, öğrenci bul</p>
-        </div>
-        <div class="p-6">
-          <ul class="space-y-4 mb-6">
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Profil Öne Çıkarma:</strong> Eğitmen profilin ana sayfada ve kategorilerde üst sıralarda gösterilsin</span>
+      <!-- Reklam Türleri Grid -->
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        
+        <!-- Site İçi Reklam -->
+        <div class="bg-white border-2 border-orange-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
+            <span class="text-3xl">🏠</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Site İçi Reklam</h3>
+          <p class="text-gray-600 mb-4">Villanızı sitemizde üst sıralarda gösterin</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500">✓</span>
+              <span>Arama sonuçlarında <span class="font-semibold">üst sıra</span> garantisi</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Özel Rozet:</strong> "Öne Çıkan Eğitmen" rozeti ile profilin vurgulansın</span>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500">✓</span>
+              <span>Ana sayfada <span class="font-semibold">öne çıkan</span> villa</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Daha Fazla Görünürlük:</strong> Arama sonuçlarında ilk sıralarda yer al</span>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500">✓</span>
+              <span>Kategori sayfalarında <span class="font-semibold">VIP konum</span></span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Hedef Kitle:</strong> Sadece senin branşınla ilgilenen öğrencilere ulaş</span>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500">✓</span>
+              <span><span class="font-semibold">Özel buton</span> ve vurgulu tasarım</span>
             </li>
           </ul>
-          
-          <div class="bg-indigo-50 p-4 rounded-lg mb-6">
-            <p class="text-sm text-gray-700">
-              <span class="font-bold">Kimler İçin?</span> Platformda aktif olarak ders veren ve daha fazla öğrenciye ulaşmak isteyen eğitmenler.
-            </p>
+          <div class="mt-6 pt-4 border-t border-gray-100">
+            <p class="text-sm text-gray-500 mb-2">Aylık paketler</p>
+            <p class="text-2xl font-bold text-orange-600">₺1499'dan başlayan</p>
           </div>
-          
-          <a href="/iletisim?konu=egitmen-reklami" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold py-3 px-4 rounded-lg transition">
-            Eğitmen Reklamı İçin Bilgi Al
-          </a>
         </div>
-      </div>
 
-      <!-- Seçenek 2: Site İçi Reklam -->
-      <div class="bg-white rounded-2xl shadow-xl border-2 border-orange-100 hover:border-orange-300 transition overflow-hidden">
-        <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 text-center">
-          <span class="text-6xl mb-3 block">📢</span>
-          <h2 class="text-2xl md:text-3xl font-bold">Site İçi Reklam</h2>
-          <p class="text-orange-200">Markanı, ürününü veya hizmetini tanıt</p>
-        </div>
-        <div class="p-6">
-          <ul class="space-y-4 mb-6">
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Banner Reklamlar:</strong> Ana sayfa, kategori sayfaları, blog gibi yüksek trafikli alanlarda banner</span>
+        <!-- Google Ads -->
+        <div class="bg-white border-2 border-blue-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+            <span class="text-3xl">🔍</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Google Ads</h3>
+          <p class="text-gray-600 mb-4">Arama motorlarında üst sıralarda çıkın</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500">✓</span>
+              <span>Google aramalarında <span class="font-semibold">ilk sayfa</span> garantisi</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Hedefli Reklam:</strong> Belirli kategorilerde (bilişim, dil, sanat) gösterim imkanı</span>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500">✓</span>
+              <span>Hedefli <span class="font-semibold">anahtar kelimeler</span></span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>E-posta Bülteni:</strong> 50.000+ aboneye e-posta gönderimi</span>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500">✓</span>
+              <span>Bölgesel <span class="font-semibold">hedefleme</span> (İstanbul, Bursa, vb.)</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 text-xl">✓</span>
-              <span><strong>Sponsorlu İçerik:</strong> Blog yazısı, röportaj, özel içerik</span>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500">✓</span>
+              <span>Aylık <span class="font-semibold">performans raporu</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-500">✓</span>
+              <span>Bütçenize göre <span class="font-semibold">esnek planlar</span></span>
             </li>
           </ul>
-          
-          <div class="bg-orange-50 p-4 rounded-lg mb-6">
-            <p class="text-sm text-gray-700">
-              <span class="font-bold">Kimler İçin?</span> Eğitim kurumları, kitap yayınevleri, eğitim teknolojileri şirketleri, yazılım firmaları ve eğitim sektörüne hitap eden tüm markalar.
-            </p>
+          <div class="mt-6 pt-4 border-t border-gray-100">
+            <p class="text-sm text-gray-500 mb-2">Aylık paketler</p>
+            <p class="text-2xl font-bold text-blue-600">₺1999'dan başlayan</p>
           </div>
-          
-          <a href="/iletisim?konu=site-reklami" class="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center font-semibold py-3 px-4 rounded-lg transition">
-            Site Reklamı İçin Bilgi Al
-          </a>
+        </div>
+
+        <!-- Sosyal Medya -->
+        <div class="bg-white border-2 border-purple-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
+            <span class="text-3xl">📱</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Sosyal Medya</h3>
+          <p class="text-gray-600 mb-4">Instagram, Facebook, TikTok'ta öne çıkın</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-purple-500">✓</span>
+              <span><span class="font-semibold">Instagram</span> özel villa tanıtımı</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-500">✓</span>
+              <span><span class="font-semibold">Facebook</span> hedefli reklamlar</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-500">✓</span>
+              <span><span class="font-semibold">TikTok</span> kısa video tanıtımı</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-500">✓</span>
+              <span>Profesyonel <span class="font-semibold">video çekimi</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-purple-500">✓</span>
+              <span>Influencer <span class="font-semibold">iş birlikleri</span></span>
+            </li>
+          </ul>
+          <div class="mt-6 pt-4 border-t border-gray-100">
+            <p class="text-sm text-gray-500 mb-2">Aylık paketler</p>
+            <p class="text-2xl font-bold text-purple-600">₺1799'dan başlayan</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Reklam Seçenekleri Karşılaştırması -->
-    <div class="bg-white rounded-2xl shadow-md p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Reklam Seçenekleri Karşılaştırması</h2>
-      
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead class="bg-gray-50">
-            <tr>
-              <th class="px-4 py-3 text-left font-medium text-gray-600">Özellik</th>
-              <th class="px-4 py-3 text-left font-medium text-gray-600">Eğitmen Reklamı</th>
-              <th class="px-4 py-3 text-left font-medium text-gray-600">Site İçi Reklam</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100">
-            <tr>
-              <td class="px-4 py-3 font-medium">Hedef Kitle</td>
-              <td class="px-4 py-3">Eğitim almak isteyen öğrenciler</td>
-              <td class="px-4 py-3">Tüm site ziyaretçileri (aylık 200K+)</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-medium">Gösterim Yerleri</td>
-              <td class="px-4 py-3">Eğitmen profilleri, arama sonuçları</td>
-              <td class="px-4 py-3">Ana sayfa, kategoriler, blog, sidebar</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-medium">Hedefleme</td>
-              <td class="px-4 py-3">Branş bazlı</td>
-              <td class="px-4 py-3">Sayfa bazlı, kategori bazlı</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-medium">Fiyatlandırma</td>
-              <td class="px-4 py-3">Aylık sabit ücret</td>
-              <td class="px-4 py-3">Gösterim veya süre bazlı</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Avantajlar Bölümü -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl p-8 mt-8">
+        <h3 class="text-2xl font-bold text-center mb-6">Neden Villa Bungalov Tatil'de Reklam Vermelisiniz?</h3>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <span class="text-4xl mb-3 block">🎯</span>
+            <h4 class="font-bold mb-2">Hedefli Kitle</h4>
+            <p class="text-sm text-gray-300">Tamamen tatil arayan gerçek kullanıcılar</p>
+          </div>
+          <div class="text-center">
+            <span class="text-4xl mb-3 block">📊</span>
+            <h4 class="font-bold mb-2">Ölçülebilir Sonuçlar</h4>
+            <p class="text-sm text-gray-300">Aylık detaylı performans raporu</p>
+          </div>
+          <div class="text-center">
+            <span class="text-4xl mb-3 block">⚡</span>
+            <h4 class="font-bold mb-2">Hızlı Etki</h4>
+            <p class="text-sm text-gray-300">Reklam yayına alınır alınmaz görünürlük</p>
+          </div>
+          <div class="text-center">
+            <span class="text-4xl mb-3 block">💎</span>
+            <h4 class="font-bold mb-2">Uygun Fiyat</h4>
+            <p class="text-sm text-gray-300">Her bütçeye uygun esnek paketler</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Bize Ulaşın -->
-    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 text-center">
-      <h3 class="text-2xl font-bold text-gray-900 mb-3">Reklam ve Tanıtım İçin Bize Ulaşın</h3>
-      <p class="text-gray-600 mb-6">Size özel reklam paketleri ve fiyatlandırma için iletişime geçin.</p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-        <a href="/iletisim" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition">
-          İletişim Formu
-        </a>
-        
+      <!-- Nasıl Çalışır -->
+      <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Reklam Süreci Nasıl İşliyor?</h3>
+        <div class="grid md:grid-cols-4 gap-4">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl mx-auto mb-3">1</div>
+            <h4 class="font-semibold mb-1">İletişim</h4>
+            <p class="text-sm text-gray-500">Bize WhatsApp'tan ulaşın</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl mx-auto mb-3">2</div>
+            <h4 class="font-semibold mb-1">Planlama</h4>
+            <p class="text-sm text-gray-500">Size özel reklam paketi oluşturalım</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl mx-auto mb-3">3</div>
+            <h4 class="font-semibold mb-1">Yayın</h4>
+            <p class="text-sm text-gray-500">Reklamlarınızı yayına alalım</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl mx-auto mb-3">4</div>
+            <h4 class="font-semibold mb-1">Takip</h4>
+            <p class="text-sm text-gray-500">Performansı birlikte takip edelim</p>
+          </div>
+        </div>
       </div>
-      
-      <p class="text-sm text-gray-500">
-        
-        📧 E-posta: iletisim @ istanbulEgitimMerkezi.com
+
+      <!-- Örnek Başarı Hikayesi -->
+      <div class="bg-orange-50 rounded-2xl p-6 border border-orange-200 mt-8">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 bg-orange-200 rounded-full flex items-center justify-center flex-shrink-0 text-3xl">
+            ⭐
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 mb-1">Başarı Hikayesi</h4>
+            <p class="text-gray-700 italic">
+              "Bodrum'daki villamız için Google Ads paketini kullandık. 2 ay içinde rezervasyonlarımız 
+              %150 arttı. Kesinlikle tavsiye ediyorum!"
+            </p>
+            <p class="text-sm text-gray-500 mt-2">— Ahmet K., Bodrum Villa Sahibi</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sık Sorulan Sorular -->
+      <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Sık Sorulan Sorular</h3>
+        <div class="space-y-3">
+          <details class="group bg-gray-50 rounded-lg p-4">
+            <summary class="font-semibold text-gray-800 cursor-pointer flex items-center justify-between">
+              Reklamlar ne kadar sürede yayına girer?
+              <span class="text-orange-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-3 text-gray-600 text-sm">Anlaşma sağlandıktan sonra site içi reklamlar 24 saat, Google Ads ve sosyal medya reklamları ise 2-3 iş günü içinde yayına alınır.</p>
+          </details>
+          <details class="group bg-gray-50 rounded-lg p-4">
+            <summary class="font-semibold text-gray-800 cursor-pointer flex items-center justify-between">
+              Reklam performansını takip edebilir miyim?
+              <span class="text-orange-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-3 text-gray-600 text-sm">Evet, tüm reklam paketlerimizde aylık detaylı performans raporu sunuyoruz. Gösterim, tıklanma ve rezervasyona dönüşüm oranlarını görebilirsiniz.</p>
+          </details>
+          <details class="group bg-gray-50 rounded-lg p-4">
+            <summary class="font-semibold text-gray-800 cursor-pointer flex items-center justify-between">
+              Hangi ödeme yöntemlerini kabul ediyorsunuz?
+              <span class="text-orange-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-3 text-gray-600 text-sm">Havale/EFT, kredi kartı ve banka kartı ile ödeme kabul ediyoruz. Fatura kesilmektedir.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- İletişim Butonu -->
+      <div class="text-center mt-8 pt-6 border-t border-gray-200">
+        <p class="text-gray-600 mb-4">Reklam paketlerimiz hakkında detaylı bilgi almak için iletişime geçin!</p>
+        <ContactButtons message="Reklam paketleri hakkında bilgi almak istiyorum." />
+      </div>
+
+      <!-- Dipnot -->
+      <p class="text-xs text-gray-400 text-center mt-4">
+        * Fiyatlar peşin fiyatıdır, KDV dahildir. Paket içerikleri ve fiyatları önceden haber verilmeksizin değiştirilebilir.
       </p>
     </div>
-  </div>
+  </PageTemplate>
 </Layout>

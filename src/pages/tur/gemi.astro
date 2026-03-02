@@ -1,0 +1,65 @@
+---
+// src/pages/tur/gemi.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro';
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'akdeniz',
+    baslik: 'Akdeniz Cruise',
+    altBaslik: 'İtalya, Yunanistan, Hırvatistan',
+    gun: '7 Gece 8 Gün',
+    ikon: '🚢',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Gemi', deger: 'MSC / Costa' },
+      { etiket: 'Kabini', deger: 'Deniz Manzaralı' },
+      { etiket: 'Rota', deger: 'Venedik, Atina, Dubrovnik' },
+      { etiket: 'Yemek', deger: 'Tam Pansiyon' }
+    ]
+  },
+  {
+    id: 'karayipler',
+    baslik: 'Karayipler Rüyası',
+    altBaslik: 'Bahamalar, Meksika, Jamaika',
+    gun: '10 Gece 11 Gün',
+    ikon: '🏝️',
+    ozellikler: [
+      { etiket: 'Gemi', deger: 'Royal Caribbean' },
+      { etiket: 'Kabini', deger: 'Balkonlu' },
+      { etiket: 'Rota', deger: 'Miami, Cozumel, Nassau' },
+      { etiket: 'Aktivite', deger: 'Plajlar, Dalış' }
+    ]
+  },
+  {
+    id: 'norvec',
+    baslik: 'Norveç Fiyordları',
+    altBaslik: 'Doğa Harikası',
+    gun: '8 Gece 9 Gün',
+    ikon: '🏔️',
+    ozellikler: [
+      { etiket: 'Gemi', deger: 'Hurtigruten' },
+      { etiket: 'Kabini', deger: 'Standart' },
+      { etiket: 'Rota', deger: 'Bergen, Geiranger' },
+      { etiket: 'Manzara', deger: 'Fiyordlar, Buzullar' }
+    ]
+  }
+];
+---
+
+<Layout title="Gemi Turları - Akdeniz, Karayipler, Norveç | Villa Bungalov Tatil">
+  <div class="container py-4 py-md-5">
+    <TurTemplate
+      title="Gemi Turları"
+      description="Lüks gemilerle Akdeniz'in incilerini, Karayipler'in masmavi sularını veya Norveç'in görkemli fiyordlarını keşfedin."
+      icon="🚢"
+      kategori="Gemi"
+      fiyatlar={turFiyatlari.gemi}
+      paraBirimi="EUR"
+      paketler={paketler}
+    />
+  </div>
+</Layout>

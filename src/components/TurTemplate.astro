@@ -1,0 +1,208 @@
+---
+// src/components/TurTemplate.astro
+import ContactButtons from './ContactButtons.astro';
+import { kurlar } from '../data/tur-fiyat';
+
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  kategori: string;
+  fiyatlar: any;
+  paraBirimi: 'EUR' | 'USD' | 'SAR';
+  paketler: Array<{
+    id: string;
+    baslik: string;
+    altBaslik: string;
+    gun: string;
+    ikon: string;
+    ozellikler: Array<{ etiket: string; deger: string }>;
+    vurgulu?: boolean;
+  }>;
+}
+
+const { title, description, icon, kategori, fiyatlar, paraBirimi, paketler } = Astro.props;
+
+const formatFiyat = (fiyat) => {
+  if (!fiyat || fiyat === 'sorunuz') return 'Sorunuz';
+  if (typeof fiyat === 'number') {
+    return `${fiyat.toLocaleString('tr-TR')} ${paraBirimi}`;
+  }
+  return `${fiyat} ${paraBirimi}`;
+};
+
+const tlKarsiligi = (fiyat) => {
+  if (!fiyat || fiyat === 'sorunuz' || typeof fiyat !== 'number') return '';
+  const kur = paraBirimi === 'EUR' ? kurlar.eur : paraBirimi === 'USD' ? kurlar.usd : kurlar.sar;
+  const tl = Math.round(fiyat * kur);
+  return `≈ ${tl.toLocaleString('tr-TR')} TL`;
+};
+
+const whatsappMesaji = (paketAdi) => {
+  return `${paketAdi} - ${kategori} kategorisindeki tur paketi hakkında bilgi almak istiyorum.`;
+};
+---
+
+<style>
+  :root {
+    --primary: #1e3a5f;
+    --accent: #c9a961;
+    --success: #2e7d32;
+    --light: #f8f9fa;
+  }
+
+  /* 3 SÜTUN GRID */
+  .tur-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 991px) {
+    .tur-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 575px) {
+    .tur-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* TUR CARD */
+  .tur-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tur-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: var(--accent);
+  }
+  .tur-card.featured {
+    border: 2px solid var(--accent);
+    position: relative;
+  }
+  .tur-card.featured::before {
+    content: "⭐ POPÜLER";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #1a1a2e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .card-icon { font-size: 2rem; text-align: center; margin-bottom: 0.5rem; }
+  .card-title { font-weight: 700; font-size: 1.1rem; text-align: center; margin: 0 0 0.25rem; }
+  .card-subtitle { text-align: center; color: #6c757d; font-size: 0.9rem; margin: 0 0 0.5rem; }
+
+  .price-box {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .price-sar {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--success);
+    display: block;
+    line-height: 1.2;
+  }
+  .price-try {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+  }
+
+  .features { flex: 1; }
+  .feature {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #eee;
+  }
+  .feature:last-child { border-bottom: none; }
+  .feature-icon { min-width: 20px; color: var(--success); }
+  .feature-label { font-weight: 600; color: var(--primary); min-width: 100px; }
+  .feature-value { color: #495057; }
+
+  .contact-wrapper {
+    margin-top: 1rem;
+  }
+  .contact-wrapper :global(a) {
+    width: 100%;
+    justify-content: center;
+    padding: 0.6rem 0;
+  }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .section-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-desc {
+    color: #6c757d;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+</style>
+
+<div class="section-header">
+  <div class="section-icon">{icon}</div>
+  <h1 class="section-title">{title}</h1>
+  <p class="section-desc">{description}</p>
+</div>
+
+<div class="tur-grid">
+  {paketler && paketler.map((paket, index) => {
+    const fiyat = fiyatlar?.[paket.id] || 'sorunuz';
+    return (
+      <div class={`tur-card ${paket.vurgulu ? 'featured' : ''}`} key={index}>
+        <div class="card-icon">{paket.ikon}</div>
+        <h3 class="card-title">{paket.baslik}</h3>
+        <p class="card-subtitle">{paket.gun} • {paket.altBaslik}</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(fiyat)}</span>
+          {typeof fiyat === 'number' && (
+            <span class="price-try">{tlKarsiligi(fiyat)}</span>
+          )}
+        </div>
+        <div class="features">
+          {paket.ozellikler.map((ozellik, idx) => (
+            <div class="feature" key={idx}>
+              <span class="feature-icon">✓</span>
+              <span class="feature-label">{ozellik.etiket}:</span>
+              <span class="feature-value">{ozellik.deger}</span>
+            </div>
+          ))}
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji(paket.baslik)} />
+        </div>
+      </div>
+    );
+  })}
+</div>

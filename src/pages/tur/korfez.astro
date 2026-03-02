@@ -1,0 +1,65 @@
+---
+// src/pages/tur/ortadogu.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro';
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'altinUcgen',
+    baslik: 'BAE: Dubai & Abu Dhabi',
+    altBaslik: 'Modernizm ve Çöl Macerası',
+    gun: '7 Gece 8 Gün',
+    ikon: '🏜️',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '5 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Burç Halife, Çöl Safari' },
+      { etiket: 'Yemek', deger: 'Kahvaltı + 1 Öğün' }
+    ]
+  },
+  {
+    id: 'katarMisir',
+    baslik: 'Katar ve Mısır İkilemi',
+    altBaslik: 'Gelecek ile Tarihin Buluşması',
+    gun: '9 Gece 10 Gün',
+    ikon: '🏝️',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '5 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY + Qatar Airways' },
+      { etiket: 'Öne Çıkanlar', deger: 'Doha Modern, Şarm El-Şeyh' },
+      { etiket: 'Aktivite', deger: 'Kızıldeniz Dalış, Sina' }
+    ]
+  },
+  {
+    id: 'dubai',
+    baslik: 'Dubai Lüks Tatili',
+    altBaslik: 'Çölün Ortasında Lüks',
+    gun: '5 Gece 6 Gün',
+    ikon: '🌇',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '4 Yıldızlı Otel' },
+      { etiket: 'Ulaşım', deger: 'Pegasus' },
+      { etiket: 'Öne Çıkanlar', deger: 'Dubai Mall, Burç Halife' },
+      { etiket: 'Vize', deger: 'Dahil' }
+    ]
+  }
+];
+---
+
+<Layout title="Orta Doğu Turları - Dubai, Katar, Mısır | Villa Bungalov Tatil">
+  <div class="container py-4 py-md-5">
+    <TurTemplate
+      title="Orta Doğu Turları"
+      description="Çölün gizemi, modern mimarinin ihtişamı ve binlerce yıllık tarih sizi bekliyor."
+      icon="🏜️"
+      kategori="Orta Doğu"
+      fiyatlar={turFiyatlari.ortadogu}
+      paraBirimi="USD"
+      paketler={paketler}
+    />
+  </div>
+</Layout>

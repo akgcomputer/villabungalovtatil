@@ -1,0 +1,65 @@
+---
+// src/pages/tur/afrika.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro';
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'safariKlasik',
+    baslik: 'Klasik Safari',
+    altBaslik: 'Masai Mara, Serengeti',
+    gun: '7 Gece 8 Gün',
+    ikon: '🦁',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Safari Lodges' },
+      { etiket: 'Ulaşım', deger: 'THY + Yerel Uçuş' },
+      { etiket: 'Öne Çıkanlar', deger: 'Büyük Göç, 5 Büyükler' },
+      { etiket: 'Rehber', deger: 'Uzman Safari Rehberi' }
+    ]
+  },
+  {
+    id: 'misir',
+    baslik: 'Mısır: Firavunlar Diyarı',
+    altBaslik: 'Kahire, Luksor, Nil',
+    gun: '8 Gece 9 Gün',
+    ikon: '🐪',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '5 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Piramitler, Nil Gezisi' },
+      { etiket: 'Vize', deger: 'Dahil' }
+    ]
+  },
+  {
+    id: 'fas',
+    baslik: 'Fas: Binbir Gece Masalı',
+    altBaslik: 'Marakeş, Fez, Kazablanka',
+    gun: '9 Gece 10 Gün',
+    ikon: '🏮',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Riad (Geleneksel)' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Medinalar, Sahra' },
+      { etiket: 'Yemek', deger: 'Kahvaltı + Akşam' }
+    ]
+  }
+];
+---
+
+<Layout title="Afrika Turları - Safari, Mısır, Fas | Villa Bungalov Tatil">
+  <div class="container py-4 py-md-5">
+    <TurTemplate
+      title="Afrika Turları"
+      description="Vahşi yaşamın kalbi, binlerce yıllık uygarlıkların beşiği ve büyüleyici çöller."
+      icon="🦁"
+      kategori="Afrika"
+      fiyatlar={turFiyatlari.afrika}
+      paraBirimi="USD"
+      paketler={paketler}
+    />
+  </div>
+</Layout>

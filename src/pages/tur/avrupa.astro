@@ -1,0 +1,78 @@
+---
+// src/pages/tur/avrupa.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro'; // DOĞRU IMPORT
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'italyaRuyasi',
+    baslik: 'İtalya Rüyası',
+    altBaslik: 'Roma, Floransa, Venedik',
+    gun: '7 Gece 8 Gün',
+    ikon: '🇮🇹',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Butik Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Kolezyum, Gondol' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' }
+    ]
+  },
+  {
+    id: 'ispanyaEndulus',
+    baslik: 'İspanya & Endülüs',
+    altBaslik: 'Flamenco ve Tarih',
+    gun: '8 Gece 9 Gün',
+    ikon: '🇪🇸',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Tarihi Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'El Hamra, Sagrada' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' }
+    ]
+  },
+  {
+    id: 'portekizMalta',
+    baslik: 'Portekiz ve Malta',
+    altBaslik: 'Okyanus ve Tarih',
+    gun: '10 Gece 11 Gün',
+    ikon: '🇵🇹',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Butik Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Lizbon, Valletta' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' }
+    ]
+  },
+  {
+    id: 'yunanAnakarasi',
+    baslik: 'Yunan Anakarası',
+    altBaslik: 'Atina ve Tarihin Kalbi',
+    gun: '4 Gece 5 Gün',
+    ikon: '🇬🇷',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Merkezi Oteller' },
+      { etiket: 'Ulaşım', deger: 'Pegasus' },
+      { etiket: 'Öne Çıkanlar', deger: 'Akropolis, Sounion' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' }
+    ]
+  }
+];
+---
+
+<Layout title="Avrupa Turları - İtalya, İspanya, Yunanistan | Villa Bungalov Tatil">
+  <div class="container py-4 py-md-5">
+    <TurTemplate
+      title="Avrupa Turları"
+      description="Tarihin, sanatın ve romantizmin kalbi Avrupa'da unutulmaz bir yolculuğa hazır olun."
+      icon="🇪🇺"
+      kategori="Avrupa"
+      fiyatlar={turFiyatlari.avrupa}
+      paraBirimi="EUR"
+      paketler={paketler}
+    />
+  </div>
+</Layout>

@@ -1,0 +1,182 @@
+---
+// src/pages/komisyon-oranlari.astro
+import Layout from '../layouts/Layout.astro';
+import PageTemplate from '../components/PageTemplate.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+// Sabit komisyon oranı
+const KOMISYON_ORANI = 10;
+const KOMISYON_ORANI_YAZI = '%10';
+---
+
+<Layout 
+  title="Komisyon Oranları - Villa Bungalov Tatil" 
+  description="Villa Bungalov Tatil olarak komisyon oranımız şimdi ve daima %10'dur. Mesken sahipleri için şeffaf ve adil komisyon politikası."
+>
+  <PageTemplate 
+    title="Komisyon Oranları" 
+    subtitle="Şimdi ve daima %10 komisyon"
+    lastUpdated="Mart 2026"
+  >
+    <div class="space-y-8">
+      
+      <!-- Ana Mesaj - Büyük Rakam -->
+      <div class="text-center py-8">
+        <div class="inline-block bg-gradient-to-br from-orange-50 to-amber-50 rounded-full p-8 mb-4 border-4 border-orange-200">
+          <span class="text-7xl md:text-8xl font-black text-orange-600">{KOMISYON_ORANI}</span>
+          <span class="text-4xl md:text-5xl font-black text-orange-400">%</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-4">
+          Şimdi ve Daima <span class="text-orange-600">{KOMISYON_ORANI_YAZI}</span>
+        </h2>
+        <p class="text-xl text-gray-600 mt-2 max-w-2xl mx-auto">
+          Mesken sahipleri için değişmeyen tek oran
+        </p>
+      </div>
+
+      <!-- Açıklama Kartı -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 border border-blue-100">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-white text-2xl">
+            💬
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Neden {KOMISYON_ORANI_YAZI}?</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Villa Bungalov Tatil olarak en başından beri komisyon oranımız {KOMISYON_ORANI_YAZI}'dur ve 
+              bu oranı değiştirmeyeceğimizin sözünü veriyoruz. Mesken sahiplerinin kazançlarını önceden 
+              bilmesi ve güvenle çalışması bizim için çok önemli. Ne şimdi ne de gelecekte bu oran 
+              artmayacak, aksine sizlerle birlikte büyümeye devam edeceğiz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detaylı Bilgi Grid -->
+      <div class="grid md:grid-cols-2 gap-6 mt-8">
+        
+        <!-- Villa Sahipleri İçin -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-3xl">🏡</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Mesken Sahipleri İçin</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <span class="text-green-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">Her rezervasyondan</span> sadece {KOMISYON_ORANI_YAZI} komisyon</li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">İlan eklemek</span> tamamen ücretsiz</li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">Fiyatı siz belirleyin</span>, komisyon sabit</li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">Ödemeler size direkt</span> (kaparo tarafımızca)</li>
+          </ul>
+        </div>
+
+        <!-- Tatilciler İçin -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-3xl">👨‍👩‍👧‍👦</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Tatilciler İçin</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">Size ekstra ücret yok</span>, komisyon mesken sahibinden</li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">Kaparo koruması</span> ile güvenli ödeme</li>
+            <li class="flex items-start gap-3">
+              <span class="text-orange-600 text-xl mt-0.5">✓</span>
+              <span><span class="font-semibold">Şeffaf fiyatlar</span>, gizli maliyet yok</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Karşılaştırma Tablosu -->
+      <div class="mt-8 bg-gray-50 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Diğer Platformlarla Karşılaştırma</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm md:text-base">
+            <thead>
+              <tr class="border-b-2 border-gray-300">
+                <th class="py-3 text-left">Platform</th>
+                <th class="py-3 text-center">Komisyon Oranı</th>
+                <th class="py-3 text-center">İlan Ücreti</th>
+                <th class="py-3 text-center">Şeffaflık</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-200">
+                <td class="py-3 font-semibold text-orange-600">Villa Bungalov Tatil</td>
+                <td class="py-3 text-center font-bold text-green-600">{KOMISYON_ORANI_YAZI}</td>
+                <td class="py-3 text-center text-green-600">Ücretsiz</td>
+                <td class="py-3 text-center">⭐ Şimdi ve daima</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-3">Airbnb</td>
+                <td class="py-3 text-center">%14 - %20</td>
+                <td class="py-3 text-center">Ücretsiz</td>
+                <td class="py-3 text-center">Değişken</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-3">Booking.com</td>
+                <td class="py-3 text-center">%15 - %25</td>
+                <td class="py-3 text-center">Ücretsiz</td>
+                <td class="py-3 text-center">Değişken</td>
+              </tr>
+              <tr>
+                <td class="py-3">Diğer Yerel Platformlar</td>
+                <td class="py-3 text-center">%10 - %30</td>
+                <td class="py-3 text-center">Genelde Ücretli</td>
+                <td class="py-3 text-center">Değişken</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Söz Box'ı -->
+      <div class="bg-orange-600 rounded-xl p-8 text-white text-center mt-6">
+        <div class="max-w-2xl mx-auto">
+          <span class="text-5xl mb-4 block">🤝</span>
+          <h3 class="text-2xl font-bold mb-3">Villa Bungalov Tatil Sözü</h3>
+          <p class="text-lg mb-4">
+            "Komisyon oranımız şimdi {KOMISYON_ORANI_YAZI}, daima {KOMISYON_ORANI_YAZI}. 
+            Sözümüz söz, bu oran asla artmayacak!"
+          </p>
+          <div class="w-24 h-1 bg-white mx-auto opacity-50"></div>
+        </div>
+      </div>
+
+      <!-- Sık Sorulan Sorular -->
+      <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Sık Sorulan Sorular</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h4 class="font-semibold text-gray-800 mb-2">Komisyon hangi tutar üzerinden hesaplanıyor?</h4>
+            <p class="text-gray-600">Komisyon, toplam rezervasyon tutarı (gecelik fiyat x gece sayısı) üzerinden hesaplanır. Temizlik ücreti gibi ekstralar komisyona dahil değildir.</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h4 class="font-semibold text-gray-800 mb-2">Komisyon ne zaman kesiliyor?</h4>
+            <p class="text-gray-600">Misafir tarafından ödenen kaparo tutarından komisyon kesilir, kalan tutar size aktarılır. Kalan ödemeyi misafirden tesiste tahsil edersiniz.</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h4 class="font-semibold text-gray-800 mb-2">İleride komisyon oranı artar mı?</h4>
+            <p class="text-gray-600">Hayır! Villa Bungalov Tatil olarak en büyük prensibimiz şeffaflık. {KOMISYON_ORANI_YAZI} oranımız şimdi ve daima {KOMISYON_ORANI_YAZI} olarak kalacak.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- İletişim Butonu -->
+      <div class="text-center mt-8 pt-6 border-t border-gray-200">
+        <p class="text-gray-600 mb-4">Sorularınız mı var? Hemen iletişime geçin!</p>
+        <ContactButtons message="Komisyon oranları hakkında bilgi almak istiyorum." />
+      </div>
+    </div>
+  </PageTemplate>
+</Layout>

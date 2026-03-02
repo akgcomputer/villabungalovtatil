@@ -1,0 +1,78 @@
+---
+// src/pages/tur/kultur.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro';
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'italya',
+    baslik: 'İtalya Kültür Turu',
+    altBaslik: 'Rönesans ve Antik Tarih',
+    gun: '7 Gece 8 Gün',
+    ikon: '🏛️',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Tarihi Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Müzeler, Antik Kentler' },
+      { etiket: 'Rehber', deger: 'Sanat Tarihçisi' }
+    ]
+  },
+  {
+    id: 'ispanya',
+    baslik: 'İspanya Kültür Turu',
+    altBaslik: 'Endülüs Mirası',
+    gun: '8 Gece 9 Gün',
+    ikon: '🎭',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Butik Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'El Hamra, Flamenco' },
+      { etiket: 'Rehber', deger: 'Yerel Rehber' }
+    ]
+  },
+  {
+    id: 'yunanistan',
+    baslik: 'Yunanistan Kültür Turu',
+    altBaslik: 'Antik Yunan İzinde',
+    gun: '6 Gece 7 Gün',
+    ikon: '🏺',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Merkezi Oteller' },
+      { etiket: 'Ulaşım', deger: 'Pegasus' },
+      { etiket: 'Öne Çıkanlar', deger: 'Akropolis, Delfi' },
+      { etiket: 'Rehber', deger: 'Arkeolog Rehber' }
+    ]
+  },
+  {
+    id: 'misir',
+    baslik: 'Mısır Kültür Turu',
+    altBaslik: 'Firavunların İzinde',
+    gun: '7 Gece 8 Gün',
+    ikon: '🔺',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '5 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY ile' },
+      { etiket: 'Öne Çıkanlar', deger: 'Piramitler, Müzeler' },
+      { etiket: 'Vize', deger: 'Dahil' }
+    ]
+  }
+];
+---
+
+<Layout title="Kültür Turları - Tarih ve Sanat Dolu Rotalar | Villa Bungalov Tatil">
+  <div class="container py-4 py-md-5">
+    <TurTemplate
+      title="Kültür Turları"
+      description="Tarihin derinliklerine yolculuk, sanatın başkentlerinde keşif ve unutulmaz kültürel deneyimler."
+      icon="📚"
+      kategori="Kültür"
+      fiyatlar={turFiyatlari.kultur}
+      paraBirimi="EUR"
+      paketler={paketler}
+    />
+  </div>
+</Layout>

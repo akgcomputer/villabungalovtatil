@@ -6984,7 +6984,919 @@ export const villalar = [
   "https://a0.muscache.com/im/pictures/miso/Hosting-45968211/original/b420c526-ba78-4559-b393-029d091f0072.jpeg",
   "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDU5NjgyMTE=/original/4c05e610-5a99-4b5b-a8a7-9ceb3b3c418a.png"
 ]
+},
+{
+    "id": 137,
+    "minGece": 2,
+    "slug": "Isitmali-havuz-Deniz-manzarali-spa-bolumu-haric",
+    "tip": "ev",
+    "baslik": "Isıtmalı havuz Deniz manzaralı (spa bölümü hariç)",
+    "konum": {
+        "sehir": "Tekirdağ",
+        "ilce": "Marmara Ereğlisi"
+    },
+    "ozetBilgiler": {
+        "misafir": 10,
+        "yatakOdasi": 4,
+        "yatak": 6,
+        "banyo": 2
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 0
+    },
+    "evSahibi": {
+        "isim": "Ayşegül",
+        "yildiz": 0
+    },
+    "onemliOzellikler": [
+        "Balıklama dalın (Havuz)"
+    ],
+    "aciklama": "Isıtmalı havuz, deniz manzaralı, spa bölümü (jakuzi, sauna) bulunan geniş bir ev. 10 kişilik konaklama kapasitesi, 4 yatak odası.",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": true
+    },
+    "fiyat": {
+        "gecelik": 19900,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/baa1e60e-3cb6-4907-9b17-054c7df66a75.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/c8d462cb-f358-4e62-856e-372352f5944b.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/889de1b9-108d-4d62-8b13-1afd28a3b12d.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/957c769b-b5de-4323-9369-2fe1998b23bc.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/d1b60a70-971f-4ecd-a0c6-bb43c2de450a.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/0bd87eb2-e1d9-4f7c-9093-dc20a50504a7.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/1b2d7eb2-ca7e-408c-8b3e-69678e634c07.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/279d3f36-5a98-48f8-a4d3-3b0cbb976b5a.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/6125a5f4-66e0-4c87-80a4-ce9984f0daee.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1495881578979102267/original/9fb11268-770f-4eb9-82b4-989cb756bbe4.jpeg"
+]
+},
+{
+    "id": 138,
+    "minGece": 2,
+    "slug": "Villa-North-Gumusyaka",
+    "tip": "villa",
+    "baslik": "Villa North Gümüşyaka",
+    "konum": {
+        "sehir": "İstanbul",
+        "ilce": "Silivri"
+    },
+    "ozetBilgiler": {
+        "misafir": 4,
+        "yatakOdasi": 2,
+        "yatak": 2,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 0
+    },
+    "evSahibi": {
+        "isim": "Haydar",
+        "yildiz": 0
+    },
+    "onemliOzellikler": [
+        "Balıklama dalın (Havuz)"
+    ],
+    "aciklama": "Villa North Gümüşyaka - Silivri Gümüşyaka'da deniz manzaralı, havuzlu, yeni ve konforlu bir villa.",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 9990,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/2f22d3b1-6acd-4287-9bf0-e9381410247a.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/492ddf77-47d0-42cf-b8d0-3a640583afb4.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/36c9a6de-b7ee-46f9-b65d-8830e2407502.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/31c6d956-0e6a-4f91-9e88-c9465d78645a.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/2264e2b6-ca21-460c-b193-510fddaab745.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/b9044005-9e8a-492e-8d1e-0c5447ff6c19.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/72ba72ef-32b4-494e-8c37-70f41906420b.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1627459352054191578/original/bbd5bb52-39da-4a29-83c8-c57905f67125.jpeg"
+]
+},
+{
+    "id": 139,
+    "minGece": 2,
+    "slug": "Mustakil-Girisli-Klimali-1-0-Studyoo",
+    "tip": "ev",
+    "baslik": "Müstakil Girişli, Klimalı 1+0 Stüdyo",
+    "konum": {
+        "sehir": "Tekirdağ",
+        "ilce": "Yenice"
+    },
+    "ozetBilgiler": {
+        "misafir": 2,
+        "yatakOdasi": 1,
+        "yatak": 1,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 4.92,
+        "degerlendirmeSayisi": 12
+    },
+    "evSahibi": {
+        "isim": "Göksel Bey",
+        "yildiz": 2
+    },
+    "onemliOzellikler": [
+        "Balıklama dalın (Havuz)",
+        "Kendi kendine giriş (Akıllı kilit)",
+        "Olağanüstü ilan sahibi iletişimi"
+    ],
+    "aciklama": "Müstakil Girişli, Klimalı 1+0 Stüdyo - Yenice'de havuzlu, konforlu ve huzurlu bir stüdyo daire. Plaja erişim imkanı.",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 3500,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/10eca4e7-a4f1-4250-aa7e-5f5727e55ed3.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/8485ac37-ecdd-44aa-9f5e-916943ea1f5b.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/3351b5f8-16d8-42d2-964e-beea9af48f89.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/92920bd9-88d9-4577-af59-8c645b4fe327.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/ee82ebe1-c1cf-43a6-ad03-d4b54ae72f5f.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/f43c6348-abf2-456d-8a4c-b7ebe4864aff.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/467a7b86-5859-4d5a-bef9-8a14c5d2758e.png",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1429526522128505915/original/1dfedcd6-8d3a-4492-961c-6db75b479c0f.jpeg"
+]
+},
+{
+    "id": 140,
+    "minGece": 2,
+    "slug": "Mustakil-Girisli-Tek-Katli-1-1",
+    "tip": "ev",
+    "baslik": "Müstakil Girişli Tek Katlı 1+1",
+    "konum": {
+        "sehir": "Tekirdağ",
+        "ilce": "Tekirdağ"
+    },
+    "ozetBilgiler": {
+        "misafir": 3,
+        "yatakOdasi": 1,
+        "yatak": 1,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 4.83,
+        "degerlendirmeSayisi": 6
+    },
+    "evSahibi": {
+        "isim": "Göksel Bey",
+        "yildiz": 2
+    },
+    "onemliOzellikler": [
+        "Balıklama dalın (Havuz)",
+        "Kendi kendine giriş (Akıllı kilit)",
+        "Olağanüstü ilan sahibi iletişimi"
+    ],
+    "aciklama": "Evimiz müstakil girişli tek katlı 1+1 dir. Klima, smart tv, çamaşır makinası, buzdolabı, bulaşık makinası, Türk kahvesi makinası, tost makinası, nescafe makinası, tencere tava vs. mevcut. Denize, havuza ve plaja 300 metre uzaklıkta. BİM, Migros, A101, Tedi gibi kurumsal mağazalara 50 metre uzaklıkta. Otobüs, minibüs ve taksi durağı hemen evin önünde. 1 adet çift kişilik yatak ve salonda 1 kişinin rahatlıkla yatabileceği kanepe mevcuttur. Havuz, firmamıza ait özel mülktür, sadece misafirlerimiz kullanır. Havuz kullanım saatleri 09:00-20:00, derinlik 1.5 metre. NOT: En fazla 3 misafir kabul edilir. Tescil bilgileri: 17-8204",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 3500,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/9762c5a7-fd6e-4af9-83e3-128d58d7827e.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/0ab25c2e-9d82-4dcb-a931-2ee7c2197e49.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/f5d89aef-be51-41ff-a754-ab9ad3562c18.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/ef093fab-f9d9-4f71-ac46-eaf47034988b.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/d9a22ef9-2ca1-4e35-83ee-37ca38ab0840.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyNDc1MTUyNzc1MTE1MTM2Mw%3D%3D/original/067de534-b1ac-4e95-927c-ba1574b4c5f7.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyNDc1MTUyNzc1MTE1MTM2Mw%3D%3D/original/8dd23033-546e-4033-a539-a4ab687f87f6.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1224751527751151363/original/c1332884-d9a7-4de4-b415-afa5b9c9e049.jpeg"
+]
+},
+{
+    "id": 141,
+    "minGece": 2,
+    "slug": "Demirkaya-Plazada-2-1-Klimali",
+    "tip": "daire",
+    "baslik": "Demirkaya Plazada 2+1 Klimalı",
+    "konum": {
+        "sehir": "Tekirdağ",
+        "ilce": "Çorlu"
+    },
+    "ozetBilgiler": {
+        "misafir": 5,
+        "yatakOdasi": 2,
+        "yatak": 3,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 5.0,
+        "degerlendirmeSayisi": 7
+    },
+    "evSahibi": {
+        "isim": "Göksel Bey",
+        "yildiz": 2
+    },
+    "onemliOzellikler": [
+        "Balıklama dalın (Havuz)",
+        "Olağanüstü giriş deneyimi",
+        "Olağanüstü ilan sahibi iletişimi"
+    ],
+    "aciklama": "Genel olarak ailelerin yaşadığı Demirkaya Plazada (Deluxe Rezidans), klimalı, doğalgazlı, full eşyalı 2+1 rezidans. Güney cephelidir, salondan full kapanmaz deniz manzaralıdır. Evin hemen alt katında BİM, A101, Migros ve Koçtaş mevcut. Denize, plaja ve sadece Airbnb kiracılarımızın kullanımına özel yüzme havuzuna 250 metre uzaklıkta. Havuz kullanım saatleri 09:00-20:00, derinlik 1.5 metre. NOT: En fazla 5 kişi konaklayabilir (4 yetişkin 1 çocuk). Aileler ve çiftler için uygundur, bekar arkadaş grupları kabul edilmez. Tescil bilgileri: 24-7349",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 5890,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMDg2NDM0NTYyMTg1MDIyNg%3D%3D/original/b6ae1e7e-ff65-4cb9-afb8-0358f1c0a89c.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1220864345621850226/original/6eff1212-651c-439a-9464-a3034daa1eb1.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMDg2NDM0NTYyMTg1MDIyNg%3D%3D/original/29a7cff1-b6fb-44a3-a5d9-4751eba548ff.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1220864345621850226/original/73692707-ea18-4baf-a78a-d7a7c9780f9a.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-1220864345621850226/original/b487cd83-230b-4563-8610-92fc1e0e7ee8.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMDg2NDM0NTYyMTg1MDIyNg%3D%3D/original/9a9c8116-32df-413d-9abf-928ed59b67ba.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMDg2NDM0NTYyMTg1MDIyNg%3D%3D/original/bb79bf06-4a6e-4c29-ab4f-e8d562a310aa.jpeg",
+  "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMDg2NDM0NTYyMTg1MDIyNg%3D%3D/original/df41fd12-dc4b-4730-a5b4-1dec16415f1a.jpeg"
+]
+},
+{
+    "id": 142,
+    "minGece": 2,
+    "slug": "Evrensekiz-Isitmali-Havuzlu-Tas-Ev",
+    "tip": "tas-ev",
+    "baslik": "Evrensekiz Isıtmalı Havuzlu Taş Ev",
+    "konum": {
+        "sehir": "Kırklareli",
+        "ilce": "Lüleburgaz"
+    },
+    "ozetBilgiler": {
+        "misafir": 6,
+        "yatakOdasi": 2,
+        "yatak": 5,
+        "banyo": 2
+    },
+    "puan": {
+        "ortalama": 4.67,
+        "degerlendirmeSayisi": 9
+    },
+    "evSahibi": {
+        "isim": "Mustafa",
+        "yildiz": 0
+    },
+    "onemliOzellikler": [
+        "Balıklama dalın (Havuz)",
+        "Olağanüstü giriş deneyimi",
+        "Olağanüstü ilan sahibi iletişimi"
+    ],
+    "aciklama": "ŞEHİRDEN UZAKLAŞIP TAŞ DUVARLARIN ARASINDA ŞÖMİNENİN SICAKLIĞIYLA SARILAN AİLENİZ İÇİN OTANTİK BİR ORTAM (ISITMALI HAVUZ MEVCUTTUR KIŞ AYINA ÖZEL). Tescil bilgileri: 39-26",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 12390,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/42e5b9b5-91d2-4c55-a0cb-93c19b5b31e9.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/661a4a27-c5c2-4fad-b84b-0d6fbae40760.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/c65d709b-9140-4a7a-a88c-c7d037ef87da.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/2e2130e2-7f91-40c3-84e4-409dd050f995.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/5c4c27a8-2883-4bde-b071-e1ae07420287.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/514aaa51-d0d4-48ab-941a-e15c2263a06e.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/86fc602a-72dd-496b-85b1-40a10a6d61d2.jpeg",
+  "https://a0.muscache.com/im/pictures/miso/Hosting-1364417819533901488/original/26bc4a86-8a88-49bf-8f6d-3f39fe7b101d.jpeg"
+]
+},
+{
+    "id": 143,
+    "minGece": 2,
+    "slug": "istanbul-da-keyifli-bir-deneyim",
+    "tip": "tekne",
+    "baslik": "İstanbul’da keyifli bir deneyim",
+    "konum": {
+        "sehir": "İstanbul",
+        "ilce": "Maltepe"
+    },
+    "ozetBilgiler": {
+        "misafir": 2,
+        "yatakOdasi": 1,
+        "yatak": 1,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 4.50,
+        "degerlendirmeSayisi": 8
+    },
+    "evSahibi": {
+        "isim": "Yusuf",
+        "yildiz": 2
+    },
+    "onemliOzellikler": [
+        "Dört ayaklı dostlara kapımız açık (Evcil hayvan kabul edilir)"
+    ],
+    "aciklama": "Dünyanın en güzel şehirlerinden İstanbul'da unutulmaz bir keyif yaşayacaksınız. Dilediğiniz kadar izole bir tatil planlayabilirsiniz. Her birinde duble yatak, duş ve wc bulunan 4 kabine sahip teknenin iç mekanı yemek masası bulunan salon ve geniş bir mutfakla tamamlanıyor. Kıç güvertedeki havuzlukta yemek ve keyif, ön güvertedeki alanda güneşlenme ve dinlenmenin tadını çıkaracaksınız. Tescil bilgileri: 77-04",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 10200,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/hosting/Hosting-864119581374105261/original/2e37c043-1e94-4487-b46a-74d7d9374325.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/defe8235-cf4e-4cf5-bf06-4c22e91569fe.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/9ddb16bd-3005-4a8f-b62d-22e9687db37b.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/062c97df-793e-4b31-9a75-ada5134ef6ac.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/9f32e92e-1fbf-4f70-9144-ba3c6da063bb.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/559b94ae-ad3f-44d0-adf3-36161c3673a1.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/e1f257e6-a502-4d9c-9304-f1ccafd49194.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/35d9bfc5-6242-429c-9164-2f952e6671a3.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-864119581374105261/original/1d07d5e4-9852-451c-9237-b3da39c1d098.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-864119581374105261/original/06bd27e7-5f54-4ba1-b892-1977cba1333a.jpeg"
+]
+
+},
+{
+    "id": 144,
+    "minGece": 2,
+    "slug": "Marina-da-Konforlu-Tekne",
+    "tip": "tekne",
+    "baslik": "Marina da Konforlu Tekne.",
+    "konum": {
+        "sehir": "Yalova",
+        "ilce": "Yalova"
+    },
+    "ozetBilgiler": {
+        "misafir": 6,
+        "yatakOdasi": 1,
+        "yatak": 4,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 4.96,
+        "degerlendirmeSayisi": 25
+    },
+    "evSahibi": {
+        "isim": "Fahri",
+        "yildiz": 4
+    },
+    "onemliOzellikler": [
+        "En çok beğenilen %5 ev arasında",
+        "Olağanüstü giriş deneyimi",
+        "Huzurlu ve sakin"
+    ],
+    "aciklama": "Farklı bir deneyim arayanlar için. Bu konaklama yeri gerçekten türünün tek örneği. Setur Marina'da konforlu bir tekne konaklaması. Tescil bilgileri: 77-03",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 6190,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/hosting/Hosting-752711627352795286/original/b9d85b5a-1a8b-4c97-9336-e353df284305.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NzUyNzExNjI3MzUyNzk1Mjg2/original/9bcd3ee5-33be-45b0-acda-0e0ab0b68fd7.jpeg",
+"https://a0.muscache.com/im/pictures/a3e5c869-da11-42db-9732-eadf8cff6810.jpg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-752711627352795286/original/c123dd1d-e617-49ea-b493-d1c0e6d230db.jpeg",
+"https://a0.muscache.com/im/pictures/7e5390d0-90cd-445c-b219-675b6485fdaf.jpg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NzUyNzExNjI3MzUyNzk1Mjg2/original/14361bbb-9d55-4c08-9b2a-fce68e60fc1e.jpeg",
+"https://a0.muscache.com/im/pictures/a052a84e-3cc4-4f75-8a8c-86752b02a0c0.jpg",
+"https://a0.muscache.com/im/pictures/cb483865-32e6-49b6-86b2-6e5c55e26512.jpg",
+"https://a0.muscache.com/im/pictures/7b99c870-edea-4ba3-8a79-84487a0a834c.jpg",
+"https://a0.muscache.com/im/pictures/2f756398-68d1-4290-b0ff-3339a6813138.jpg"
+]
+
+},
+{
+    "id": 145,
+    "minGece": 2,
+    "slug": "Muhtesem-Yatcilik-Deneyimi",
+    "tip": "tekne",
+    "baslik": "Muhteşem Yatçılık Deneyimi",
+    "konum": {
+        "sehir": "İstanbul",
+        "ilce": "Beşiktaş"
+    },
+    "ozetBilgiler": {
+        "misafir": 8,
+        "yatakOdasi": 2,
+        "yatak": 4,
+        "banyo": 1.5
+    },
+    "puan": {
+        "ortalama": 4.50,
+        "degerlendirmeSayisi": 4
+    },
+    "evSahibi": {
+        "isim": "Laith",
+        "yildiz": 4
+    },
+    "onemliOzellikler": [
+        "Jakuzide gevşeyin",
+        "Kendi kendine giriş (Bina personeli yardımıyla)",
+        "Güzel bir bölge (Manzaralı konum)"
+    ],
+    "aciklama": "Airbnb'deki enfes İstanbul yatımızda eşsiz bir lüksü deneyimleyin. 2 yatak odası, ızgara alanı, jakuzi, sinema ve özenli mürettebat ile zenginliğin tadını çıkarın. Tarzda gevşeyin, çarpıcı manzaraların tadını çıkarın ve bu yüzen cennette anılar yaratın. Duyularınızı serbest bırakın ve olağanüstü bir yolculuğa çıkın. Tescil bilgileri: 17-0998",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": true
+    },
+    "fiyat": {
+        "gecelik": 95500,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/493ae05d-c1f8-4450-963b-029d2c8dc946.jpeg",
+"https://a0.muscache.com/im/pictures/e27477a6-86a8-48d3-9c72-25c1c6698516.jpg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/db6babdf-37de-4f25-b88b-8099820967eb.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/81b4ca08-7bbb-4c95-abd2-f224476feb84.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/f0ba4682-daa7-4898-9237-044db44ca6c7.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/74c3d4b3-6c65-4bfd-b5f4-2a5ba0e197ef.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/69200b6d-45e8-4e18-a41b-8ed5e39d55a2.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/48e84b92-fd43-4d5d-bc57-40709d06d98f.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/fc710b8d-7053-4efb-bc29-ff58985a85ca.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-924313156183375034/original/6ce623c4-a30c-48ad-b48e-93bd51b92c34.jpeg"
+]
+},
+{
+    "id": 146,
+    "minGece": 2,
+    "slug": "Bogaz-Turu-Yat-Kiralama",
+    "tip": "tekne",
+    "baslik": "Boğaz Turu Yat Kiralama",
+    "konum": {
+        "sehir": "İstanbul",
+        "ilce": "Beşiktaş"
+    },
+    "ozetBilgiler": {
+        "misafir": 6,
+        "yatakOdasi": 3,
+        "yatak": 5,
+        "banyo": 4
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 0
+    },
+    "evSahibi": {
+        "isim": "Mustafa",
+        "yildiz": 1
+    },
+    "onemliOzellikler": [
+        "Kendi kendine giriş (Kilitli kutu)",
+        "Güzel bir bölge (Manzaralı konum)",
+        "Uyandıktan sonra güne kahvaltı ve kahveyle başlayın"
+    ],
+    "aciklama": "Boğaz Turu Yat Kiralama - Beşiktaş'ta boğaz turu yapabileceğiniz, konforlu ve manzaralı bir yat. 6 kişilik konaklama kapasitesi.",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 11900,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMTY1MzQzNTQwNDAyNTY2MA%3D%3D/original/58b31396-3039-47b5-beb0-c2338b683153.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMTY1MzQzNTQwNDAyNTY2MA%3D%3D/original/2843f79c-2af3-4d72-9bfe-10c155a3dcb8.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/8adc175a-6495-4c41-b931-362605e3ef61.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/d978f69e-b030-45c3-861a-b9bfe2897fa1.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI1OTQzOTc1MDU0MDM4MjA2Mw%3D%3D/original/9ce0e480-0678-4e68-9f12-1c900b0a7e43.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/43c573e1-3f81-4f78-8fa9-63f3177f8f6e.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/f428cc31-4649-4336-9ae0-f0513d5e046e.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/54cc19ad-48ad-48f5-b588-1262741fc0b5.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/211980f9-9b36-4273-ab12-c9f9b8c3c169.jpeg"
+]
+
+},
+{
+
+    "id": 29,
+    "minGece": 2,
+    "slug": "izmit-Sehir-Merkezinde-1-1-Ve-2-1-Lux-Evler",
+    "tip": "ev",
+    "baslik": "İzmit Şehir Merkezinde 1+1 Ve 2+1 Lüx Evler",
+    "konum": {
+        "sehir": "Kocaeli",
+        "ilce": "İzmit"
+    },
+    "ozetBilgiler": {
+        "misafir": 4,
+        "yatakOdasi": 2,
+        "yatak": 3,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 2
+    },
+    "evSahibi": {
+        "isim": "Marka",
+        "yildiz": 3
+    },
+    "onemliOzellikler": [
+        "Ücretsiz park imkânı"
+    ],
+    "aciklama": "Şehrin Tam Merkezinde AVM, Tramvay, Otobüs, Restoran ve Marketlere Yürüme Mesafesinde Eşsiz Bir Deneyim. Tescil bilgileri: Gayrimenkul dışı ilan",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 3200,
+        "paraBirimi": "₺"
+    },
+    
+  "resimler": [
+    "https://a0.muscache.com/im/pictures/miso/Hosting-833117492617696926/original/8827e7a7-8063-4c0b-9ffe-75dc3f15ed98.jpeg",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-833117492617696926/original/c4d4cc29-53e7-4872-8bc3-557fe6913186.jpeg",
+    "https://a0.muscache.com/im/pictures/336c9351-48fc-4d18-9760-6032b2607f85.jpg",
+    "https://a0.muscache.com/im/pictures/926d2e7a-9d4a-4dd9-b9bd-e70e0612d056.jpg",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-833117492617696926/original/70f084c1-8946-4b27-8231-3f8af89a5db8.jpeg",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-833117492617696926/original/a98fc88b-7f82-4790-b530-7f84ca32611f.jpeg",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-833117492617696926/original/9d1927a0-15c2-4e57-9b79-851a8d8485fb.jpeg",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-833117492617696926/original/79cd1e09-a225-4169-81c4-0cb8b81fcf63.jpeg"
+  ]
+
+},
+{
+    "id": 30,
+    "minGece": 1,
+    "slug": "Konforlu-oda",
+    "tip": "apart",
+    "baslik": "Konforlu oda",
+    "konum": {
+        "sehir": "Kocaeli",
+        "ilce": "Körfez"
+    },
+    "ozetBilgiler": {
+        "misafir": 2,
+        "yatakOdasi": 1,
+        "yatak": 2,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 0
+    },
+    "evSahibi": {
+        "isim": "Nevastargate",
+        "yildiz": 4
+    },
+    "onemliOzellikler": [
+        "Uyandıktan sonra güne kahvaltı ve kahveyle başlayın",
+        "Dört ayaklı dostlara kapımız açık (Evcil hayvan kabul edilir)"
+    ],
+    "aciklama": "Comfort odamızda 2 adet single yatak bulunmaktadır. Ücretsiz otopark, wifi, ücretsiz kahvaltı, çamaşırhane, lobi, ücret dahilinde spa, türk hamamı, sauna ve masaj hizmetlerimiz bulunmaktadır. Bu büyüleyici ve lüks konaklama yerinde her ayrıntı düşünülmüştür. Odalarımızda tüm ihtiyaçlarınız düşünülmüş olup, dışarıdan yemek sipariş verebilirsiniz. Tv'lerimiz smart tv olup netflix, youtube gibi uygulamaları ücretsiz şekilde kullanabilirsiniz. Odalarımızda çay, kahve, su, şeker vs. gibi şeyler ikram edilmektedir. Misafirlerimiz kendilerine tahsis edilmiş özel banyolu odaları haricinde otel lobisi ve restaurantını ücretsiz kullanabilirler. Ücret dahilinde ise spa bölümünde hamam, masaj, sauna gibi hizmetlerden faydalanabilirler. Tescil bilgileri: 14-15636",
+    "oneCikanSunduklar": {
+        "mutfak": false,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 2990,
+        "paraBirimi": "₺"
+    },
+    "resimler": [
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/1f718c11-715b-43ab-b2c1-d8aafcd9fe41.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/defad948-7342-44bf-9de0-b011982c68d3.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/2dc9bd80-2fdf-43e6-be23-1a2f9cf5f4ed.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/221f12f5-d6b8-48f4-b7b2-a1c2a7da35b1.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/b961fe85-f0a4-4e63-b6e2-5aea0ffddb23.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/7c18cc75-ccb0-46b5-91a1-fc1c9e77d869.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/99938d78-b4d6-4baf-bda7-823435c8d7fc.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/b2c86952-e66c-4d46-9715-dc9935527c00.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTM0MzAyOTM=/original/35bdd2e0-d7f3-4d25-b463-90110a7773b6.jpeg"
+
+    ]
+},
+{
+    "id": 147,
+    "minGece": 2,
+    "slug": "Exclusive-2-Teknesi",
+    "tip": "tekne",
+    "baslik": "Exclusive 2 Teknesi",
+    "konum": {
+        "sehir": "İzmir",
+        "ilce": "Çeşme"
+    },
+    "ozetBilgiler": {
+        "misafir": 8,
+        "yatakOdasi": 4,
+        "yatak": 8,
+        "banyo": 3
+    },
+    "puan": {
+        "ortalama": 5.0,
+        "degerlendirmeSayisi": 1
+    },
+    "evSahibi": {
+        "isim": "Seda",
+        "yildiz": 6
+    },
+    "onemliOzellikler": [
+        "Ücretsiz park imkânı"
+    ],
+    "aciklama": "Exclusive 2 - Çeşme'de kiralık lüks tekne. Plaja erişim imkanı. Konforlu ve keyifli bir deniz tatili için ideal.",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 70200,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMTY1MzQzNTQwNDAyNTY2MA%3D%3D/original/58b31396-3039-47b5-beb0-c2338b683153.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIyMTY1MzQzNTQwNDAyNTY2MA%3D%3D/original/2843f79c-2af3-4d72-9bfe-10c155a3dcb8.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/8adc175a-6495-4c41-b931-362605e3ef61.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/5ca65622-bf2e-49ed-bc91-d6c9d5c3b6b1.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/d978f69e-b030-45c3-861a-b9bfe2897fa1.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI1OTQzOTc1MDU0MDM4MjA2Mw%3D%3D/original/9ce0e480-0678-4e68-9f12-1c900b0a7e43.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/43c573e1-3f81-4f78-8fa9-63f3177f8f6e.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/f428cc31-4649-4336-9ae0-f0513d5e046e.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/54cc19ad-48ad-48f5-b588-1262741fc0b5.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-1221653435404025660/original/211980f9-9b36-4273-ab12-c9f9b8c3c169.jpeg"
+]
+
+},
+{
+    "id": 148,
+    "minGece": 1,
+    "slug": "Cunda-Batuhan-Turu",
+    "tip": "tekne",
+    "baslik": "Cunda Batuhan Turu",
+    "konum": {
+        "sehir": "Balıkesir",
+        "ilce": "Ayvalık"
+    },
+    "ozetBilgiler": {
+        "misafir": 10,
+        "yatakOdasi": 2,
+        "yatak": 2,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 0
+    },
+    "evSahibi": {
+        "isim": "Batuhan Tur",
+        "yildiz": 4
+    },
+    "onemliOzellikler": [
+        "Sahil ve koy manzarası",
+        "Dört ayaklı dostlara kapımız açık (Evcil hayvan kabul edilir)"
+    ],
+    "aciklama": "Turlarımız günübirlik olarak Ayvalık Cunda Adası kalkışlıdır sabah saat 10'da başlayıp akşam üzeri saat 18'de rıhtımda sonlanır. 8 saatlik bir turdur. Gün içerisinde 3 ada gezilir, bunların değişik koylarında molalar verilir, yüzme ve yemek molaları. Yemek olarak kendi yiyeceğinizi de getirebilirsiniz isterseniz ücreti karşılığında bizim menümüzü de tercih edebilirsiniz. FİX MENÜ: Tavuk, balık (çipura) ya da köfte, yanında mevsim salatası, mevsim meyvesi, kola, fanta, çay, kahve, su (kişibaşı 1000 TL). Tescil bilgileri: 10",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": false,
+        "ucretsizOtopark": true,
+        "klima": false,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 41000,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/2d0f4fd3-89c1-40e7-bdbd-5252cdc0b1ba.jpeg",
+"https://a0.muscache.com/im/pictures/22099af1-f9b5-42d2-a956-97d8028398a5.jpg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/77cef287-b082-4a6b-b4f1-db0b4cd43a9b.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/a525be28-8413-46dc-a926-022032781ff8.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/df477267-b17b-426b-b86e-e0c464297706.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/8570eab8-50f9-40c3-b8cf-e1292f107043.jpeg",
+"https://a0.muscache.com/im/pictures/8a24228a-448c-4301-a272-01e450dbd679.jpg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/25a6021e-e3bf-4c0d-a95a-db52303f03c4.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/d5d3962f-5850-41d1-b2de-50950902bde8.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1244886756644057851/original/092e3173-754b-49f7-ac7b-e4a6a86748b5.jpeg"
+]
+},
+{
+    "id": 149,
+    "minGece": 2,
+    "slug": "LAODIKYA-MOTORYAT-TEKNE-TURU",
+    "tip": "tekne",
+    "baslik": "LAODİKYA MOTORYAT TEKNE TURU",
+    "konum": {
+        "sehir": "Muğla",
+        "ilce": "Marmaris"
+    },
+    "ozetBilgiler": {
+        "misafir": 8,
+        "yatakOdasi": 2,
+        "yatak": 6,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 0,
+        "degerlendirmeSayisi": 0
+    },
+    "evSahibi": {
+        "isim": "Arel Arden Yatching",
+        "yildiz": 4
+    },
+    "onemliOzellikler": [
+        "Sahil ve dağ manzarası",
+        "Özel çalışma alanı",
+        "Evde kahve (Pour-over kahve demleyici)"
+    ],
+    "aciklama": "LAODİKYA MOTORYAT TEKNE TURU - Marmaris'te günübirlik veya konaklamalı tekne turu. Sahil ve dağ manzarası eşliğinde keyifli bir deniz deneyimi.",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 29300,
+        "paraBirimi": "₺"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/miso/Hosting-631701413821316693/original/e2684257-e8af-4c74-a4cf-cb76c4727684.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-631701413821316693/original/03529192-47ab-4452-9b20-52ef09f597e1.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-631701413821316693/original/bc901ead-60ab-4e64-873e-2ea3430bb6fa.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-631701413821316693/original/9e92b973-e24a-4608-a497-f65211c52cc3.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-631701413821316693/original/e85de6d8-33fd-4aa4-9465-0a7aaab8622d.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-631701413821316693/original/aeee7230-5a1b-4eb5-a3e9-c65a94115da8.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-631701413821316693/original/3e0d36bb-79b8-4aa2-827a-9b495c5f7313.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-631701413821316693/original/ac36a953-017c-4bce-ac93-50cc7476dff9.jpeg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-631701413821316693/original/e8dbfa8c-e5a6-4021-9dc1-4406fd6d7005.jpeg",
+"https://a0.muscache.com/im/pictures/miso/Hosting-631701413821316693/original/4573b6e1-37d8-4416-ba41-d6e09f2dcc45.jpeg"
+]
+
+},
+{
+    "id": 150,
+    "minGece": 1,
+    "slug": "Gun-Batimi-Gocek-Koylari-Yelken-Gunluk-Turlar",
+    "tip": "tekne",
+    "baslik": "Gün Batımı/Göcek Koyları Yelken\\Günlük Turlar",
+    "konum": {
+        "sehir": "Muğla",
+        "ilce": "Fethiye"
+    },
+    "ozetBilgiler": {
+        "misafir": 4,
+        "yatakOdasi": 2,
+        "yatak": 2,
+        "banyo": 1
+    },
+    "puan": {
+        "ortalama": 4.89,
+        "degerlendirmeSayisi": 9
+    },
+    "evSahibi": {
+        "isim": "Murat",
+        "yildiz": 14
+    },
+    "onemliOzellikler": [
+        "Güzel bir bölge (Manzaralı konum)",
+        "Özel çalışma alanı",
+        "Olağanüstü ilan sahibi iletişimi"
+    ],
+    "aciklama": "Konaklamalı yelken turu, günlük tur veya gün batımı turları! Yakıt dahil olmak üzere öğleden sonra günbatımı yelken turu (15:30-20:00, 70€). Göcek ve Marmaris'e konaklamalı turlar. Çıkış Fethiye, varış Fethiye. İleri yelken eğitimi için özel program. Tam donanımlı yelkenli tekne, kaptanlı, en az 1 gece 4 kişiye kadar kiralama. Fethiye Körfezi ve 12 Ada çevresinde turlar. NOT: 14 yaş altı çocuk kabul edilmez. Tescil bilgileri: Gayrimenkul dışı ilan",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 13300,
+        "paraBirimi": "€"
+    },
+    
+"resimler": [
+"https://a0.muscache.com/im/pictures/12e3975f-2e41-4e67-8ecf-139239a5dcfd.jpg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1537287/original/90dc4d42-b23c-4e3a-9465-e2bf0065a76c.jpeg",
+"https://a0.muscache.com/im/pictures/d99c6cd5-4801-40f2-ba9b-8069299054d2.jpg",
+"https://a0.muscache.com/im/pictures/hosting/Hosting-1537287/original/45473885-701e-4d4b-98aa-465e975d569e.jpeg",
+"https://a0.muscache.com/im/pictures/5244ceb5-9c3b-4397-be1a-80644da44697.jpg",
+"https://a0.muscache.com/im/pictures/23517183/c34b651b_original.jpg",
+"https://a0.muscache.com/im/pictures/22513257/8c9dd1f8_original.jpg",
+"https://a0.muscache.com/im/pictures/6e587724-7044-44a0-8db6-ef3ba0bf19e6.jpg",
+"https://a0.muscache.com/im/pictures/0efbe78d-a58e-4328-aaa6-edb47f25033a.jpg",
+"https://a0.muscache.com/im/pictures/9d3b8731-297e-4616-bd38-5bd5e530cbdb.jpg"
+]
+
+},
+{
+    "id": 151,
+    "minGece": 2,
+    "slug": "Gocek-Yelkenli-Tekne-Kiralik-Bavaria-45-crusier",
+    "tip": "tekne",
+    "baslik": "Göcek Yelkenli Tekne Kiralık Bavaria 45 crusier",
+    "konum": {
+        "sehir": "Muğla",
+        "ilce": "Fethiye"
+    },
+    "ozetBilgiler": {
+        "misafir": 6,
+        "yatakOdasi": 3,
+        "yatak": 3,
+        "banyo": 3
+    },
+    "puan": {
+        "ortalama": 5.0,
+        "degerlendirmeSayisi": 2
+    },
+    "evSahibi": {
+        "isim": "Lavi Ess Sailing Onur Gürsoy",
+        "yildiz": 2
+    },
+    "onemliOzellikler": [
+        "Dört ayaklı dostlara kapımız açık (Evcil hayvan kabul edilir)"
+    ],
+    "aciklama": "Teknemiz, sadece konforuyla değil, eşsiz alanlarıyla öne çıkıyor. Yelkenliler arasındaki en geniş platformlardan birine sahip, bu da denize giriş çıkışı ve güneşlenmeyi çok keyifli hale getiriyor. Geniş havuzluk alanında uzun sohbetler ederken denizin tadını çıkarabilirsiniz. Yıldızların altında uyuyarak bu deneyimi yaşayın. NOT: Kaptan ücreti fiyata dahildir. Dışarıdan alınacak zorunlu hizmetler: 140€ Transitlog, 100€ son temizlik ücreti nakit € olarak tur öncesi müşteri tarafından ödenecektir. Tescil bilgileri: 45-2636",
+    "oneCikanSunduklar": {
+        "mutfak": true,
+        "wifi": true,
+        "ucretsizOtopark": true,
+        "klima": true,
+        "ozelJakuzi": false
+    },
+    "fiyat": {
+        "gecelik": 47000,
+        "paraBirimi": "₺"
+    },
+    
+  "resimler": [
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/1f798c3f-0def-45c5-b902-db4f3482f0a9.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/6e909578-3451-46a1-9b04-7199c3ad32b2.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/3b1d911a-7d41-4a6e-b730-5701124aa3aa.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/ffa1fffa-6f60-4fd2-b7d5-fc1aa9f38875.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/c23b77f1-ffa9-4c63-b92d-d8d1724546a6.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/b246ad43-d7a4-4759-9ac6-de496544729b.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/673f9522-df14-4df6-b56b-a0bfecbf117b.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/818149e9-3cf1-41ef-923d-3a6a74c24838.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/df04ced0-5706-4687-9c4e-780fef7f71f4.jpeg",
+    "https://a0.muscache.com/im/pictures/hosting/Hosting-1168151624457861043/original/cc3b27e7-27a3-4ce3-b8b4-c6c544936b35.jpeg"
+  ]
+
 }
+
+
 
 
 

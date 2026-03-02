@@ -1,0 +1,287 @@
+---
+// src/pages/tur/balkan.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro';
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'klasikBalkan',
+    baslik: 'Klasik Balkan Turu',
+    altBaslik: 'Selanik, Manastır, Ohri',
+    gun: '5 Gece 6 Gün',
+    ikon: '🏛️',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '4 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'Özel Tur Otobüsü' },
+      { etiket: 'Öne Çıkanlar', deger: 'Ayasofya, Mustafa Kemal\'in Evi' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' },
+      { etiket: 'Rehber', deger: 'Profesyonel Türkçe Rehber' }
+    ]
+  },
+  {
+    id: 'yunanistanBalkan',
+    baslik: 'Yunanistan & Balkanlar',
+    altBaslik: 'Selanik, Kavala, Dedeağaç',
+    gun: '4 Gece 5 Gün',
+    ikon: '🇬🇷',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '3-4 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'Özel Tur Otobüsü' },
+      { etiket: 'Öne Çıkanlar', deger: 'Beyaz Kule, Filipi Antik Kenti' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' },
+      { etiket: 'Vize', deger: 'Vize Danışmanlığı' }
+    ]
+  },
+  {
+    id: 'hırvatistan',
+    baslik: 'Hırvatistan: Adriyatik İncisi',
+    altBaslik: 'Dubrovnik, Split, Plitvice',
+    gun: '7 Gece 8 Gün',
+    ikon: '🇭🇷',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Butik Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY + Özel Araç' },
+      { etiket: 'Öne Çıkanlar', deger: 'Plitvice Gölleri, Dubrovnik Surları' },
+      { etiket: 'Yemek', deger: 'Kahvaltı + 1 Öğün' },
+      { etiket: 'Rehber', deger: 'Yerel Rehber' }
+    ]
+  },
+  {
+    id: 'karadag',
+    baslik: 'Karadağ: Saklı Cennet',
+    altBaslik: 'Kotor, Budva, Durmitor',
+    gun: '5 Gece 6 Gün',
+    ikon: '🇲🇪',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Butik Oteller' },
+      { etiket: 'Ulaşım', deger: 'Özel Araç' },
+      { etiket: 'Öne Çıkanlar', deger: 'Kotor Körfezi, Sveti Stefan' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' }
+    ]
+  },
+  {
+    id: 'sirbistanBosna',
+    baslik: 'Sırbistan & Bosna Hersek',
+    altBaslik: 'Belgrad, Saraybosna, Mostar',
+    gun: '6 Gece 7 Gün',
+    ikon: '🇷🇸',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '4 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'Özel Tur Otobüsü' },
+      { etiket: 'Öne Çıkanlar', deger: 'Mostar Köprüsü, Latin Köprüsü' },
+      { etiket: 'Yemek', deger: 'Kahvaltı Dahil' },
+      { etiket: 'Rehber', deger: 'Türkçe Rehber' }
+    ]
+  },
+  {
+    id: 'balkanPremium',
+    baslik: 'Balkan Premium',
+    altBaslik: '7 Ülke 1 Rota',
+    gun: '10 Gece 11 Gün',
+    ikon: '🌟',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '5 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'Lüks Minibüs' },
+      { etiket: 'Öne Çıkanlar', deger: 'Tüm Başkentler, Özel Turlar' },
+      { etiket: 'Yemek', deger: 'Tam Pansiyon' },
+      { etiket: 'Rehber', deger: 'Özel Rehber' }
+    ]
+  }
+];
+
+// Rota bilgileri
+const rotalar = [
+  {
+    ulke: 'Yunanistan',
+    sehirler: 'Selanik, Kavala, Dedeağaç, Gümülcine, İskeçe',
+    gezilecek: 'Beyaz Kule, Atatürk Evi, Filipi Antik Kenti'
+  },
+  {
+    ulke: 'Kuzey Makedonya',
+    sehirler: 'Üsküp, Ohri, Manastır, Kalkandelen',
+    gezilecek: 'Mustafa Kemal\'in Evi, Ohri Gölü, Eski Çarşı'
+  },
+  {
+    ulke: 'Bulgaristan',
+    sehirler: 'Sofya, Filibe, Rila, Bansko',
+    gezilecek: 'Rila Manastırı, Aleksander Nevski Katedrali'
+  },
+  {
+    ulke: 'Sırbistan',
+    sehirler: 'Belgrad, Novi Sad, Niş',
+    gezilecek: 'Belgrad Kalesi, Skadarlija Sokakları'
+  },
+  {
+    ulke: 'Bosna Hersek',
+    sehirler: 'Saraybosna, Mostar, Bihaç',
+    gezilecek: 'Mostar Köprüsü, Latin Köprüsü, Başçarşı'
+  },
+  {
+    ulke: 'Karadağ',
+    sehirler: 'Kotor, Budva, Podgorica, Tivat',
+    gezilecek: 'Kotor Körfezi, Sveti Stefan, Durmitor'
+  },
+  {
+    ulke: 'Hırvatistan',
+    sehirler: 'Dubrovnik, Split, Zadar, Zagreb',
+    gezilecek: 'Plitvice Gölleri, Dubrovnik Surları, Diocletianus Sarayı'
+  }
+];
+
+// Vize bilgisi
+const vizeBilgisi = {
+  schengen: ['Yunanistan', 'Hırvatistan', 'Bulgaristan?'],
+  vizesiz: ['Sırbistan', 'Kuzey Makedonya', 'Karadağ', 'Bosna Hersek'],
+  not: 'Bulgaristan ve Hırvatistan Schengen\'e yeni dahil oldu, güncel vize durumu için danışınız.'
+};
+---
+
+<Layout 
+  title="Balkan Turları - Yunanistan, Hırvatistan, Karadağ | Villa Bungalov Tatil"
+  description="Balkanlar'ın tarihi şehirleri, doğal güzellikleri ve eşsiz kültürü. Selanik'te Atatürk'ün izinde, Mostar'da tarihi köprüde, Dubrovnik'te surlarda gezi.">
+
+<div class="container py-4 py-md-5">
+  <!-- Ana İçerik -->
+  <TurTemplate
+    title="Balkan Turları"
+    description="Tarih, kültür ve doğanın iç içe geçtiği Balkanlar'da unutulmaz bir yolculuğa hazır olun. Atatürk'ün doğduğu topraklardan, Mostar'ın tarihi köprüsüne, Dubrovnik'in görkemli surlarından Plitvice'nin büyüleyici göllerine kadar..."
+    icon="🏔️"
+    kategori="Balkan"
+    fiyatlar={turFiyatlari.balkan}
+    paraBirimi="EUR"
+    paketler={paketler}
+  />
+
+  <!-- Ek Bilgiler Bölümü -->
+  <div class="row mt-5 g-4">
+    <!-- Gezilecek Şehirler -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body p-4">
+          <h3 class="h4 fw-bold text-primary mb-4">📍 Balkanlar'da Gezilecek Şehirler</h3>
+          
+          <div class="accordion" id="sehirlerAccordion">
+            {rotalar.map((rota, index) => (
+              <div class="accordion-item border-0 mb-2">
+                <h2 class="accordion-header" id={`heading${index}`}>
+                  <button 
+                    class="accordion-button collapsed bg-light rounded-3" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target={`#collapse${index}`}
+                    aria-expanded="false"
+                    aria-controls={`collapse${index}`}
+                  >
+                    <span class="fw-bold">{rota.ulke}</span>
+                  </button>
+                </h2>
+                <div 
+                  id={`collapse${index}`} 
+                  class="accordion-collapse collapse" 
+                  aria-labelledby={`heading${index}`}
+                  data-bs-parent="#sehirlerAccordion"
+                >
+                  <div class="accordion-body pt-3">
+                    <p class="mb-2"><strong>Şehirler:</strong> {rota.sehirler}</p>
+                    <p class="mb-0"><strong>Gezilecek Yerler:</strong> {rota.gezilecek}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vize Bilgisi ve İpuçları -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body p-4">
+          <h3 class="h4 fw-bold text-primary mb-4">🛂 Vize Bilgisi</h3>
+          
+          <div class="mb-4">
+            <h5 class="fw-semibold text-success mb-3">✅ Vizesiz Ülkeler</h5>
+            <div class="d-flex flex-wrap gap-2">
+              {vizeBilgisi.vizesiz.map((ulke, index) => (
+                <span class="badge bg-success bg-opacity-10 text-success px-3 py-2" key={index}>
+                  {ulke}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h5 class="fw-semibold text-warning mb-3">🛂 Schengen Gereken Ülkeler</h5>
+            <div class="d-flex flex-wrap gap-2">
+              {vizeBilgisi.schengen.map((ulke, index) => (
+                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2" key={index}>
+                  {ulke}
+                </span>
+              ))}
+            </div>
+            <p class="small text-muted mt-2">{vizeBilgisi.not}</p>
+          </div>
+
+          <hr class="my-4">
+
+          <h3 class="h4 fw-bold text-primary mb-3">💡 Seyahat İpuçları</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2 d-flex gap-2">
+              <span class="text-primary">🌍</span>
+              <span><strong>Para Birimi:</strong> Euro genel kabul görüyor, ancak yerel para birimleri de kullanılıyor.</span>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="text-primary">🗣️</span>
+              <span><strong>Dil:</strong> Balkanlar'da Türkçe konuşulan birçok bölge var, özellikle Makedonya ve Kosova'da.</span>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="text-primary">⏰</span>
+              <span><strong>Zaman:</strong> En ideal dönem ilkbahar ve sonbahar aylarıdır.</span>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="text-primary">🍽️</span>
+              <span><strong>Yemek:</strong> Balkan mutfağı Türk mutfağına çok benzer, kebap, börek, baklava her yerde var.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Özel Not -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="bg-light p-4 rounded-3 border-start border-4 border-primary">
+        <p class="mb-0 text-muted">
+          <strong>📌 Not:</strong> Balkan turlarımızda tarih boyunca Osmanlı izlerini takip ediyor, 
+          Mustafa Kemal Atatürk'ün doğduğu toprakları ziyaret ediyor, Mostar Köprüsü'nde tarihe tanıklık ediyor 
+          ve Adriyatik'in incisi Dubrovnik'te unutulmaz anılar biriktiriyoruz. Turlarımız profesyonel Türkçe rehberler eşliğinde yapılmaktadır.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .accordion-button:not(.collapsed) {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+  }
+  .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+  }
+  .badge {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+</style>
+
+<!-- Bootstrap JS (accordion için) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+</Layout>

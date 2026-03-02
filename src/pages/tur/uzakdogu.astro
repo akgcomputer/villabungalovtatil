@@ -1,0 +1,65 @@
+---
+// src/pages/tur/uzakdogu.astro
+import Layout from '../../layouts/Layout.astro';
+import TurTemplate from '../../components/PageTemplate.astro';
+import TurTemplate from '../../components/TurTemplate.astro';
+
+import { turFiyatlari } from '../../data/tur-fiyat';
+
+const paketler = [
+  {
+    id: 'singapurBangkok',
+    baslik: 'Singapur & Bangkok',
+    altBaslik: 'Modern ve Egzotik',
+    gun: '7 Gece 8 Gün',
+    ikon: '🇸🇬',
+    vurgulu: true,
+    ozellikler: [
+      { etiket: 'Konaklama', deger: '5 Yıldızlı Oteller' },
+      { etiket: 'Ulaşım', deger: 'Singapur Airlines' },
+      { etiket: 'Öne Çıkanlar', deger: 'Marina Bay, Tapınaklar' },
+      { etiket: 'Vize', deger: 'Dahil' }
+    ]
+  },
+  {
+    id: 'taylandVietnamKambocya',
+    baslik: 'Güneydoğu Asya İncileri',
+    altBaslik: 'Tayland, Vietnam, Kamboçya',
+    gun: '14 Gece 15 Gün',
+    ikon: '🌏',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Butik Oteller' },
+      { etiket: 'Ulaşım', deger: 'THY + Yerel Uçuşlar' },
+      { etiket: 'Öne Çıkanlar', deger: 'Angkor Wat, Halong' },
+      { etiket: 'Rehber', deger: 'Profesyonel Yerel Rehber' }
+    ]
+  },
+  {
+    id: 'japonya',
+    baslik: 'Japonya Klasik Turu',
+    altBaslik: 'Tokyo, Kyoto, Osaka',
+    gun: '9 Gece 10 Gün',
+    ikon: '🇯🇵',
+    ozellikler: [
+      { etiket: 'Konaklama', deger: 'Japon Tarzı Oteller' },
+      { etiket: 'Ulaşım', deger: 'JAL / ANA' },
+      { etiket: 'Öne Çıkanlar', deger: 'Fuji, Tapınaklar' },
+      { etiket: 'Yemek', deger: 'Kahvaltı + 2 Öğün' }
+    ]
+  }
+];
+---
+
+<Layout title="Uzak Doğu Turları - Japonya, Tayland, Singapur | Villa Bungalov Tatil">
+  <div class="container py-4 py-md-5">
+    <TurTemplate
+      title="Uzak Doğu Turları"
+      description="Binlerce yıllık geleneklerin, egzotik lezzetlerin ve modern şehirlerin büyüleyici dünyası."
+      icon="🎋"
+      kategori="Uzak Doğu"
+      fiyatlar={turFiyatlari.uzakdogu}
+      paraBirimi="USD"
+      paketler={paketler}
+    />
+  </div>
+</Layout>

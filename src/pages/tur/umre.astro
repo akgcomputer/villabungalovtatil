@@ -1,0 +1,466 @@
+---
+// src/pages/tur/umre.astro
+import Layout from '../../layouts/Layout.astro';
+import ContactButtons, { iletisim } from '../../components/ContactButtons.astro';
+import { turFiyatlari, kurlar } from '../../data/tur-fiyat';
+
+const formatFiyat = (fiyat) => {
+  if (fiyat === 'sorunuz') return 'Sorunuz';
+  return `${fiyat.toLocaleString('tr-TR')} SAR`;
+};
+
+const tlKarsiligi = (fiyat) => {
+  if (fiyat === 'sorunuz') return '';
+  const tl = Math.round(fiyat * kurlar.sar);
+  return `≈ ${tl.toLocaleString('tr-TR')} TL`;
+};
+
+// WhatsApp mesajı oluşturma fonksiyonu
+const whatsappMesaji = (paketAdi) => {
+  return `${paketAdi} paketi hakkında bilgi almak istiyorum.`;
+};
+---
+
+<Layout 
+  title="Umre Turları ve Paketleri | Özel Grup ve Bireysel Umre Programları"
+  description="Jet, VIP, Lüks, Kadınlara özel, butik umre turları. Türk Hava Yolları ve Pegasus ile güvenli Seyahat ve Umre. Erken rezervasyon fırsatları">
+
+<style>
+  :root {
+    --primary: #1e3a5f;
+    --accent: #c9a961;
+    --success: #2e7d32;
+    --light: #f8f9fa;
+  }
+
+  /* 3 SÜTUN GRID - FORCE */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 991px) {
+    .price-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 575px) {
+    .price-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* PRICE CARD */
+  .price-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: var(--accent);
+  }
+  .price-card.featured {
+    border: 2px solid var(--accent);
+    position: relative;
+  }
+  .price-card.featured::before {
+    content: "⭐ POPÜLER";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #1a1a2e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .card-icon { font-size: 2rem; text-align: center; margin-bottom: 0.5rem; }
+  .card-title { font-weight: 700; font-size: 1.1rem; text-align: center; margin: 0 0 0.25rem; }
+  .card-subtitle { text-align: center; color: #6c757d; font-size: 0.9rem; margin: 0 0 1rem; }
+
+  .price-box {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 0.75rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .price-sar {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--success);
+    display: block;
+    line-height: 1.2;
+  }
+  .price-try {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+  }
+
+  .features { flex: 1; }
+  .feature {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #eee;
+  }
+  .feature:last-child { border-bottom: none; }
+  .feature-icon { min-width: 20px; }
+  .feature-icon.check { color: var(--success); }
+  .feature-icon.warn { color: #fd7e14; }
+  .feature-label { font-weight: 600; color: var(--primary); min-width: 100px; }
+  .feature-value { color: #495057; }
+
+  /* Contact Buttons için özel stil */
+  .contact-wrapper {
+    margin-top: 1rem;
+  }
+  .contact-wrapper :global(a) {
+    width: 100%;
+    justify-content: center;
+    padding: 0.6rem 0;
+  }
+
+  /* Compact cards for Jet & Diğer */
+  .compact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 991px) {
+    .compact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 575px) {
+    .compact-grid { grid-template-columns: 1fr; }
+  }
+  .compact-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .compact-card .price-sar { font-size: 1.3rem; }
+  .compact-card .contact-wrapper {
+    margin-top: 0.75rem;
+  }
+
+  /* Section titles */
+  .section-title {
+    text-align: center;
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+  .section-wrap { text-align: center; margin: 2.5rem 0 1.5rem; }
+
+  /* Nav pills */
+  .nav-pills-custom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .nav-pills-custom a {
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px solid #dee2e6;
+    transition: all 0.2s;
+  }
+  .nav-pills-custom a:hover {
+    border-color: var(--accent);
+    background: var(--light);
+  }
+
+  /* Kur box */
+  .kur-box {
+    background: var(--light);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Diğer paketler grid */
+  .diger-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 991px) {
+    .diger-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 575px) {
+    .diger-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<div class="container py-4 py-md-5">
+
+  <!-- Hero -->
+  <div class="text-center mb-4">
+    <span class="display-4">🕋</span>
+    <h1 class="h3 fw-bold mt-2" style="color:var(--primary)">Umre Turları Fiyat Listesi</h1>
+    <p class="text-muted mb-0">Şeffaf fiyatlar • Her keseye esnek seçenekler</p>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav-pills-custom">
+    <a href="#bireysel">🧳 Bireysel</a>
+    <a href="#jet">✈️ Jet Umre</a>
+    <a href="#diger">🎁 Diğer</a>
+    <a href="#rehber">📖 Rehber</a>
+  </div>
+
+  <!-- Kur Bilgisi -->
+  <section id="kur" class="mb-5">
+    <div class="kur-box d-flex flex-wrap align-items-center justify-content-center gap-3">
+      <strong>💱 Güncel Kur:</strong>
+      <span class="fw-bold text-success">1 Sar(Riyal) kaç ₺</span>
+      <a href="https://www.google.com/search?q=1+sar+to+try" target="_blank" rel="noopener" 
+         class="btn btn-sm btn-outline-success">🔗 Canlı Kuru öğrenmek için tıklayın</a>
+    </div>
+  </section>
+
+  <!-- BİREYSEL PAKETLER - 3 SÜTUN -->
+  <section id="bireysel" class="mb-5">
+    <div class="section-wrap"><h2 class="section-title">Bireysel Umre Paketleri</h2></div>
+    
+    <div class="price-grid">
+      
+      {/* Ekonomik */}
+      <div class="price-card">
+        <div class="card-icon">🧳</div>
+        <h3 class="card-title text-danger">En Ekonomik</h3>
+        <p class="card-subtitle">2 Gün 1 Gece • Mekke</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(turFiyatlari.umre.bireysel.ekonomik)}</span>
+          {turFiyatlari.umre.bireysel.ekonomik !== 'sorunuz' && (
+            <span class="price-try">{tlKarsiligi(turFiyatlari.umre.bireysel.ekonomik)}</span>
+          )}
+        </div>
+        <div class="features">
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Havayolu:</span><span class="feature-value">Pegasus</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Şehir:</span><span class="feature-value">Mekke</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Oda:</span><span class="feature-value">2 Kişilik</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Umre:</span><span class="feature-value">1 Umre</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Transfer:</span><span class="feature-value">✈️↔🕋</span></div>
+          <div class="feature"><span class="feature-icon warn">⚠️</span><span class="feature-label">Gezi:</span><span class="feature-value">Yok</span></div>
+          <div class="feature"><span class="feature-icon warn">⚠️</span><span class="feature-label">Vize:</span><span class="feature-value">Takip Yok</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Hurma:</span><span class="feature-value">20kg İstanbul</span></div>
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji('En Ekonomik Umre')} />
+        </div>
+      </div>
+
+      {/* Standart - POPÜLER */}
+      <div class="price-card featured">
+        <div class="card-icon">🧳</div>
+        <h3 class="card-title">Standart Bireysel</h3>
+        <p class="card-subtitle">6 Gün 5 Gece • Mekke-Medine</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(turFiyatlari.umre.bireysel.standart)}</span>
+          {turFiyatlari.umre.bireysel.standart !== 'sorunuz' && (
+            <span class="price-try">{tlKarsiligi(turFiyatlari.umre.bireysel.standart)}</span>
+          )}
+        </div>
+        <div class="features">
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Havayolu:</span><span class="feature-value">Pegasus</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Şehir:</span><span class="feature-value">Mekke-Medine</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Oda:</span><span class="feature-value">3 Kişilik</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Umre:</span><span class="feature-value">2 Umre</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Transfer:</span><span class="feature-value">✈️→🕋→🕌→✈️</span></div>
+          <div class="feature"><span class="feature-icon warn">⚠️</span><span class="feature-label">Vize:</span><span class="feature-value">Yok</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Yemek:</span><span class="feature-value">Kahvaltı</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Hurma:</span><span class="feature-value">20kg İstanbul</span></div>
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji('Standart Bireysel Umre')} />
+        </div>
+      </div>
+
+      {/* Konforlu */}
+      <div class="price-card">
+        <div class="card-icon">✨</div>
+        <h3 class="card-title text-success">Konforlu Bireysel</h3>
+        <p class="card-subtitle">6 Gün 5 Gece • THY</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(turFiyatlari.umre.bireysel.konforlu)}</span>
+          {turFiyatlari.umre.bireysel.konforlu !== 'sorunuz' && (
+            <span class="price-try">{tlKarsiligi(turFiyatlari.umre.bireysel.konforlu)}</span>
+          )}
+        </div>
+        <div class="features">
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Havayolu:</span><span class="feature-value">THY</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Şehir:</span><span class="feature-value">Mekke-Medine</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Oda:</span><span class="feature-value">3 Kişilik</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Umre:</span><span class="feature-value">2 Umre</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Transfer:</span><span class="feature-value">✈️→🕋→🕌→✈️</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Gezi:</span><span class="feature-value">Mekke-Medine</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Vize:</span><span class="feature-value">Resmi Takip</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Yemek:</span><span class="feature-value">Kahvaltı+Akşam</span></div>
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji('Konforlu Bireysel Umre')} />
+        </div>
+      </div>
+
+      {/* Premium */}
+      <div class="price-card">
+        <div class="card-icon">👑</div>
+        <h3 class="card-title text-primary">Premium Bireysel</h3>
+        <p class="card-subtitle">16 Gün 15 Gece • Tam Kapsamlı</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(turFiyatlari.umre.bireysel.premium)}</span>
+          {turFiyatlari.umre.bireysel.premium !== 'sorunuz' && (
+            <span class="price-try">{tlKarsiligi(turFiyatlari.umre.bireysel.premium)}</span>
+          )}
+        </div>
+        <div class="features">
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Havayolu:</span><span class="feature-value">THY</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Şehir:</span><span class="feature-value">Mekke-Medine-Taif</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Oda:</span><span class="feature-value">Tek Yatak</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Umre:</span><span class="feature-value">3 Umre</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Gezi:</span><span class="feature-value">Tüm Ziyaretler</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Eğitim:</span><span class="feature-value">Umre Eğitimi</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Rehber:</span><span class="feature-value">Profesyonel</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Danışman:</span><span class="feature-value">Manevi Destek</span></div>
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji('Premium Bireysel Umre')} />
+        </div>
+      </div>
+
+      {/* Ramazan */}
+      <div class="price-card">
+        <div class="card-icon">🌙</div>
+        <h3 class="card-title text-info">Ramazan Özel</h3>
+        <p class="card-subtitle">30 Gün 29 Gece • İftar-Sahur</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(turFiyatlari.umre.bireysel.ramazan)}</span>
+        </div>
+        <div class="features">
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Havayolu:</span><span class="feature-value">THY</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Şehir:</span><span class="feature-value">Mekke-Medine</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Oda:</span><span class="feature-value">Çift Kişilik</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Umre:</span><span class="feature-value">3 Umre</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Yemek:</span><span class="feature-value">İftar + Sahur</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Rehber:</span><span class="feature-value">Var</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Danışman:</span><span class="feature-value">Manevi Destek</span></div>
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji('Ramazan Özel Umre')} />
+        </div>
+      </div>
+
+      {/* Tam Esnek */}
+      <div class="price-card">
+        <div class="card-icon">🔄</div>
+        <h3 class="card-title text-secondary">Tam Esnek</h3>
+        <p class="card-subtitle">İsteğe Göre • Size Özel</p>
+        <div class="price-box">
+          <span class="price-sar">{formatFiyat(turFiyatlari.umre.bireysel.esnek)}</span>
+        </div>
+        <div class="features">
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Havayolu:</span><span class="feature-value">Seçime Bağlı</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Şehir:</span><span class="feature-value">İsteğe Göre</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Oda:</span><span class="feature-value">Tercihe Bağlı</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Transfer:</span><span class="feature-value">Özel Araç</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Vize:</span><span class="feature-value">Dahil</span></div>
+          <div class="feature"><span class="feature-icon check">✓</span><span class="feature-label">Program:</span><span class="feature-value">Tamamen Size Özel</span></div>
+        </div>
+        <div class="contact-wrapper">
+          <ContactButtons message={whatsappMesaji('Tam Esnek Umre')} />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JET UMRE - 3 SÜTUN -->
+  <section id="jet" class="mb-5">
+    <div class="section-wrap"><h2 class="section-title">✈️ Jet Umre Paketleri</h2></div>
+    <div class="compact-grid">
+      {[
+        { key: 'ekonomik', title: 'Ekonomik Jet', duration: '5 Gün 4 Gece' },
+        { key: 'standart', title: 'Standart Jet', duration: '7 Gün 6 Gece' },
+        { key: 'konforlu', title: 'Konforlu Jet', duration: '9 Gün 8 Gece' }
+      ].map(pkg => (
+        <div class="compact-card">
+          <div class="card-icon">✈️</div>
+          <h4 class="card-title">{pkg.title}</h4>
+          <p class="card-subtitle">{pkg.duration}</p>
+          <div class="price-box">
+            <span class="price-sar">{formatFiyat(turFiyatlari.umre.jet[pkg.key])}</span>
+          </div>
+          <div class="contact-wrapper">
+            <ContactButtons message={whatsappMesaji(pkg.title)} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- DİĞER PAKETLER -->
+  <section id="diger" class="mb-5">
+    <div class="section-wrap"><h2 class="section-title">🎁 Diğer Özel Paketler</h2></div>
+    <div class="diger-grid">
+      {[
+        { key: 'kadin', title: 'Kadınlara Özel Umre', icon: '👩‍👧‍👧' },
+        { key: 'butik', title: 'Butik Umre', icon: '🌟' },
+        { key: 'kafile', title: 'Kafile Umre', icon: '👨‍👩‍👧‍👦' },
+        { key: 'luks', title: 'Lüks Umre', icon: '🏨' },
+        { key: 'vip', title: 'VIP Umre', icon: '👑' },
+        { key: 'araTatil', title: 'Ara Tatil Umresi', icon: '📅' },
+        { key: 'somestir', title: 'Sömestır Umresi', icon: '🎒' }
+      ].map(pkg => (
+        <div class="compact-card">
+          <div style="font-size:1.5rem">{pkg.icon}</div>
+          <h5 class="card-title mt-1">{pkg.title}</h5>
+          <span class="badge bg-success my-2">{formatFiyat(turFiyatlari.umre.diger[pkg.key])}</span>
+          <div class="contact-wrapper">
+            <ContactButtons message={whatsappMesaji(pkg.title)} variant="small" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Rehber -->
+  <section id="rehber" class="mb-4">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body p-4 text-center">
+        <h4>📖 Bireysel Umre Rehberi</h4>
+        <p class="text-muted">2023'ten itibaren Türk vatandaşları online vize ile bireysel umre yapabilir.</p>
+        <div class="small text-muted">
+          <p class="mb-1">* Fiyatlar SAR cinsindendir,</p>
+          <p class="mb-0">* Fiyatlar piyasa koşullarına göre değişiklik gösterebilir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</Layout>
