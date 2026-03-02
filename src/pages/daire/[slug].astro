@@ -1,0 +1,609 @@
+---
+// src/pages/daire/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+import ContactButtons, { iletisim } from '../../components/ContactButtons.astro';
+import { daireler } from '../../data/daireler';
+
+export async function getStaticPaths() {
+  return daireler.map((daire) => ({
+    params: { slug: daire.slug },
+    props: { daire },
+  }));
+}
+
+const { daire } = Astro.props;
+
+// Minimum gece sayısını belirle
+let minGece = daire.minGece;
+if (!minGece) {
+  switch (daire.tip) {
+    case 'otel':
+    case 'daire':
+      minGece = 1;
+      break;
+    default:
+      minGece = 2;
+  }
+}
+
+// Komisyon oranı (%)
+const komisyonOrani = 10;
+
+// Bugünün tarihi
+const today = new Date().toLocaleDateString('en-CA');
+
+// Yıldız render fonksiyonu
+const renderStars = (rating) => {
+  if (!rating) return '';
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.3 && rating % 1 <= 0.7 ? '½' : '';
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+  return '★'.repeat(fullStars) + halfStar + '☆'.repeat(emptyStars);
+};
+
+// Rastgele karıştırma fonksiyonu
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+// Benzer daireler (şehir bazlı - 9 rastgele)
+let similardaires = [];
+if (daire?.konum?.sehir) {
+  const sehirdekiler = daireler.filter(v => 
+    v.konum.sehir === daire.konum.sehir && 
+    v.slug !== daire.slug
+  );
+  similardaires = shuffleArray([...sehirdekiler]).slice(0, 9);
+}
+
+// Olanak ikonları
+const amenityIcons = {
+  mutfak: '🍳',
+  wifi: '📶',
+  ucretsizOtopark: '🅿️',
+  klima: '❄️',
+  ozelJakuzi: '🛁',
+  default: '✓'
+};
+---
+
+<Layout title={daire.baslik} description={daire.aciklama?.substring(0, 160)}>
+  {daire ? (
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <!-- Başlık -->
+      <div class="mb-6">
+        <span class="text-sm font-semibold text-green-600 uppercase tracking-wider">
+          {daire.konum.ilce} / {daire.konum.sehir}
+        </span>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 leading-tight">
+          {daire.baslik}
+        </h1>
+      </div>
+
+      <!-- Resim Galerisi -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2 rounded-2xl overflow-hidden shadow-xl">
+        {daire.resimler.slice(0, 5).map((resim, index) => (
+          <div class={`${index === 0 ? 'col-span-2 row-span-2' : 'col-span-1'} aspect-[4/3]`}>
+            <img 
+              src={resim} 
+              alt={daire.baslik} 
+              class="w-full h-full object-cover cursor-pointer hover:opacity-95 transition gallery-image"
+              data-index={index}
+            />
+          </div>
+        ))}
+      </div>
+      
+      <!-- Tüm Resimleri Gör Linki -->
+      {daire.resimler.length > 5 && (
+        <button id="tumResimleriGor" class="text-orange-600 text-sm font-medium mb-8 hover:underline flex items-center gap-1">
+          <span>📸</span> Tüm {daire.resimler.length} resmi görüntüle
+        </button>
+      )}
+
+      <!-- İki sütunlu içerik -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- SOL SÜTUN -->
+        <div class="lg:col-span-2">
+          <!-- Puan ve Ev Sahibi -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 pb-6 border-b">
+            <div class="flex items-center gap-4 mb-3 sm:mb-0">
+              <div class="flex items-center">
+                <span class="text-green-700 font-bold text-2xl">{daire.puan.ortalama}</span>
+              </div>
+              <div>
+                <div class="text-yellow-400 text-2xl tracking-wider flex items-center gap-3">
+                  {renderStars(daire.puan.ortalama)}
+                  <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span class="text-sm text-gray-600 font-normal">Soru sorabilirsiniz</span>
+                </div>
+                <span class="text-gray-600 text-sm">({daire.puan.degerlendirmeSayisi} değerlendirme)</span>
+              </div>
+            </div>
+            <div class="text-left sm:text-right">
+              <p class="font-semibold text-lg">Ev Sahibi: {daire.evSahibi.isim?.charAt(0)}**</p>
+              <p class="text-sm text-gray-500">{daire.evSahibi.yildiz} yıldır ev sahibi</p>
+            </div>
+          </div>
+
+          <!-- Özet Bilgiler -->
+          <div class="flex flex-wrap gap-4 md:gap-6 mb-6 text-gray-600">
+            <span class="flex items-center gap-2"><span class="text-green-600 text-xl">👥</span> {daire.ozetBilgiler.misafir} misafir</span>
+            <span class="flex items-center gap-2"><span class="text-green-600 text-xl">🛏️</span> {daire.ozetBilgiler.yatakOdasi} yatak odası</span>
+            <span class="flex items-center gap-2"><span class="text-green-600 text-xl">🛌</span> {daire.ozetBilgiler.yatak} yatak</span>
+            <span class="flex items-center gap-2"><span class="text-green-600 text-xl">🚿</span> {daire.ozetBilgiler.banyo} banyo</span>
+          </div>
+
+          <!-- Açıklama -->
+          <div class="prose max-w-none mb-8">
+            <p class="text-gray-700 leading-relaxed text-base md:text-lg">{daire.aciklama}</p>
+          </div>
+
+          <!-- Öne Çıkan Olanaklar -->
+          {daire.oneCikanSunduklar && (
+            <div class="bg-gray-800 rounded-xl p-6 mb-8">
+              <h2 class="text-xl font-semibold mb-4 text-white">Öne Çıkan Olanaklar</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {Object.entries(daire.oneCikanSunduklar).map(([ozellik, aktif]) => (
+                  aktif && (
+                    <div class="flex items-center gap-3 text-white bg-gray-700 p-3 rounded-lg shadow-sm">
+                      <span class="text-2xl">{amenityIcons[ozellik] || amenityIcons.default}</span>
+                      <span class="font-medium uppercase text-sm">{ozellik === 'ucretsizOtopark' ? 'ÜCRETSİZ OTOPARK' : ozellik.toUpperCase()}</span>
+                    </div>
+                  )
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Tüm Olanaklar -->
+          {daire.sunduklar && (
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6">Bu mekân size neler sunuyor?</h2>
+              <div class="space-y-6">
+                {Object.entries(daire.sunduklar).map(([kategori, items]) => (
+                  <div class="border-b pb-4 last:border-0">
+                    <h3 class="font-medium text-lg mb-3 text-gray-800">
+                      {kategori.replace(/([A-Z])/g, ' $1').trim()}
+                    </h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {items.map((item) => (
+                        <li class="flex items-start gap-2 text-gray-600">
+                          <span class="text-green-500 text-xl mt-1">✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Yorumlar -->
+          {daire.puan.altKategoriler && (
+            <div class="mt-8 pt-8 border-t">
+              <h2 class="text-2xl font-semibold mb-6">Değerlendirmeler</h2>
+              <div class="flex items-center gap-4 mb-6">
+                <span class="text-4xl font-bold text-green-700">{daire.puan.ortalama}</span>
+                <div>
+                  <div class="text-yellow-400 text-2xl tracking-wider">{renderStars(daire.puan.ortalama)}</div>
+                  <span class="text-gray-500">{daire.puan.degerlendirmeSayisi} değerlendirme</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {Object.entries(daire.puan.altKategoriler).map(([kategori, puan]) => (
+                  <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                    <span class="capitalize text-gray-700">{kategori}</span>
+                    <span class="font-semibold text-green-700">{puan} ★</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- SAĞ SÜTUN: REZERVASYON KARTI -->
+        <div class="lg:col-span-1 order-first lg:order-last mb-6 lg:mb-0">
+          <div class="lg:sticky lg:top-24 bg-white border rounded-2xl shadow-xl p-6">
+            <!-- Fiyat / gece -->
+            <div class="flex items-baseline justify-center mb-6 bg-orange-50 p-3 rounded-lg">
+              <span class="text-3xl font-bold text-gray-900">{daire.fiyat.paraBirimi} {daire.fiyat.gecelik}</span>
+              <span class="text-gray-600 ml-1">/ gece</span>
+            </div>
+
+            <!-- Minimum Gece Bilgisi -->
+            <div class="text-sm text-gray-600 mb-2 text-center bg-gray-50 p-2 rounded-lg">
+              📌 En az konaklama: <span class="font-bold text-orange-600">{minGece} Gece</span>
+            </div>
+
+            <!-- Tarih Seçici -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-orange-600 mb-2 font-semibold">Giriş - Çıkış</label>
+              <div class="grid grid-cols-2 gap-2">
+                <input 
+                  type="date" 
+                  id="giris" 
+                  class="w-full border rounded-lg p-3 text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent" 
+                  min={today} 
+                />
+                <input 
+                  type="date" 
+                  id="cikis" 
+                  class="w-full border rounded-lg p-3 text-sm focus:ring-2 focus:ring-orange-500 focus:border-transparent" 
+                  min={today} 
+                />
+              </div>
+              <p class="text-xs text-gray-500 mt-1">* Tarih aralığı seçin ve aşağıda toplamı görün</p>
+            </div>
+
+            <!-- Minimum gece uyarısı -->
+            <div id="minGeceUyari" class="text-sm text-red-600 bg-red-50 p-2 rounded-lg mb-4 hidden">
+              ⚠️ En az {minGece} gece rezervasyon yapılabilir.
+            </div>
+
+            <!-- Fiyat Hesaplama -->
+            <div id="hesap" class="mb-6 p-4 bg-orange-400 rounded-lg text-white">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-white font-medium">{daire.fiyat.paraBirimi} {daire.fiyat.gecelik} x <span id="geceSayisi">0</span> Gece</span>
+                <span id="araToplam" class="text-white font-bold">{daire.fiyat.paraBirimi} 0</span>
+              </div>
+              <div class="flex justify-between items-center mb-3 pb-3 border-b border-orange-300">
+                <span class="text-white font-bold">Toplam Ödeme</span>
+                <span id="toplam" class="text-white font-bold text-xl">{daire.fiyat.paraBirimi} 0</span>
+              </div>
+              <div id="kaparoHesap" class="text-sm space-y-1">
+                <div class="flex justify-between items-center">
+                  <span class="text-white">Kaparo %10</span>
+                  <span id="kaparoTutari" class="text-white font-semibold">{daire.fiyat.paraBirimi} 0</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-white">Kapıda Kalan</span>
+                  <span id="kapidaKalan" class="text-white font-semibold">{daire.fiyat.paraBirimi} 0</span>
+                </div>
+              </div>
+              <div class="mt-3 p-2 bg-orange-500 rounded-lg text-xs text-white flex items-start gap-2">
+                <span class="text-lg">ℹ️</span>
+                <span>Rezervasyon sırasında %10 Kaparo ödemesi yaparsınız, kalanı kapıda ödersiniz.</span>
+              </div>
+            </div>
+
+            <!-- Rezervasyon Butonu -->
+            <button 
+              id="rezervasyonButon" 
+              class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg mb-3 text-lg" 
+              disabled
+            >
+              Rezervasyon Yap
+            </button>
+
+            <!-- WhatsApp ve Telefon Butonları (ContactButtons'tan alınan numaralar ile) -->
+            <div class="grid grid-cols-2 gap-2">
+              <a 
+                href={`https://wa.me/${iletisim.whatsapp}?text=${encodeURIComponent(`${daire.konum.sehir} - ${daire.baslik} hakkında bilgi almak istiyorum`)}`}
+                target="_blank"
+                class="flex items-center justify-center gap-1 w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition-all text-sm"
+              >
+                <span>📱</span>
+                WhatsApp
+              </a>
+              <a 
+                href={`tel:${iletisim.phone}`}
+                class="flex items-center justify-center gap-1 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition-all text-sm"
+              >
+                <span>📞</span>
+                Ara
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benzer daireler -->
+      {similardaires.length > 0 && (
+        <div class="mt-16">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">📍 {daire.konum.sehir} bölgesinde benzer daireler</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {similardaires.map((similar) => (
+              <a 
+                href={`/daire/${similar.slug}`} 
+                class="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1"
+              >
+                <img 
+                  src={similar.resimler[0]} 
+                  alt={similar.baslik} 
+                  class="w-full h-48 object-cover group-hover:scale-105 transition duration-300"
+                />
+                <div class="p-4">
+                  <h3 class="font-semibold text-gray-800 group-hover:text-orange-600 text-lg">
+                    {similar.baslik}
+                  </h3>
+                  <p class="text-sm text-gray-500 mt-1">{similar.konum.ilce}</p>
+                  <div class="mt-3 flex items-center justify-between">
+                    <div class="flex items-center">
+                      <span class="text-yellow-400 text-lg tracking-wider">{renderStars(similar.puan.ortalama)}</span>
+                      <span class="ml-1 font-medium">{similar.puan.ortalama}</span>
+                      <span class="text-gray-400 text-sm ml-1">({similar.puan.degerlendirmeSayisi})</span>
+                    </div>
+                    <span class="text-orange-600 font-bold">{similar.fiyat.paraBirimi} {similar.fiyat.gecelik}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  ) : (
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <div class="bg-red-50 p-8 text-center rounded-2xl">
+        <h1 class="text-2xl font-bold text-red-600">daire Bulunamadı</h1>
+        <p class="mt-2 text-gray-600">Aradığınız daire listelenmemiş olabilir.</p>
+        <a href="/" class="inline-block mt-4 bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700">
+          Ana Sayfaya Dön
+        </a>
+      </div>
+    </div>
+  )}
+</Layout>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-95 hidden z-50 flex items-center justify-center">
+  <button id="closeLightbox" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-50">&times;</button>
+  <button id="prevImage" class="absolute left-4 text-white text-4xl hover:text-gray-300 z-50">‹</button>
+  <img id="lightboxImg" src="" class="max-h-[90vh] max-w-[90vw] object-contain" />
+  <button id="nextImage" class="absolute right-4 text-white text-4xl hover:text-gray-300 z-50">›</button>
+  <div id="lightboxThumbs" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-50"></div>
+</div>
+
+<!-- Hidden data div -->
+<div id="daire-data" 
+     data-resimler={JSON.stringify(daire?.resimler || [])} 
+     data-gecelik={daire?.fiyat?.gecelik || 0} 
+     data-parabirimi={daire?.fiyat?.paraBirimi || '₺'} 
+     data-mingece={minGece}
+     data-komisyon={komisyonOrani}
+     data-baslik={daire?.baslik || ''}
+     data-sehir={daire?.konum?.sehir || ''}
+     data-whatsapp={iletisim.whatsapp}
+     data-telefon={iletisim.phone}
+     class="hidden">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const dataDiv = document.getElementById('daire-data');
+    if (!dataDiv) return;
+    
+    const resimler = JSON.parse(dataDiv.dataset.resimler || '[]');
+    const gecelikFiyat = parseInt(dataDiv.dataset.gecelik) || 0;
+    const paraBirimi = dataDiv.dataset.parabirimi || '₺';
+    const minGece = parseInt(dataDiv.dataset.mingece) || 2;
+    const komisyonOrani = parseInt(dataDiv.dataset.komisyon) || 10;
+    const baslik = dataDiv.dataset.baslik || '';
+    const sehir = dataDiv.dataset.sehir || '';
+    const whatsapp = dataDiv.dataset.whatsapp || '905412465429';
+    const telefon = dataDiv.dataset.telefon || '905412465429';
+    
+    if (!resimler.length) return;
+    
+    let currentIndex = 0;
+
+    // Lightbox elementleri
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('closeLightbox');
+    const prevBtn = document.getElementById('prevImage');
+    const nextBtn = document.getElementById('nextImage');
+    const thumbContainer = document.getElementById('lightboxThumbs');
+
+    if (!lightbox || !lightboxImg || !closeBtn || !prevBtn || !nextBtn || !thumbContainer) return;
+
+    thumbContainer.innerHTML = '';
+    resimler.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition';
+      btn.onclick = (e) => { e.preventDefault(); showImage(i); };
+      thumbContainer.appendChild(btn);
+    });
+
+    function openLightbox(index) {
+      if (index >= 0 && index < resimler.length) {
+        currentIndex = index;
+        lightboxImg.src = resimler[currentIndex];
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        updateThumbs();
+      }
+    }
+
+    function showImage(index) {
+      if (index >= 0 && index < resimler.length) {
+        currentIndex = index;
+        lightboxImg.src = resimler[currentIndex];
+        updateThumbs();
+      }
+    }
+
+    function updateThumbs() {
+      const thumbs = thumbContainer.children;
+      for (let i = 0; i < thumbs.length; i++) {
+        if (i === currentIndex) {
+          thumbs[i].classList.remove('opacity-50');
+          thumbs[i].classList.add('opacity-100');
+        } else {
+          thumbs[i].classList.remove('opacity-100');
+          thumbs[i].classList.add('opacity-50');
+        }
+      }
+    }
+
+    document.querySelectorAll('.gallery-image').forEach((img) => {
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        const index = parseInt(e.currentTarget.dataset.index);
+        openLightbox(index);
+      });
+    });
+
+    const tumResimlerBtn = document.getElementById('tumResimleriGor');
+    if (tumResimlerBtn) {
+      tumResimlerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(0);
+      });
+    }
+
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newIndex = currentIndex - 1;
+      if (newIndex >= 0) showImage(newIndex);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newIndex = currentIndex + 1;
+      if (newIndex < resimler.length) showImage(newIndex);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      if (e.key === 'ArrowLeft') {
+        const newIndex = currentIndex - 1;
+        if (newIndex >= 0) showImage(newIndex);
+      }
+      if (e.key === 'ArrowRight') {
+        const newIndex = currentIndex + 1;
+        if (newIndex < resimler.length) showImage(newIndex);
+      }
+    });
+
+    // Tarih hesaplama
+    const giris = document.getElementById('giris');
+    const cikis = document.getElementById('cikis');
+    const geceSpan = document.getElementById('geceSayisi');
+    const araToplamSpan = document.getElementById('araToplam');
+    const toplamSpan = document.getElementById('toplam');
+    const kaparoTutariSpan = document.getElementById('kaparoTutari');
+    const kapidaKalanSpan = document.getElementById('kapidaKalan');
+    const uyari = document.getElementById('minGeceUyari');
+    const buton = document.getElementById('rezervasyonButon');
+
+    if (!giris || !cikis || !geceSpan || !araToplamSpan || !toplamSpan || !kaparoTutariSpan || !kapidaKalanSpan || !uyari || !buton) return;
+
+    function hesapla() {
+      if (giris.value && cikis.value) {
+        const girisDate = new Date(giris.value);
+        const cikisDate = new Date(cikis.value);
+        if (cikisDate > girisDate) {
+          const fark = Math.ceil((cikisDate - girisDate) / (1000 * 60 * 60 * 24));
+          geceSpan.textContent = fark;
+          const araToplam = gecelikFiyat * fark;
+          const kaparo = Math.round(araToplam * komisyonOrani / 100);
+          const kapidaKalan = araToplam - kaparo;
+          
+          araToplamSpan.textContent = `${paraBirimi} ${araToplam.toLocaleString('tr-TR')}`;
+          toplamSpan.textContent = `${paraBirimi} ${araToplam.toLocaleString('tr-TR')}`;
+          kaparoTutariSpan.textContent = `${paraBirimi} ${kaparo.toLocaleString('tr-TR')}`;
+          kapidaKalanSpan.textContent = `${paraBirimi} ${kapidaKalan.toLocaleString('tr-TR')}`;
+          
+          if (fark < minGece) {
+            uyari.classList.remove('hidden');
+            buton.disabled = true;
+          } else {
+            uyari.classList.add('hidden');
+            buton.disabled = false;
+          }
+        } else {
+          hataDurumu();
+        }
+      } else {
+        hataDurumu();
+      }
+    }
+
+    function hataDurumu() {
+      geceSpan.textContent = '0';
+      araToplamSpan.textContent = `${paraBirimi} 0`;
+      toplamSpan.textContent = `${paraBirimi} 0`;
+      kaparoTutariSpan.textContent = `${paraBirimi} 0`;
+      kapidaKalanSpan.textContent = `${paraBirimi} 0`;
+      uyari.classList.add('hidden');
+      buton.disabled = true;
+    }
+
+    // REZERVASYON BUTONU - WhatsApp ile kaparo ödemesi
+    buton.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (buton.disabled) return;
+      
+      if (!giris.value || !cikis.value) {
+        alert('Lütfen giriş ve çıkış tarihlerini seçin.');
+        return;
+      }
+      
+      const girisDate = new Date(giris.value);
+      const cikisDate = new Date(cikis.value);
+      
+      if (cikisDate <= girisDate) {
+        alert('Çıkış tarihi giriş tarihinden sonra olmalıdır.');
+        return;
+      }
+      
+      const gece = Math.ceil((cikisDate - girisDate) / (1000 * 60 * 60 * 24));
+      
+      if (gece < minGece) {
+        alert(`En az ${minGece} gece rezervasyon yapılabilir.`);
+        return;
+      }
+      
+      const toplam = gecelikFiyat * gece;
+      const kaparo = Math.round(toplam * komisyonOrani / 100);
+      
+      // Tarihleri formatla (GG.AA.YYYY)
+      const formatGiris = giris.value.split('-').reverse().join('.');
+      const formatCikis = cikis.value.split('-').reverse().join('.');
+      
+      // WhatsApp mesajı
+      const mesaj = `Merhaba, *${baslik}* için rezervasyon yapmak istiyorum.%0a%0a` +
+                    `📅 *Giriş:* ${formatGiris}%0a` +
+                    `📅 *Çıkış:* ${formatCikis}%0a` +
+                    `🌙 *Gece:* ${gece} Gece%0a` +
+                    `💰 *Toplam:* ${toplam.toLocaleString('tr-TR')} TL%0a` +
+                    `💸 *Kaparo (%${komisyonOrani}):* ${kaparo.toLocaleString('tr-TR')} TL%0a%0a` +
+                    `Rezervasyonu onaylıyor, kaparo ödemesini yapmak istiyorum.`;
+      
+      // WhatsApp'ı aç (ContactButtons'daki numara ile)
+      window.open(`https://wa.me/${whatsapp}?text=${mesaj}`, '_blank');
+    });
+
+    giris.addEventListener('change', () => {
+      hesapla();
+      if (giris.value) {
+        const minCikis = new Date(giris.value);
+        minCikis.setDate(minCikis.getDate() + 1);
+        cikis.min = minCikis.toLocaleDateString('en-CA');
+      }
+    });
+
+    cikis.addEventListener('change', hesapla);
+    
+  } catch (error) {
+    console.error('Script hatası:', error);
+  }
+});
+</script>

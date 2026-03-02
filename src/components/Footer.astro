@@ -4,211 +4,179 @@
 // Mevcut yılı al
 const currentYear = new Date().getFullYear();
 
-// Şehirler listesi
+// Popüler şehirler
 const sehirler = [
-  'İstanbul', 'Ankara', 'İzmir', 'Bursa', 'Kocaeli', 'Antalya', 'Muğla', 
-  'Mersin', 'Tekirdağ', 'Van', 'Hatay', 'Kayseri', 'Eskişehir', 'Erzurum', 'Adana'
+  { name: 'İstanbul', href: '/sehir/i̇stanbul' },
+  { name: 'Bursa', href: '/sehir/bursa' },
+  { name: 'Balıkesir', href: '/sehir/balikesir' },
+  { name: 'Yalova', href: '/sehir/yalova' },
+  { name: 'Sakarya', href: '/sehir/sakarya' },
+  { name: 'Kocaeli', href: '/sehir/kocaeli' },
+  { name: 'Tekirdağ', href: '/sehir/tekirdag' },
+  { name: 'Çanakkale', href: '/sehir/canakkale' },
+  { name: 'Kırklareli', href: '/sehir/kirklareli' },
+  { name: 'Edirne', href: '/sehir/edirne' },
+  { name: 'Antalya', href: '/sehir/antalya' },
+  { name: 'Muğla', href: '/sehir/mugla' }
 ];
 
-// Spor & Hobi
-const sporHobi = [
-  { name: 'Yüzme Dersi', href: '/spor-egitimleri' },
-  { name: 'Fitness Dersi', href: '/spor-egitimleri' },
-  { name: 'Boyama Dersi', href: '/spor-egitimleri' },
-  { name: 'Satranç Dersi', href: '/spor-egitimleri' }
+// Konaklama tipleri
+const konaklamaTipleri = [
+  { name: 'Tüm Konaklamalar', href: '/konaklama' },
+  { name: 'Villalar', href: '/konaklama/villa' },
+  { name: 'Bungalovlar', href: '/konaklama/bungalov' },
+  { name: 'Müstakil Evler', href: '/konaklama/mustakil-ev' },
+  { name: 'Yazlıklar', href: '/konaklama/yazlik' },
+  { name: 'Daireler', href: '/konaklama/daire' },
+  { name: 'Bağ Evleri', href: '/konaklama/bag-evi' },
+  { name: 'Çiftlik Evleri', href: '/konaklama/ciftlik-evi' }
 ];
 
-// Okul ve Sınav Hazırlık
-const okulDersleri = [
-  { name: 'Zihinden Matematik Dersi', href: '/kurs-ilkogretim-5-6-7-8-siniflar/zihinden-matematik' },
-  { name: 'TYT-AYT Fizik', href: '/kurs-lise/tyt-ayt-fizik-avrupa' },
-  { name: 'KPSS', href: '/kurs-lise/kpss-genel-yetenek-genel-kultur-egitim-bilimleri-avrupa' },
-  { name: 'TYT-AYT Matematik, Geometri', href: '/kurs-lise/tyt-ayt-matematik-geometri-avrupa' }
+// Tur kategorileri
+const turKategorileri = [
+  { name: 'Balkan Turları', href: '/tur/balkan' },
+  { name: 'Avrupa Turları', href: '/tur/avrupa' },
+  { name: 'Umre Turları', href: '/tur/umre' },
+  { name: 'Uzak Doğu Turları', href: '/tur/uzakdogu' },
+  { name: 'Afrika Turları', href: '/tur/afrika' },
+  { name: 'Körfez Turları', href: '/tur/korfez' },
+  { name: 'Gemi Turları', href: '/tur/gemi' },
+  { name: 'Kültür Turları', href: '/tur/kultur' }
 ];
 
-// Yabancı Diller
-const yabanciDiller = [
-  { name: 'İngilizce Kursu', href: '/ingilizce-kursu' },
-  { name: 'Fransızca Kursu', href: '/fransizca-kursu' },
-  { name: 'Arapça Kursu', href: '/almanca-kursu' },
-  { name: 'Rusça Kursu', href: '/ispanyolca-kursu' }
+// Popüler tatil bölgeleri
+const tatilBolgeleri = [
+  { name: 'Marmara Bölgesi', href: '/bolge/marmara' },
+  { name: 'Ege Bölgesi', href: '/bolge/ege' },
+  { name: 'Akdeniz Bölgesi', href: '/bolge/akdeniz' },
+  { name: 'Karadeniz Bölgesi', href: '/bolge/karadeniz' },
+  { name: 'İç Anadolu', href: '/bolge/ic-anadolu' },
+  { name: 'Doğu Anadolu', href: '/bolge/dogu-anadolu' },
+  { name: 'Güneydoğu', href: '/bolge/guneydogu' }
 ];
 
-// Müzik
-const muzik = [
-  { name: 'Piyano Dersi', href: '/sanat-egitimleri' },
-  { name: 'Keman Dersi', href: '/sanat-egitimleri' },
-  { name: 'Gitar Dersi', href: '/sanat-egitimleri' },
-  { name: 'Yan Flüt Dersi', href: '/sanat-egitimleri' }
-];
-
-// Online Dersler
-const onlineDersler = [
-  { name: 'SEO, Arama Sonuçlarında Yükselme Dersi Seç', href: '/arama-sonuclarinda-yukselme' },
-  { name: 'Online Matematik Dersi Seç', href: '/egitmenler-lise' },
-  { name: 'Online İngilizce Dersi Seç', href: '/egitmenler-dil' },
-  { name: 'Online Yapay Zeka Dersi', href: '/egitmenler-bilisim' },
-  { name: 'Online Yazılım Dersi Seç', href: '/egitmenler-yazilim' },
-  { name: 'Online Karakalem Dersi Seç', href: '/sanat-egitimleri' },
-  { name: 'Online Yazılım Dersi Seç', href: '/egitmenler-yazilim' },
-  { name: 'Online Basketbol Dersi Seç', href: '/spor-egitimleri' }
-];
-
-// Kurumsal & Hızlı Linkler
+// Kurumsal linkler
 const kurumsalLinkler = [
-  { name: 'Fiyatlandırma', href: '/fiyatlar' },
-  { name: 'İstem', href: '/istem' },
   { name: 'Hakkımızda', href: '/hakkimizda' },
+  { name: 'İletişim', href: '/iletisim' },
+  { name: 'Sıkça Sorulan Sorular', href: '/sss' },
   { name: 'Kullanım Şartları', href: '/kullanim-sartlari' },
   { name: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
-  { name: 'Mesafeli Satış Sözleşmesi', href: '/mesafeli-satis-sozlesmesi' },
-  { name: 'İade Şartları', href: '/iade-sartlari' },
-  { name: 'Online Akademi Şartları', href: '/online-akademi-sartlari' },
-  { name: 'Online Akademi Başarılarımız', href: '/online-akademi-basarilarimiz' },
-  { name: 'Kullanım Detayları', href: '/kullanim-detaylari' }
+  { name: 'KVKK Aydınlatma Metni', href: '/kvkk' },
+  { name: 'Çerez Politikası', href: '/cerez-politikasi' }
 ];
 
-// Fırsatlar & Destek
-const firsatlar = [
-  { name: 'Eğitmen Ol', href: '/egitmen-basvuru' },
-  { name: 'Kurumsal Eğitim', href: '/ders-ucreti-isveren' },
-  { name: 'Şirketine Öner', href: '/sirketine-oner' },
-  { name: 'Arkadaşlarına Öner', href: '/arkadaslarina-oner' },
-  { name: 'Reklam Ver', href: '/reklam-ver' },
-  { name: 'Özel Ders Verenler', href: '/ozel-ders-verenler' },
-  { name: 'Online Ders', href: '/online-ders' }
+// Villa sahipleri için
+const villaSahipleri = [
+  { name: 'Villa Ekle', href: '/villa-ekle', highlight: true },
+  { name: 'Nasıl Çalışır?', href: '/villa-sahibi-rehberi' },
+  { name: 'Komisyon Oranları', href: '/komisyon-oranlari' },
+  { name: 'Villa Sahibi Girişi', href: '/villa-sahibi-giris' },
+  { name: 'Reklam Ver', href: '/reklam-ver' }
 ];
 
 // İletişim Bilgileri
 const iletisim = {
-  telefon: '0212 444 0 123',
-  email: 'info@istanbulegitim.com',
-  whatsapp: '0555 555 55 55',
+  telefon: '+90 (541) 246 54 29',
+  whatsapp: '+90 (541) 246 54 29',
+  email: 'info@villabungalovtatil.com.tr',
   adres: 'İstanbul, Türkiye'
 };
+
+// Sosyal medya
+const sosyalMedya = [
+  { name: 'Instagram', icon: '📷', href: 'https://instagram.com/villabungalovtatil' },
+  { name: 'Facebook', icon: '📘', href: 'https://facebook.com/villabungalovtatil' },
+  { name: 'Twitter', icon: '🐦', href: 'https://twitter.com/villabungalov' },
+  { name: 'TikTok', icon: '🎵', href: 'https://tiktok.com/@villabungalovtatil' }
+];
 ---
 
-<footer class="bg-gray-900 text-gray-400 border-t border-gray-800">
+<footer class="bg-gradient-to-b from-gray-900 to-gray-950 text-gray-400 border-t border-gray-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
     
-    <!-- Ana Mesaj - Konumuza en yakın öğretmenler -->
+    <!-- Ana Mesaj - Villa Tatil -->
     <div class="text-center mb-12 pb-8 border-b border-gray-800">
-      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Konumuza En Yakın Öğretmenleri ve Dersleri Bulun</h2>
-      <p class="text-gray-400 max-w-3xl mx-auto">
-        Türkiye geneli özel ders almak isteyen öğrenciler ile özel ders vermek isteyen eğitimcileri doğrudan bir araya getirmekteyiz. 
-        Öğretmenler sistem üzerinden uzman oldukları branşlarda profil oluşturabilir ve ders talebi alabilirler. 
-        Öğrenciler ve veliler de <b>"ders almak istiyorum"</b> kaydı oluşturup, konumuna en yakın öğretmenleri inceleyebilir, 
-        sistem üzerinden mesajlaşabilir ve uygun gördüğü öğretmen ile iletişime geçebilir.
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Hayalinizdeki Tatil Burada Başlıyor</h2>
+      <p class="text-gray-400 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+        Türkiye'nin en güzel bölgelerinde, doğayla iç içe villalar ve bungalovlar. 
+        Şehrin stresinden uzaklaşmak, huzurlu bir tatil geçirmek için size en uygun konaklama seçeneğini bulun. 
+        <span class="text-orange-400 font-medium">Konut sahipleri</span> de meskenlerini ekleyerek binlerce tatilciye ulaşabilir.
       </p>
     </div>
 
     <!-- Ana Kategoriler Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
       
-      <!-- Sütun 1: Spor Hobi & Okul Dersleri -->
+      <!-- Sütun 1: Popüler Şehirler -->
       <div>
         <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          SPOR & HOBİ
-        </h3>
-        <ul class="space-y-2 text-sm">
-          {sporHobi.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
-                <span class="text-gray-600">▹</span>
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <h3 class="text-white text-lg font-semibold mt-6 mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          OKUL VE SINAVLARA HAZIRLIK
-        </h3>
-        <ul class="space-y-2 text-sm">
-          {okulDersleri.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
-                <span class="text-gray-600">▹</span>
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Sütun 2: Yabancı Diller & Müzik -->
-      <div>
-        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-          </svg>
-          YABANCI DİLLER
-        </h3>
-        <ul class="space-y-2 text-sm mb-8">
-          {yabanciDiller.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
-                <span class="text-gray-600">▹</span>
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-          </svg>
-          MÜZİK
-        </h3>
-        <ul class="space-y-2 text-sm">
-          {muzik.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
-                <span class="text-gray-600">▹</span>
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Sütun 3: Şehirler & Online Dersler -->
-      <div>
-        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          ŞEHİRLER
+          POPÜLER TATİL ŞEHİRLERİ
         </h3>
-        <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-8">
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
           {sehirler.map((sehir) => (
             <a 
-              href={`/sehirler#${sehir.toLowerCase()}`} 
-              class="hover:text-white transition-colors duration-200"
+              href={sehir.href} 
+              class="hover:text-orange-400 transition-colors duration-200 flex items-center gap-1"
             >
-              {sehir}
+              <span class="text-gray-600">▹</span>
+              {sehir.name}
             </a>
           ))}
         </div>
 
-        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        <h3 class="text-white text-lg font-semibold mt-6 mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
           </svg>
-          EVİNİZ KONFORUNDA DERSLER ALIN
+          TATİL BÖLGELERİ
+        </h3>
+        <div class="space-y-2 text-sm">
+          {tatilBolgeleri.map((bolge) => (
+            <a 
+              href={bolge.href} 
+              class="hover:text-orange-400 transition-colors duration-200 flex items-center gap-2"
+            >
+              <span class="text-gray-600">▹</span>
+              {bolge.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sütun 2: Konaklama Tipleri & Turlar -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+          KONAKLAMA TİPLERİ
+        </h3>
+        <ul class="space-y-2 text-sm mb-8">
+          {konaklamaTipleri.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-orange-400 transition-colors duration-200 flex items-center gap-2">
+                <span class="text-gray-600">▹</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          TUR KATEGORİLERİ
         </h3>
         <ul class="space-y-2 text-sm">
-          {onlineDersler.map((item) => (
+          {turKategorileri.map((item) => (
             <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+              <a href={item.href} class="hover:text-orange-400 transition-colors duration-200 flex items-center gap-2">
                 <span class="text-gray-600">▹</span>
                 {item.name}
               </a>
@@ -217,86 +185,153 @@ const iletisim = {
         </ul>
       </div>
 
-      <!-- Sütun 4: Kurumsal & İletişim -->
+      <!-- Sütun 3: Villa Sahipleri & Kurumsal -->
       <div>
         <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          VİLLA SAHİPLERİ İÇİN
+        </h3>
+        <ul class="space-y-2 text-sm mb-8">
+          {villaSahipleri.map((item) => (
+            <li>
+              <a 
+                href={item.href} 
+                class={item.highlight 
+                  ? 'flex items-center gap-2 text-orange-400 hover:text-orange-300 font-medium transition-colors duration-200' 
+                  : 'hover:text-orange-400 transition-colors duration-200 flex items-center gap-2'
+                }
+              >
+                <span class="text-gray-600">{item.highlight ? '✨' : '▹'}</span>
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
           </svg>
           KURUMSAL
         </h3>
-        <ul class="space-y-2 text-sm mb-6">
+        <ul class="space-y-2 text-sm">
           {kurumsalLinkler.map((item) => (
             <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
+              <a href={item.href} class="hover:text-orange-400 transition-colors duration-200 flex items-center gap-2">
                 <span class="text-gray-600">▹</span>
                 {item.name}
               </a>
             </li>
           ))}
         </ul>
+      </div>
+
+      <!-- Sütun 4: İletişim & Bizi Takip Edin -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          İLETİŞİM
+        </h3>
+        
+        <div class="space-y-3 text-sm mb-6">
+          <div class="flex items-center gap-3">
+            <span class="text-orange-400">📞</span>
+            <a href={`tel:${iletisim.telefon}`} class="hover:text-orange-400 transition-colors">
+              {iletisim.telefon}
+            </a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-orange-400">📱</span>
+            <a href={`https://wa.me/${iletisim.whatsapp.replace(/\D/g, '')}`} target="_blank" class="hover:text-orange-400 transition-colors">
+              WhatsApp
+            </a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-orange-400">✉️</span>
+            <a href={`mailto:${iletisim.email}`} class="hover:text-orange-400 transition-colors">
+              {iletisim.email}
+            </a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-orange-400">📍</span>
+            <span>{iletisim.adres}</span>
+          </div>
+        </div>
 
         <h3 class="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 019.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
           </svg>
-          FIRSATLAR & DESTEK
+          BİZİ TAKİP EDİN
         </h3>
-        <ul class="space-y-2 text-sm mb-6">
-          {firsatlar.map((item) => (
-            <li>
-              <a href={item.href} class="hover:text-white transition-colors duration-200 flex items-center gap-2">
-                <span class="text-gray-600">▹</span>
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-
         
+        <div class="flex flex-wrap gap-3 mb-6">
+          {sosyalMedya.map((sosyal) => (
+            <a 
+              href={sosyal.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-xl transition-colors duration-200"
+              aria-label={sosyal.name}
+            >
+              {sosyal.icon}
+            </a>
+          ))}
+        </div>
+
+        <!-- E-bülten -->
+        <div class="bg-gray-800/50 rounded-lg p-4">
+          <h4 class="text-white text-sm font-semibold mb-2">Fırsatlardan Haberdar Olun</h4>
+          <p class="text-xs text-gray-400 mb-3">Yeni villalar ve kampanyalar için e-bültenimize kaydolun.</p>
+          <form class="flex gap-2">
+            <input 
+              type="email" 
+              placeholder="E-posta adresiniz" 
+              class="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-xs text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <button class="px-3 py-2 bg-orange-600 hover:bg-orange-700 text-white text-xs font-medium rounded-lg transition-colors">
+              Gönder
+            </button>
+          </form>
+        </div>
       </div>
     </div>
 
-    <!-- Alt Bilgi Mesajı -->
-    <div class="bg-gray-800/50 rounded-xl p-6 mb-8 text-center">
-      <p class="text-gray-300 text-sm leading-relaxed">
-        <span class="text-white font-semibold">En İyi Öğretmenlerden Online Veya Yüz Yüze Dersler Alın</span><br>
-        Türkiye geneli özel ders almak isteyen öğrenciler ile özel ders vermek isteyen eğitimcileri doğrudan bir araya getirmekteyiz. 
-        Öğretmenler sistem üzerinden uzman oldukları branşlarda profil oluşturabilir ve ders talebi alabilirler. 
-        Öğrenciler ve veliler de "ders almak istiyorum" kaydı oluşturup, konumuna en yakın öğretmenleri inceleyebilir, 
-        sistem üzerinden mesajlaşabilir ve uygun gördüğü öğretmen ile iletişime geçebilir.
-      </p>
-    </div>
-
-    <!-- Alt Banner - Dikkat Çekici Mesaj -->
+    <!-- Alt Banner - Öne Çıkanlar -->
     <div class="border-t border-gray-800 pt-8">
-      <div class="grid md:grid-cols-3 gap-4 text-center text-sm">
-        <div class="flex items-center justify-center gap-2 text-gray-500">
-          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>7/24 Online Destek</span>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+        <div class="flex flex-col items-center justify-center gap-2 text-gray-500">
+          <span class="text-3xl">🏡</span>
+          <span class="font-medium text-white">500+ Villa</span>
+          <span class="text-xs">Türkiye'nin dört bir yanında</span>
         </div>
-        <div class="flex items-center justify-center gap-2 text-gray-500">
-          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-          <span>Güvenli Ödeme</span>
+        <div class="flex flex-col items-center justify-center gap-2 text-gray-500">
+          <span class="text-3xl">⭐</span>
+          <span class="font-medium text-white">4.8 Ortalama Puan</span>
+          <span class="text-xs">Misafir memnuniyeti</span>
         </div>
-        <div class="flex items-center justify-center gap-2 text-gray-500">
-          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-          </svg>
-          <span>Sertifikalı Eğitimler</span>
+        <div class="flex flex-col items-center justify-center gap-2 text-gray-500">
+          <span class="text-3xl">🔒</span>
+          <span class="font-medium text-white">Güvenli Rezervasyon</span>
+          <span class="text-xs">Kaparo koruması</span>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-2 text-gray-500">
+          <span class="text-3xl">💬</span>
+          <span class="font-medium text-white">7/24 Destek</span>
+          <span class="text-xs">WhatsApp ile anında yardım</span>
         </div>
       </div>
     </div>
 
     <!-- Telif Hakkı -->
     <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
-      <p>&copy; {currentYear} İstanbul Eğitim Merkezi. Tüm hakları saklıdır.</p>
+      <p>&copy; {currentYear} Villa Bungalov Tatil. Tüm hakları saklıdır.</p>
       <p class="mt-2 text-xs text-gray-600">
-        İstanbul Eğitim Merkezi, MeetWork Üyesidir.
+        En güzel tatil evleri, villalar ve bungalovlar sizi bekliyor.
       </p>
     </div>
   </div>

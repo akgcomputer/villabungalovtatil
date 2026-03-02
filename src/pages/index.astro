@@ -1,568 +1,373 @@
 ---
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-import { courses as bilisimCourses } from '../data/courses-bilisim';
-import { courses as dilCourses } from '../data/courses-dil';
-import { courses as ilkogretimCourses } from '../data/courses-ilkogretim';
-import { courses as sporCourses } from '../data/courses-spor';
-import { courses as sanatCourses } from '../data/courses-sanat';
-import { courses as sinavCourses } from '../data/courses-lise';
-import { courses as digerCourses } from '../data/courses-genel';
 
-// Tüm kursları tek bir diziye topla
-const allCourses = [
-  ...bilisimCourses,
-  ...dilCourses,
-  ...ilkogretimCourses,
-  ...sporCourses,
-  ...sanatCourses,
-  ...sinavCourses,
-  ...digerCourses
+// Slider verileri (tek slider'da 2 slayt)
+const sliderSlides = [
+  {
+    id: 'slide1',
+    image: '/images/tatil-adam-1.png',
+    bgImages: ['/images/konum1.png', '/images/konum2.png'],
+    title: 'Şehirden uzak ama yakın yerde 3 gün ne kadar güzel olurdu..',
+    buttons: ['En Popüler Ev', 'En Popüler Tatil Yeri'],
+    buttonColors: 'bg-orange-500 hover:bg-orange-600'
+  },
+  {
+    id: 'slide2',
+    image: '/images/tatil-kadin-1.png',
+    bgImages: ['/images/konum2.png', '/images/konum3-explorer.png'],
+    title: 'Neden yakın yerler..',
+    titleIcon: '/images/soru-isareti.png',
+    features: [
+      {
+        icon: '/images/saat-ikonu.png',
+        title: 'Zamanımız Yok',
+        desc: 'İstanbul ve tüm büyük şehirlerin kalabalığı ve stresinden kurtulmak için zaman kaybetmeden bazen 2-3 gün bazen de 4-5 günlüğüne kafamızı dinlemek isteriz ama uzağa gitmeye zaman YOK, araçla ya da toplu taşıma ile yakın yerlere gitmek daha mantıklı bir seçim oluyor.'
+      },
+      {
+        icon: '/images/ekonomi-ikonu.png',
+        title: 'Çok ekonomik',
+        desc: 'Yakın yerlere gitmek başta zaman sonra da maliyet anlamında çok da yormuyor. Uzak yerlere gitmek araç-yakıt-uçak git gel masraf vs derken ekonomik olmuyor.'
+      },
+      {
+        icon: '/images/doga-ikonu.png',
+        title: 'Bozulmamış Doğa',
+        desc: 'Başta İstanbul\'a yakın yerlerde ve diğer büyükşehirlere yakın yerlerde halen doğası ile büyüleyen bir çok lokasyon bulunmakta, neden uzak yerlere gidesiniz ki!!'
+      }
+    ],
+    buttons: ['En Popüler Lokasyon', 'En Merak Edilen Tatil Yeri'],
+    buttonColors: 'bg-teal-500 hover:bg-teal-600'
+  }
 ];
 
-// Kategoriye göre link prefix'i belirleme fonksiyonu
-const getKursLink = (course) => {
-  // Kategori kontrolü
-  if (course.category?.toLowerCase().includes('bilişim') || 
-      course.category?.toLowerCase().includes('yazılım') ||
-      course.category?.toLowerCase().includes('bilisim')) {
-    return `/kurs-bilisim/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('dil')) {
-    return `/kurs-dil/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('spor')) {
-    return `/kurs-spor/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('sanat')) {
-    return `/kurs-sanat/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('lise') || 
-             course.category?.toLowerCase().includes('sınav')) {
-    return `/kurs-lise/${course.slug}`;
-  } else if (course.category?.toLowerCase().includes('ilköğretim')) {
-    return `/kurs-ilkogretim-5-6-7-8-siniflar/${course.slug}`;
-  } else {
-    // Varsayılan genel
-    return `/kurs-genel/${course.slug}`;
-  }
-};
+// Tur kartları verileri (4 kart - slider yok)
+const turKartlari1 = [
+  { name: 'Balkan Turları', image: '/images/balkan-tur.jpg', slogan: 'Tarih ve kültür dolu bir yolculuk', locations: 'Bulgaristan, Yunanistan, Makedonya, Sırbistan' },
+  { name: 'Umre Turları', image: '/images/umre-tur.jpg', slogan: 'Manevi bir yolculuk', locations: 'Mekke, Medine, Taif' },
+  { name: 'Avrupa Turları', image: '/images/avrupa-tur.jpg', slogan: 'Rüya gibi şehirler', locations: 'Fransa, İtalya, İsviçre, İspanya' },
+  { name: 'Uzakdoğu Turları', image: '/images/uzakdogu-tur.jpg', slogan: 'Egzotik bir macera', locations: 'Tayland, Vietnam, Japonya, Güney Kore' }
+];
 
-// Rastgele 12 kurs seç (sayfa her yenilendiğinde değişir)
-const randomCourses = allCourses.sort(() => 0.5 - Math.random()).slice(0, 12);
+const turKartlari2 = [
+  { name: 'Afrika Turları', image: '/images/afrika-tur.jpg', slogan: 'Vahşi yaşam ve doğa', locations: 'Güney Afrika, Kenya, Tanzanya, Fas' },
+  { name: 'Körfez Turları', image: '/images/korfez-tur.jpg', slogan: 'Lüks ve modernlik', locations: 'BAE, Katar, Kuveyt, Umman' },
+  { name: 'Cruiz - Gemi Turları', image: '/images/gemi-tur.jpg', slogan: 'Denizde keyifli günler', locations: 'Akdeniz, Karayipler, Norveç Fiyordları' },
+  { name: 'Ticari Turlar', image: '/images/ticari-tur.jpg', slogan: 'İş ve fırsat bir arada', locations: 'Çin, Hindistan, Almanya, ABD' }
+];
 
-// Rastgele 6 popüler kurs (popülerlik varsayılan, rastgele seçtik)
-const popularCourses = allCourses.sort(() => 0.5 - Math.random()).slice(0, 6);
+// Şehir logoları listesi (10 tane, DOĞRU LİNK FORMATI)
+const sehirLogolari = [
+  { name: 'istanbul', label: 'İstanbul', page: '/istanbul' },
+  { name: 'bursa', label: 'Bursa', page: '/bursa' },
+  { name: 'balikesir', label: 'Balıkesir', page: '/balikesir' },
+  { name: 'yalova', label: 'Yalova', page: '/yalova' },
+  { name: 'sakarya', label: 'Sakarya', page: '/sakarya' },
+  { name: 'kocaeli', label: 'Kocaeli', page: '/kocaeli' },
+  { name: 'tekirdag', label: 'Tekirdağ', page: '/tekirdag' },
+  { name: 'canakkale', label: 'Çanakkale', page: '/canakkale' },
+  { name: 'kirklareli', label: 'Kırklareli', page: '/kirklareli' }
+];
 
-// Rastgele 5 eğitmen seç (slider için)
-const allInstructors = allCourses.flatMap(course => 
-  course.instructors.map(instructor => ({
-    ...instructor,
-    courseTitle: course.title
-  }))
-);
-const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0, 5);
+// Popüler Evler
+const populerEvler = [
+  { id: 1, img: '/images/populer-tatil-1.png', link: '#' },
+  { id: 2, img: '/images/populer-tatil-2.png', link: '#' },
+  { id: 3, img: '/images/populer-tatil-3.png', link: '#' },
+  { id: 4, img: '/images/populer-tatil-4.png', link: '#' }
+];
 ---
 
-<Layout title="İstanbul Eğitim Merkezi – Eğitim Pazaryeri">
-  <!-- Hero Bölümü -->
-  <section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-black opacity-10"></div>
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full opacity-10 blur-3xl"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-white rounded-full opacity-10 blur-3xl"></div>
+<Layout title="Villa Bungalov Tatil - Şehrin Stresinden Uzak, Doğayla İç İçe Tatil">
+  <!-- SLOGAN - En üstte, güzel bir font ile -->
+  <div class="bg-white py-6 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h1 class="font-hand font-slogan text-3xl md:text-4xl lg:text-5xl text-gray-800 leading-relaxed">
+        Şehrin Stresinden Uzak, 
+        <span class="font-hand text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-600">Doğayla İç İçe Tatil İçin..</span>
+      </h1>
+      <p class="font-hand text-xl text-gray-500 mt-2">VillaBungalovTatil.com.tr</p>
+    </div>
+  </div>
+
+  <!-- TEK SLIDER - 2 slaytlı, otomatik geçişli -->
+  <div class="slider-main relative overflow-hidden" id="anaSlider">
+    <div class="slider-track flex transition-transform duration-700 ease-out" style="transform: translateX(0%);">
+      {sliderSlides.map((slide, index) => (
+        <div class="slider-slide w-full flex-shrink-0">
+          <section class={`relative overflow-hidden text-white min-h-[600px] flex items-center ${index === 0 ? 'bg-gradient-to-br from-[#1e1a3a] to-[#2a235a]' : 'bg-gradient-to-br from-[#162b3a] to-[#1d3a4a]'}`}>
+            <!-- Arkaplan resimleri -->
+            <div class="absolute inset-0 opacity-30">
+              {slide.bgImages.map((bgImg, i) => (
+                <img 
+                  key={i}
+                  src={bgImg} 
+                  alt="" 
+                  class={`absolute ${i === 0 ? 'bottom-0 left-0 animate-float-slow' : 'top-0 right-0 animate-float'}`}
+                  style={{ width: '16rem' }}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+            
+            <div class="relative max-w-7xl mx-auto px-4 py-12 md:py-16 w-full">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Sol: Resim -->
+                <div class={`flex justify-center ${index === 0 ? 'order-2 md:order-1' : ''}`}>
+                  <img 
+                    src={slide.image} 
+                    alt="Tatil konsepti" 
+                    class="max-w-md w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <!-- Sağ: İçerik -->
+                <div class={index === 0 ? 'order-1 md:order-2' : ''}>
+                  {index === 0 ? (
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                      <span class="inline-block bg-orange-500/20 p-2 rounded-full mr-3">🌴</span>
+                      {slide.title}
+                    </h2>
+                  ) : (
+                    <>
+                      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 flex items-center gap-3">
+                        <img src={slide.titleIcon} alt="?" class="w-10 h-10 md:w-12 md:h-12 object-contain" />
+                        {slide.title}
+                      </h2>
+                      
+                      <div class="space-y-6 mb-8">
+                        {slide.features.map((feature) => (
+                          <div class="flex gap-4 items-start">
+                            <img src={feature.icon} alt="" class="w-8 h-8 md:w-10 md:h-10 object-contain flex-shrink-0" />
+                            <div>
+                              <h3 class="text-xl font-semibold mb-1">{feature.title}</h3>
+                              <p class="text-gray-200 text-sm leading-relaxed">{feature.desc}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  
+                  <div class="flex flex-wrap gap-4">
+                    {slide.buttons.map((btn, i) => (
+                      <a 
+                        href="#" 
+                        class={`px-6 py-3 ${slide.buttonColors} text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl text-sm md:text-base`}
+                        key={i}
+                      >
+                        {btn}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      ))}
+    </div>
     
-    <div class="relative max-w-7xl mx-auto px-4 py-20 sm:py-28 text-center">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight animate-fade-in">
-  <span class="text-yellow-300">Öğrenmek</span> ve <span class="text-yellow-300">Öğretmek</span> 
-  <br>İçin Doğru Adres
-</h1>
-
-<p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto animate-fade-in delay-200">
-  İster yeni bir şey öğrenmek isteyen bir öğrenci, ister bilginizi paylaşmak isteyen bir eğitmen olun,
-  <br class="hidden md:block" />Türkiye'nin ilk eğitim pazaryerinde buluşuyoruz.
-</p>
-
-<p class="text-xl sm:text-2xl md:text-3xl mb-8 text-indigo-100 max-w-3xl mx-auto">
-  <span class="font-bold text-yellow-300">Öğrenciler:</span> Size en uygun eğitmeni bulun, hedeflerinize ulaşın.
-  <br />
-  <span class="font-bold text-yellow-300">Eğitmenler:</span> %0 komisyonla derslerinizi yayınlayın, kazancınızın tamamı size kalsın.
-</p>
-
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-  <a href="/dersler" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-    📚 Kursları Keşfet
-  </a>
-  <a href="/egitmen-basvuru" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1">
-    🎓 Eğitmen Ol
-  </a>
-</div>
-<p class="mt-8 text-indigo-200 text-sm text-bold">
-  ⭐ İstanbul<span  class="font-bold text-yellow-300">Egitim</span>Merkezi.com'a başvuru yapan 1500+ uzman eğitmen, 8000+ mutlu öğrenci. Siz de aramıza katılın!
-</p>
-  </section>
-
-  <!-- Eğitmen Slider'ı (manuel kaydırma butonlu) -->
-  <section class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-      <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
-      Öne Çıkan Eğitmenler
-    </h2>
-    <p class="text-gray-600 mb-8">Alanında uzman eğitmenlerimizden bazıları ile tanışın.</p>
-
-    <div class="relative">
-      <div id="instructor-slider" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 pb-4">
-        {randomInstructors.map((instructor, index) => {
-          const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500', 'bg-purple-500'];
-          const colorClass = colors[index % colors.length];
-          return (
-            <a 
-              href={`/egitmen/${instructor.slug}`} 
-              class="min-w-[280px] sm:min-w-[320px] flex-shrink-0 snap-start group"
-            >
-              <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-6 border border-gray-100">
-                <div class="flex items-center gap-4">
-                  <div class={`w-16 h-16 rounded-full ${colorClass} animate-pulse flex items-center justify-center text-white text-2xl font-bold shadow-lg`}>
-                    {instructor.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold text-gray-800 group-hover:text-indigo-600">{instructor.name}</h3>
-                    <p class="text-sm text-gray-500">{instructor.courseTitle}</p>
-                  </div>
-                </div>
-                <div class="mt-4 flex items-center text-yellow-400 text-lg">
-                  {'★'.repeat(Math.floor(instructor.rating))}
-                  <span class="text-gray-600 text-sm ml-2">({instructor.rating})</span>
-                </div>
-                <p class="text-sm text-gray-600 mt-3 line-clamp-2">{instructor.bio || "Uzman eğitmen"}</p>
-                <div class="mt-4 flex items-center justify-between text-sm">
-                  <span class="text-gray-500">{instructor.location}</span>
-                  <span class="font-bold text-indigo-600">{instructor.privatePrice}₺/saat</span>
-                </div>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-      <!-- Kaydırma butonları (opsiyonel) -->
-      <button id="slide-left" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition hidden sm:block">←</button>
-      <button id="slide-right" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition hidden sm:block">→</button>
-    </div>
-  </section>
-
-
-  <!-- Eğitmenler İçin Fırsat Bölümü -->
-<section class="bg-gray-900 text-white py-16 my-12 rounded-3xl">
-  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-    <div class="md:w-2/3">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Eğitmen misiniz? <span class="text-orange-400">%0 Komisyon</span> ile derslerinizi yayınlayın!
-      </h2>
-      <p class="text-gray-300 text-lg mb-6">
-        Platformumuzda binlerce öğrenciye ulaşın, hiçbir komisyon ödemeden gelir elde edin. İlk eğitiminizi hemen oluşturun.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="/egitmen-basvuru" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl">
-          Hemen Başvur
-        </a>
-        <a href="/egitmenler" class="bg-transparent border border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition">
-          Eğitmenlerimizi Keşfedin
-        </a>
-        <a href="/fiyatlar" class="bg-green-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg hover:shadow-xl">
-          Fiyatlandırma ve Modeller →
-        </a>
-      </div>
-      <p class="text-sm text-gray-400 mt-4">
-        * Eğitime destek için birlikte olalım.
-      </p>
-    </div>
-    <div class="md:w-1/3 flex justify-center">
-      <div class="bg-orange-500/20 p-6 rounded-full">
-        <svg class="w-32 h-32 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 5.01a.75.75 0 01-.726.93H3.524a.75.75 0 01-.726-.93L5 14.5" />
-        </svg>
-      </div>
+    <!-- Ok butonları -->
+    <button class="slider-prev absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-gray-800 hover:text-orange-600 transition z-20 text-2xl font-bold">
+      ←
+    </button>
+    <button class="slider-next absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-gray-800 hover:text-orange-600 transition z-20 text-2xl font-bold">
+      →
+    </button>
+    
+    <!-- Indicator noktaları -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <button class="slider-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition active" data-slide="0"></button>
+      <button class="slider-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition" data-slide="1"></button>
     </div>
   </div>
-</section>
 
-  <!-- Popüler Kurslar (grid 3'lü) -->
-  <section class="max-w-7xl mx-auto px-4 py-16 bg-gray-50">
-    <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-      <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
-      Popüler Kurslar
-    </h2>
-    <p class="text-gray-600 mb-8">En çok ilgi gören eğitimlerimiz siz de inceleyebilirsiniz.</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {popularCourses.map(course => {
-        const minPrice = Math.min(...course.instructors.map(i => i.privatePrice));
-        const maxPrice = Math.max(...course.instructors.map(i => i.privatePrice));
-        const priceText = minPrice === maxPrice ? `${minPrice}₺` : `${minPrice}₺ - ${maxPrice}₺`;
-        const kursLink = getKursLink(course);
-        return (
-          <a href={kursLink} class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
-            <img src={course.image} alt={course.title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div class="p-5">
-              <h3 class="text-lg font-semibold text-gray-800 group-hover:text-indigo-600 line-clamp-2">{course.title}</h3>
-              <p class="text-sm text-gray-500 mt-2 line-clamp-2">{course.description}</p>
-              <div class="mt-4 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold">{priceText}</span>
-                <span class="text-xs text-gray-400">{course.instructors.length} eğitmen</span>
-              </div>
-            </div>
-          </a>
-        );
-      })}
-    </div>
-  </section>
-
-
-  
-
-  <!-- Başarı Hikayeleri Bölümü -->
-<section class="bg-gray-800 text-white py-16 my-12 rounded-3xl">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-      Öğrenciler <span class="text-indigo-400">Ne Dediler</span>
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Yorum 1 -->
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-16 h-16 rounded-full bg-indigo-500 flex items-center justify-center text-2xl font-bold">
-            A
-          </div>
-          <div>
-            <h3 class="font-bold text-lg">Simge Yılmaz</h3>
-            <p class="text-gray-300 text-sm">Python Kursu Mezunu</p>
-          </div>
-        </div>
-        <p class="text-gray-200 italic">
-          "Bu platform sayesinde yazılım kariyerime başladım. Hocamın referansı ile şu anda büyük bir firmada full-stack developer olarak çalışıyorum."
-        </p>
-        <div class="mt-4 text-yellow-400">
-          ★★★★★
-        </div>
-      </div>
-      <!-- Yorum 2 -->
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center text-2xl font-bold">
-            Z
-          </div>
-          <div>
-            <h3 class="font-bold text-lg">Sude Kaya</h3>
-            <p class="text-gray-300 text-sm">Dijital Pazarlama Uzmanı</p>
-          </div>
-        </div>
-        <p class="text-gray-200 italic">
-          "Eğitmenim çok ilgiliydi. Aldığım SEO eğitimi sayesinde kendi ajansımı kurdum. Hocam da ne zaman soru sorsam kırmıyor beni, iyi ki var dediğim bir platform."
-        </p>
-        <div class="mt-4 text-yellow-400">
-          ★★★★★
-        </div>
-      </div>
-      <!-- Yorum 3 -->
-      <div class="bg-gray-700 p-6 rounded-2xl shadow-lg hover:shadow-xl transition">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center text-2xl font-bold">
-            M
-          </div>
-          <div>
-            <h3 class="font-bold text-lg">Berk Demir</h3>
-            <p class="text-gray-300 text-sm">Unity Oyun Geliştiricisi</p>
-          </div>
-        </div>
-        <p class="text-gray-200 italic">
-          "Oyun geliştirme kursuyla hayalimdeki mesleğe adım attım. Şimdi kendi oyunumu tasarlamaya başladım, çalışmadan da olmaz hocamın lafı selam olsun emeği büyük."
-        </p>
-        <div class="mt-4 text-yellow-400">
-          ★★★★★
-        </div>
-      </div>
-    </div>
-    <!-- Daha fazla butonu -->
-    <div class="text-center mt-10">
-     
-	  <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/dersler" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-          Kursları Keşfet
-        </a>
-        <a href="/iletisim" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-full font-bold text-lg transition transform hover:-translate-y-1">
-          İletişime Geç
-        </a>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-  <!-- Tüm Kurslar (rastgele 12'li) -->
-  <section class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-      <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
-      En Yeni Eğitimler
-    </h2>
-    <p class="text-gray-600 mb-8">Her seviyeye uygun, güncel müfredatlar.</p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {randomCourses.map(course => {
-        const minPrice = Math.min(...course.instructors.map(i => i.privatePrice));
-        const kursLink = getKursLink(course);
-        return (
-          <a href={kursLink} class="group bg-white rounded-xl shadow hover:shadow-lg transition-all border border-gray-100 overflow-hidden">
-            <img src={course.image} alt={course.title} class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
-            <div class="p-4">
-              <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600 line-clamp-1">{course.title}</h3>
-              <p class="text-xs text-gray-500 mt-1 line-clamp-2">{course.description}</p>
-              <div class="mt-2 flex items-center justify-between">
-                <span class="text-indigo-600 font-bold text-sm">{minPrice}₺'den</span>
-                <span class="text-xs text-gray-400">{course.instructors.length} eğitmen</span>
-              </div>
-            </div>
-          </a>
-        );
-      })}
-    </div>
-
-    <div class="text-center mt-12">
-      <a href="/dersler" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full transition shadow-md hover:shadow-lg">
-        Tüm Eğitimleri Gör
-        <span>→</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Neden Biz? (Güven ve avantaj bölümü) -->
-  <section class="bg-indigo-50 py-16">
+  <!-- İSTANBUL İÇİ VE YAKIN YERLER (ŞEHİR LOGOLARI) -->
+  <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Neden İstanbul Eğitim Merkezi?</h2>
-      <p class="text-gray-600 text-center mb-12">Eğitmen ve öğrenci dostu avantajlarımızla fark yaratıyoruz.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-6 shadow-md text-center">
-          <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">💰</div>
-          <h3 class="text-xl font-semibold mb-2">%0 Komisyon</h3>
-          <p class="text-gray-600">Eğitmenler ilk eğitimden itibaren hiçbir komisyon ödemez. Tüm kazanç sizin!</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-md text-center">
-          <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce delay-100">👥</div>
-          <h3 class="text-xl font-semibold mb-2">Butik Eğitim</h3>
-          <p class="text-gray-600">Sınırlı sayıda katılımcı ile birebir ilgi, kalıcı öğrenme.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 shadow-md text-center">
-          <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce delay-200">⭐</div>
-          <h3 class="text-xl font-semibold mb-2">Yıldızlı Eğitmenler</h3>
-          <p class="text-gray-600">Kaliteyi garantileyen puanlama sistemi, doğru eğitmeni bulun.</p>
-        </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">
+        İstanbul İçi ve Yakın Tatil Yerleri
+      </h2>
+      
+      <!-- Sabit duran logo grid -->
+      <div class="flex flex-wrap justify-center gap-8 md:gap-10">
+        {sehirLogolari.map((sehir) => (
+          <a href={sehir.page} class="group relative flex flex-col items-center">
+            <div class="relative w-20 h-20 md:w-24 md:h-24">
+              <!-- Ana logo -->
+              <img 
+                src={`/images/logo-${sehir.name}-150x150.png`} 
+                alt={sehir.label}
+                class="w-full h-full rounded-full object-cover border-4 border-white shadow-lg relative z-10"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='/images/logo-${sehir.name}.png'"
+              />
+              <!-- LED efekti - düzeltildi -->
+              <div class="absolute inset-0 rounded-full rotating-border"></div>
+            </div>
+            <span class="block text-center mt-3 text-sm font-medium text-gray-700 group-hover:text-orange-600 transition">
+              {sehir.label}
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-<!-- Dil Eğitimleri Section -->
-<section class="max-w-7xl mx-auto px-4 py-16">
-  <h2 class="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-    <span class="w-1 h-8 bg-indigo-600 rounded-full"></span>
-    Dil Eğitimleri
-  </h2>
-  <p class="text-gray-600 mb-8">Her dilde uzman eğitmenler, birebir online dersler.</p>
-
-  <!-- Dil kartları grid (5 sütun, responsive) -->
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-    <!-- Türkçe (Yabancılar için) -->
-    <a href="/dil-egitimleri?dil=turkce" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-star-and-crescent"></i>
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Türkçe <span class="text-xs text-gray-500 block">(Yabancılar için Türkçe)</span></h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1, A2,</p>
-        <p>Konuşma Kulübü, Mesleki Türkçe</p>
-      </div>
-    </a>
-
-    <!-- İngilizce -->
-    <a href="/dil-egitimleri?dil=ingilizce" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-black-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-clock"></i> <!-- Big Ben simgesi -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">İngilizce</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1-C2 Tüm Seviyeler</p>
-        <p>Konuşma Kulübü, Mesleki İngilizce</p>
-      </div>
-    </a>
-
-    <!-- İspanyolca -->
-    <a href="/dil-egitimleri?dil=ispanyolca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-church"></i> <!-- Katedral -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">İspanyolca</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1-C2 Tüm Seviyeler</p>
-        <p>Konuşma Kulübü, Mesleki İspanyolca</p>
-      </div>
-    </a>
-
-    <!-- Fransızca -->
-    <a href="/dil-egitimleri?dil=fransizca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-landmark"></i> <!-- Eyfel olmadığından genel yapı -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Fransızca</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1-C2 Tüm Seviyeler</p>
-        <p>Konuşma Kulübü, Mesleki Fransızca</p>
-      </div>
-    </a>
-
-    <!-- Almanca -->
-    <a href="/dil-egitimleri?dil=almanca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-yellow-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-archway"></i> <!-- Brandenburg Kapısı -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Almanca</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1-C2 Tüm Seviyeler</p>
-        <p>Konuşma Kulübü, Mesleki Almanca</p>
-      </div>
-    </a>
-
-    <!-- İtalyanca -->
-    <a href="/dil-egitimleri?dil=italyanca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-university"></i> <!-- Pisa Kulesi yerine genel bir yapı -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">İtalyanca</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1-C2 Tüm Seviyeler</p>
-        <p>Konuşma Kulübü, Mesleki İtalyanca</p>
-      </div>
-    </a>
-
-    <!-- Çince -->
-    <a href="/dil-egitimleri?dil=cin" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-dragon"></i> <!-- Çin simgesi -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Çince</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1, A2, Geneksel Çince</p>
-        <p>Konuşma Kulübü, Mesleki Çince</p>
-      </div>
-    </a>
-
-    <!-- Arapça -->
-    <a href="/dil-egitimleri?dil=arapca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-pink-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-mosque"></i> <!-- Cami -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Arapça</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1-C2 Tüm Seviyeler</p>
-        <p>Konuşma Kulübü, Mesleki Arapça</p>
-      </div>
-    </a>
-
-    <!-- Japonca -->
-    <a href="/dil-egitimleri?dil=japonca" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-sun"></i> <!-- Japon bayrağındaki güneş -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Japonca</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1, A2</p>
-        <p>Konuşma Kulübü, Mesleki Japonca</p>
-      </div>
-    </a>
-
-    <!-- Portekizce -->
-    <a href="/dil-egitimleri?dil=portekizce" target="_blank" class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 p-4 text-center group">
-      <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mb-3 group-hover:scale-110 transition-transform">
-        <i class="fas fa-ship"></i> <!-- Portekiz keşif gemisi -->
-      </div>
-      <h3 class="font-semibold text-gray-800 text-base sm:text-lg">Portekizce</h3>
-      <div class="mt-2 text-xs text-gray-500 space-y-1">
-        <p>A1, A2</p>
-        <p>Konuşma Kulübü, Mesleki Portekizce</p>
-      </div>
-    </a>
-  </div>
-
-  <!-- Kurumsal vurgu -->
-  <div class="mt-16 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-3xl p-8 md:p-10 border border-indigo-100">
-    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-      <div class="lg:max-w-2xl">
-        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Şirketler için kurumsal dil eğitimi</h3>
-        <p class="text-gray-700 text-lg leading-relaxed">
-          İstanbul Eğitim Merkezi'nin kurumsal dil eğitimi, yüz yüze ve online öğretmenlerle kişiye özel dil öğrenimi sunar,
-		  dilerseniz şirket merkezinizde dilerseniz de eğitim kurumunda eğitim alabilirsiniz, 
-		  iserseniz bir kişi dilerseniz grup olarak eğitim alabilirsiniz,
-		  <br><strong> Karar Sizin! </strong>Ekipler ve şirketler için tasarlanmıştır. 
-		  <br>Daha fazla bilgi almak için 
-          <a href="/kurumsal-tanitim" class="text-indigo-600 font-semibold underline hover:text-indigo-800">tanıtım talep et</a>.
-        </p>
-        <div class="flex flex-wrap gap-4 mt-6">
-          <a href="/ders-ucreti-isveren" class="bg-white border border-indigo-300 text-indigo-700 hover:bg-indigo-50 px-6 py-3 rounded-full font-medium transition shadow-sm flex items-center gap-2">
-            <i class="fas fa-briefcase"></i> Ders ücretlerini işvereninin ödemesini ister misin?
+  <!-- POPÜLER EVLER -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center md:text-left">
+        Popüler Evler
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {populerEvler.map((ev) => (
+          <a href={ev.link} class="group block">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2">
+              <div class="relative h-[530px] overflow-hidden">
+                <img 
+                  src={ev.img} 
+                  alt={`Popüler tatil evi ${ev.id}`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </a>
-          <a href="/sirketine-oner" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-medium transition shadow-sm flex items-center gap-2">
-            <i class="fas fa-star"></i> Bizi şirketine öner!
-          </a>
-        </div>
-      </div>
-      <div class="flex-shrink-0">
-        <div class="w-32 h-32 bg-orange-200 rounded-full flex items-center justify-center text-5xl text-indigo-700">
-          <i class="fas fa-building"></i>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  
+  <!-- KEŞFETMEYE HAZIR MISIN? - 4 Kart (Slider yok) -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-center md:justify-start gap-3 mb-10">
+        <img src="/images/kesfet-ikon.png" alt="" class="w-10 h-10 md:w-12 md:h-12 object-contain" />
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Keşfetmeye Hazır Mısın?</h2>
+      </div>
+      
+      <!-- 4 kart grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {turKartlari1.map((card) => (
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-100 h-full group">
+            <div class="h-40 overflow-hidden">
+              <img src={card.image} alt={card.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{card.name}</h3>
+              <p class="text-gray-600 text-sm mb-3">{card.slogan}</p>
+              <p class="text-xs text-gray-500 mb-4 line-clamp-2">📍 {card.locations}</p>
+              <a href="#" class="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition">
+                İncele
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FARKLI DENEYİMLER SENİ BEKLİYOR - 4 Kart -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-center md:justify-start gap-3 mb-10">
+        <img src="/images/deneyim-ikon.png" alt="" class="w-10 h-10 md:w-12 md:h-12 object-contain" />
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Farklı Deneyimler Seni Bekliyor</h2>
+      </div>
+      
+      <!-- 4 kart grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {turKartlari2.map((card) => (
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-100 h-full group">
+            <div class="h-40 overflow-hidden">
+              <img src={card.image} alt={card.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{card.name}</h3>
+              <p class="text-gray-600 text-sm mb-3">{card.slogan}</p>
+              <p class="text-xs text-gray-500 mb-4 line-clamp-2">📍 {card.locations}</p>
+              <a href="#" class="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition">
+                İncele
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>
 
-<!-- JavaScript: Slider kaydırma butonları -->
-<script>
-  const slider = document.getElementById('instructor-slider');
-  const leftBtn = document.getElementById('slide-left');
-  const rightBtn = document.getElementById('slide-right');
-
-  if (leftBtn && rightBtn && slider) {
-    leftBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: -300, behavior: 'smooth' });
-    });
-    rightBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: 300, behavior: 'smooth' });
-    });
+<style is:global>
+  /* Özel fontlar */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&display=swap');
+  
+  .font-slogan {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
   }
-</script>
-
-<style>
-  /* Scrollbar'ı gizle (Chrome, Safari) */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  
+  .font-hand {
+    font-family: 'Caveat', cursive;
   }
-  .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  
+  /* LED efekti - düzeltilmiş versiyon */
+  .rotating-border {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff, #5f27cd, #ff6b6b);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    padding: 3px;
+    animation: rotate 3s linear infinite;
+    z-index: 5;
+    pointer-events: none;
   }
-
-  /* Tailwind'de olmayan animasyonlar */
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
-  .animate-fade-in {
-    animation: fade-in 1s ease-out;
+  
+  /* Animasyonlar */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
-
-  .delay-100 {
-    animation-delay: 0.1s;
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
   }
-  .delay-200 {
-    animation-delay: 0.2s;
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
-
-  /* line-clamp için */
+  
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  
+  /* Slider okları hover efekti */
+  .slider-prev:hover, .slider-next:hover {
+    transform: translateY(-50%) scale(1.1);
+    background-color: white;
+  }
+  
+  /* Aktif slider dot */
+  .slider-dot.active {
+    background-color: #f97316;
+    transform: scale(1.2);
+  }
+  
+  /* Line clamp için */
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -570,3 +375,84 @@ const randomInstructors = allInstructors.sort(() => 0.5 - Math.random()).slice(0
     overflow: hidden;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Ana slider
+    const slider = document.getElementById('anaSlider');
+    if (!slider) return;
+    
+    const track = slider.querySelector('.slider-track');
+    const slides = slider.querySelectorAll('.slider-slide');
+    const prevBtn = slider.querySelector('.slider-prev');
+    const nextBtn = slider.querySelector('.slider-next');
+    const dots = slider.querySelectorAll('.slider-dot');
+    
+    if (!track || slides.length === 0) return;
+    
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    let autoSlideInterval;
+    
+    const updateSlider = (index) => {
+      if (index < 0) index = slideCount - 1;
+      if (index >= slideCount) index = 0;
+      
+      track.style.transform = `translateX(-${index * 100}%)`;
+      currentIndex = index;
+      
+      // Dot'ları güncelle
+      dots.forEach((dot, i) => {
+        if (i === index) dot.classList.add('active');
+        else dot.classList.remove('active');
+      });
+    };
+    
+    // Ok butonları
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        updateSlider(currentIndex - 1);
+        resetAutoSlide();
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        updateSlider(currentIndex + 1);
+        resetAutoSlide();
+      });
+    }
+    
+    // Dot'lar
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        updateSlider(index);
+        resetAutoSlide();
+      });
+    });
+    
+    // Otomatik geçiş
+    const startAutoSlide = () => {
+      autoSlideInterval = setInterval(() => {
+        updateSlider(currentIndex + 1);
+      }, 5000); // 5 saniyede bir geç
+    };
+    
+    const resetAutoSlide = () => {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    };
+    
+    // Başlat
+    startAutoSlide();
+    
+    // Slider üzerine gelince otomatik geçişi durdur
+    slider.addEventListener('mouseenter', () => {
+      clearInterval(autoSlideInterval);
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+      startAutoSlide();
+    });
+  });
+</script>

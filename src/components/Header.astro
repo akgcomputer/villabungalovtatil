@@ -4,187 +4,182 @@
 // Aktif sayfa kontrolü için
 const currentPath = Astro.url.pathname;
 
-// Kategoriler
-const kategoriler = [
-  { name: 'Bilişim Eğitimleri', href: '/bilisim-egitimleri', icon: '💻' },
-  { name: 'Dil Eğitimleri', href: '/dil-egitimleri', icon: '🌐' },
-  { name: 'İlköğretim Eğitimleri', href: '/ilkogretim-egitimleri', icon: '📚' },
-  { name: 'Lise/Sınav Hazırlık', href: '/lise-egitimleri', icon: '🎯' },
-  { name: 'Spor Eğitimleri', href: '/spor-egitimleri', icon: '⚽' },
-  { name: 'Sanat Eğitimleri', href: '/sanat-egitimleri', icon: '🎨' },
-  { name: 'Kişisel Gelişim', href: '/genel-egitimleri', icon: '🌱' }
+// Şehir adını slug'a çeviren fonksiyon (Türkçe karakterler için özel)
+function sehirToSlug(sehirAdi) {
+  if (!sehirAdi) return '';
+  
+  // Özel durum: İstanbul -> istanbul (noktalı i'ye dikkat)
+  if (sehirAdi === 'İstanbul') return 'istanbul';
+  
+  return sehirAdi.toLowerCase()
+    .replace(/ı/g, 'i')
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c')
+    .replace(/ /g, '-')
+    .replace(/\./g, '');
+}
+
+// Şehirler
+const sehirler = [
+  { name: 'Tüm Şehirler', href: '/sehir', icon: '📍' },
+  { name: 'İstanbul', href: `/sehir/${sehirToSlug('i̇stanbul')}`, icon: '🏛️' },
+  { name: 'Bursa', href: `/sehir/${sehirToSlug('Bursa')}`, icon: '🏔️' },
+  { name: 'Balıkesir', href: `/sehir/${sehirToSlug('Balıkesir')}`, icon: '🏖️' },
+  { name: 'Yalova', href: `/sehir/${sehirToSlug('Yalova')}`, icon: '🌊' },
+  { name: 'Sakarya', href: `/sehir/${sehirToSlug('Sakarya')}`, icon: '🌲' },
+  { name: 'Kocaeli', href: `/sehir/${sehirToSlug('Kocaeli')}`, icon: '🏭' },
+  { name: 'Tekirdağ', href: `/sehir/${sehirToSlug('Tekirdağ')}`, icon: '🍇' },
+  { name: 'Çanakkale', href: `/sehir/${sehirToSlug('Çanakkale')}`, icon: '⚓' },
+  { name: 'Kırklareli', href: `/sehir/${sehirToSlug('Kırklareli')}`, icon: '🌳' },
+  { name: 'Edirne', href: `/sehir/${sehirToSlug('Edirne')}`, icon: '🕌' }
 ];
 
-// Eğitmen kategorileri
-const egitmenKategorileri = [
-  { name: 'Bilişim Eğitmenleri', href: '/egitmenler-bilisim', icon: '💻' },
-  { name: 'Dil Eğitmenleri', href: '/egitmenler-dil', icon: '🌐' },
-  { name: 'İlköğretim Eğitmenleri', href: '/egitmenler-ilkogretim', icon: '📚' },
-  { name: 'Lise/Sınav Eğitmenleri', href: '/egitmenler-lise', icon: '🎯' },
-  { name: 'Spor Eğitmenleri', href: '/egitmenler-spor', icon: '⚽' },
-  { name: 'Sanat Eğitmenleri', href: '/egitmenler-sanat', icon: '🎨' },
-  { name: 'Kişisel Gelişim', href: '/egitmenler-genel', icon: '🌱' }
+// Konut tipleri (slug'ları önceden belirlenmiş)
+const konutTipleri = [
+  { name: 'Tüm Konut Tipleri', href: '/konaklama', icon: '🏘️' },
+  { name: 'Villa', href: '/konaklama/villa', icon: '🏡' },
+  { name: 'Bungalov', href: '/konaklama/bungalov', icon: '🏠' },
+  { name: 'Müstakil Ev', href: '/konaklama/mustakil-ev', icon: '🏰' },
+  { name: 'Yazlık', href: '/konaklama/yazlik', icon: '🏖️' },
+  { name: 'Daire', href: '/konaklama/daire', icon: '🏢' },
+  { name: 'Bağ Evi', href: '/konaklama/bag-evi', icon: '🍇' },
+  { name: 'Çiftlik Evi', href: '/konaklama/ciftlik-evi', icon: '🐄' }
 ];
 
-// Dil eğitimleri
-const dilEgitimleri = [
-  'İngilizce', 'İspanyolca', 'Fransızca', 'Almanca', 'İtalyanca', 
-  'Çince', 'Arapça', 'Japonca', 'Portekizce', 'Yabancılar için Türkçe'
-];
-
-// Kurumsal menüler
-const kurumsalMenuler = [
-  { name: 'Kurumsal Eğitim', href: '/ders-ucreti-isveren' },
-  { name: 'Kurumsal Dil Eğitimi', href: '/kurumsal-tanitim' },
-  { name: 'Şirketine Öner', href: '/sirketine-oner' },
-  { name: 'Fiyatlandırma', href: '/fiyatlar' },
-  { name: 'İstem', href: '/istem' }
+// Turlar
+const turlar = [
+  { name: 'Balkan Turları', href: '/tur/balkan', icon: '🏛️' },
+  { name: 'Avrupa Turları', href: '/tur/avrupa', icon: '🗼' },
+  { name: 'Umre Turları', href: '/tur/umre', icon: '🕋' },
+  { name: 'Uzak Doğu Turları', href: '/tur/uzakdogu', icon: '🎋' },
+  { name: 'Afrika Turları', href: '/tur/afrika', icon: '🦁' },
+  { name: 'Körfez Turları', href: '/tur/korfez', icon: '🏜️' },
+  { name: 'Gemi Turları', href: '/tur/gemi', icon: '🚢' }
 ];
 ---
 
 <header class="bg-white shadow-md sticky top-0 z-50">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <div class="flex justify-between items-center">
-      <!-- Logo / Site Adı -->
-     <a href="/" class="flex flex-col items-start group">
-  <!-- İSTEM - Bitişik görünüm için negative margin -->
-  <span class="text-2xl font-bold transition-colors" style="font-family: 'Fredoka', sans-serif;">
-    <span class="text-orange-500 group-hover:text-orange-600 transition-colors">İST</span><span class="text-indigo-600 group-hover:text-indigo-700 transition-colors">EM</span>
-  </span>
-  
-  <span class="text-xs font-medium text-gray-700 tracking-wide  mt-0.5">
-    Eğitim Pazaryeri
-  </span>
-</a>
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0">
+        <img 
+          src="/images/villa-bungalov-tatil-logo-220x70-1.png"
+          alt="Villa Bungalov Tatil"
+          class="h-12 md:h-14 w-auto object-contain"
+          loading="eager"
+          onerror="this.onerror=null; this.src='/images/villa-bungalov-tatil-logo-ters-320x150-1.png'"
+        />
+      </a>
 
       <!-- Masaüstü Menü -->
       <div class="hidden lg:flex items-center space-x-1">
-        <!-- Tüm Eğitimler Dropdown -->
+        <!-- Şehirler Dropdown -->
         <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-indigo-600">
+          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-orange-600">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span>Eğitimler</span>
+            <span>Şehirler</span>
             <svg class="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           
-          <!-- Dropdown Menu -->
-          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
-            <div class="py-2">
-              {kategoriler.map((kat) => (
+          <!-- Dropdown Menu - z-index yükseltildi -->
+          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] border border-gray-100">
+            <div class="py-2 max-h-96 overflow-y-auto">
+              {sehirler.map((sehir) => (
                 <a 
-                  href={kat.href}
-                  class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                  href={sehir.href}
+                  class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-orange-700 transition-colors"
                 >
-                  <span class="text-gray-400 w-5">{kat.icon}</span>
-                  <span class="text-sm font-medium">{kat.name}</span>
+                  <span class="text-gray-400 w-6">{sehir.icon}</span>
+                  <span class="text-sm font-medium">{sehir.name}</span>
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <!-- Eğitmenler Dropdown -->
+        <!-- Konutlar Dropdown -->
         <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-indigo-600">
+          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-orange-600">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
-            <span>Eğitmenler</span>
+            <span>Konutlar</span>
             <svg class="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           
-          <!-- Dropdown Menu -->
-          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
+          <!-- Dropdown Menu - z-index yükseltildi -->
+          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] border border-gray-100">
             <div class="py-2">
-              {egitmenKategorileri.map((kat) => (
+              {konutTipleri.map((konut) => (
                 <a 
-                  href={kat.href}
-                  class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                  href={konut.href}
+                  class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-orange-700 transition-colors"
                 >
-                  <span class="text-gray-400 w-5">{kat.icon}</span>
-                  <span class="text-sm font-medium">{kat.name}</span>
+                  <span class="text-gray-400 w-6">{konut.icon}</span>
+                  <span class="text-sm font-medium">{konut.name}</span>
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <!-- Dil Eğitimleri Dropdown -->
+        <!-- Turlar Dropdown -->
         <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-indigo-600">
+          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-orange-600">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>Dil</span>
+            <span>Turlar</span>
             <svg class="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           
-          <!-- Dropdown Menu -->
-          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
+          <!-- Dropdown Menu - z-index yükseltildi -->
+          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] border border-gray-100">
             <div class="py-2">
-              {dilEgitimleri.map((dil) => (
+              {turlar.map((tur) => (
                 <a 
-                  href="/dil-egitimleri"
-                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                  href={tur.href}
+                  class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:bg-orange-50 hover:text-orange-700 transition-colors"
                 >
-                  {dil}
+                  <span class="text-gray-400 w-6">{tur.icon}</span>
+                  <span class="text-sm font-medium">{tur.name}</span>
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <!-- Kurumsal Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-200 text-gray-700 hover:text-indigo-600">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-            <span>Kurumsal</span>
-            <svg class="w-4 h-4 ml-1 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          
-          <!-- Dropdown Menu -->
-          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
-            <div class="py-2">
-              {kurumsalMenuler.map((menu) => (
-                <a 
-                  href={menu.href}
-                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
-                >
-                  {menu.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        
-        <!-- Eğitmen Başvurusu - Özel Buton -->
+        <!-- Konut Ekle - Kırmızı Buton -->
         <a 
-          href="/egitmen-basvuru" 
-          class="flex items-center gap-1 ml-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+          href="/villa-ekle" 
+          class="flex items-center gap-2 ml-2 px-5 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 z-10"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
           </svg>
-          <span>Eğitmen Ol</span>
+          <span>Konut Ekle</span>
         </a>
 
         <!-- İletişim -->
         <a 
           href="/iletisim" 
-          class={currentPath === '/iletisim' ? 'flex items-center gap-1 px-4 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium' : 'flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 text-gray-700 hover:text-indigo-600 transition-all duration-200'}
+          class={currentPath === '/iletisim' 
+            ? 'flex items-center gap-1 px-4 py-2 rounded-lg bg-orange-50 text-orange-700 font-medium' 
+            : 'flex items-center gap-1 px-4 py-2 rounded-lg hover:bg-gray-100 text-gray-700 hover:text-orange-600 transition-all duration-200'
+          }
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -194,221 +189,211 @@ const kurumsalMenuler = [
       </div>
 
       <!-- Mobil Menü Butonu -->
-      <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none hover:bg-gray-100 p-2 rounded-lg transition" aria-label="Menü">
+      <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none hover:bg-gray-100 p-2 rounded-lg transition z-20" aria-label="Menü">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
 
-    <!-- Mobil Menü -->
-<div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-gray-200">
-  <div class="flex flex-col space-y-2 max-h-[80vh] overflow-y-auto pb-6">
-    
-    <!-- Tüm Eğitimler Dropdown (Mobil) -->
-    <div class="border-b border-gray-100 pb-2">
-      <button 
-        id="mobile-egitimler-btn"
-        class="flex items-center justify-between w-full px-3 py-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition"
-      >
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <span class="font-medium">Tüm Eğitimler</span>
-        </div>
-        <svg id="mobile-egitimler-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      
-      <!-- Eğitimler Alt Menü (başlangıçta gizli) -->
-      <div id="mobile-egitimler-menu" class="hidden pl-4 mt-1 space-y-1">
-        {kategoriler.map((kat) => (
-          <a 
-            href={kat.href}
-            class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-indigo-50 rounded-lg transition"
+    <!-- Mobil Menü - z-index yükseltildi -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-gray-200 bg-white relative z-[100]">
+      <div class="flex flex-col space-y-2 max-h-[80vh] overflow-y-auto pb-6">
+        
+        <!-- Şehirler Dropdown (Mobil) -->
+        <div class="border-b border-gray-100 pb-2">
+          <button 
+            id="mobile-sehirler-btn"
+            class="flex items-center justify-between w-full px-3 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition"
           >
-            <span class="text-gray-400 w-5">{kat.icon}</span>
-            <span class="text-sm">{kat.name}</span>
-          </a>
-        ))}
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="font-medium">Şehirler</span>
+            </div>
+            <svg id="mobile-sehirler-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <!-- Şehirler Alt Menü -->
+          <div id="mobile-sehirler-menu" class="hidden pl-4 mt-1 space-y-1">
+            {sehirler.map((sehir) => (
+              <a 
+                href={sehir.href}
+                class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-orange-50 rounded-lg transition"
+              >
+                <span class="text-gray-400 w-5">{sehir.icon}</span>
+                <span class="text-sm">{sehir.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Konutlar Dropdown (Mobil) -->
+        <div class="border-b border-gray-100 pb-2">
+          <button 
+            id="mobile-konutlar-btn"
+            class="flex items-center justify-between w-full px-3 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition"
+          >
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+              <span class="font-medium">Konutlar</span>
+            </div>
+            <svg id="mobile-konutlar-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <!-- Konutlar Alt Menü -->
+          <div id="mobile-konutlar-menu" class="hidden pl-4 mt-1 space-y-1">
+            {konutTipleri.map((konut) => (
+              <a 
+                href={konut.href}
+                class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-orange-50 rounded-lg transition"
+              >
+                <span class="text-gray-400 w-5">{konut.icon}</span>
+                <span class="text-sm">{konut.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Turlar Dropdown (Mobil) -->
+        <div class="border-b border-gray-100 pb-2">
+          <button 
+            id="mobile-turlar-btn"
+            class="flex items-center justify-between w-full px-3 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition"
+          >
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="font-medium">Turlar</span>
+            </div>
+            <svg id="mobile-turlar-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <!-- Turlar Alt Menü -->
+          <div id="mobile-turlar-menu" class="hidden pl-4 mt-1 space-y-1">
+            {turlar.map((tur) => (
+              <a 
+                href={tur.href}
+                class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-orange-50 rounded-lg transition"
+              >
+                <span class="text-gray-400 w-5">{tur.icon}</span>
+                <span class="text-sm">{tur.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Konut Ekle - Mobil Kırmızı Buton -->
+        <a 
+          href="/villa-ekle" 
+          class="flex items-center gap-3 px-3 py-3 bg-red-600 text-white rounded-lg transition border-b border-gray-100"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+          <span class="font-medium">Konut Ekle</span>
+        </a>
+
+        <!-- İletişim - Mobil -->
+        <a 
+          href="/iletisim" 
+          class="flex items-center gap-3 px-3 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition"
+        >
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>İletişim</span>
+        </a>
       </div>
     </div>
-
-    <!-- Eğitmenler Dropdown (Mobil) -->
-    <div class="border-b border-gray-100 pb-2">
-      <button 
-        id="mobile-egitmenler-btn"
-        class="flex items-center justify-between w-full px-3 py-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition"
-      >
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          <span class="font-medium">Eğitmenler</span>
-        </div>
-        <svg id="mobile-egitmenler-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      
-      <!-- Eğitmenler Alt Menü (başlangıçta gizli) -->
-      <div id="mobile-egitmenler-menu" class="hidden pl-4 mt-1 space-y-1">
-        {egitmenKategorileri.map((kat) => (
-          <a 
-            href={kat.href}
-            class="flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-indigo-50 rounded-lg transition"
-          >
-            <span class="text-gray-400 w-5">{kat.icon}</span>
-            <span class="text-sm">{kat.name}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <!-- Kurumsal Dropdown (Mobil) -->
-    <div class="border-b border-gray-100 pb-2">
-      <button 
-        id="mobile-kurumsal-btn"
-        class="flex items-center justify-between w-full px-3 py-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition"
-      >
-        <div class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-          <span class="font-medium">Kurumsal</span>
-        </div>
-        <svg id="mobile-kurumsal-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      
-      <!-- Kurumsal Alt Menü (başlangıçta gizli) -->
-      <div id="mobile-kurumsal-menu" class="hidden pl-4 mt-1 space-y-1">
-        {kurumsalMenuler.map((menu) => (
-          <a 
-            href={menu.href}
-            class="block px-3 py-2.5 text-sm text-gray-600 hover:bg-indigo-50 rounded-lg transition"
-          >
-            {menu.name}
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <!-- Diğer Menüler (direkt link) -->
-    <a 
-      href="/populer-egitimler" 
-      class="flex items-center gap-3 px-3 py-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition border-b border-gray-100"
-    >
-      <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-      </svg>
-      <span>Popüler Eğitimler</span>
-    </a>
-
-    <!-- Eğitmen Başvurusu - Özel Buton -->
-    <a 
-      href="/egitmen-basvuru" 
-      class="flex items-center gap-3 px-3 py-3 bg-indigo-50 text-indigo-700 rounded-lg transition border-b border-gray-100"
-    >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-      </svg>
-      <span class="font-medium">Eğitmen Başvurusu</span>
-    </a>
-
-    <a 
-      href="/iletisim" 
-      class="flex items-center gap-3 px-3 py-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition"
-    >
-      <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-      <span>İletişim</span>
-    </a>
-  </div>
-</div>
-
-    
   </nav>
 </header>
 
-<!-- Mobil menü için JavaScript -->
+<!-- Mobil menü için JavaScript (aynı) -->
 <script>
-  const button = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-  
-  // Dropdown butonları
-  const egitimlerBtn = document.getElementById('mobile-egitimler-btn');
-  const egitmenlerBtn = document.getElementById('mobile-egitmenler-btn');
-  const kurumsalBtn = document.getElementById('mobile-kurumsal-btn');
-  
-  // Dropdown menüler
-  const egitimlerMenu = document.getElementById('mobile-egitimler-menu');
-  const egitmenlerMenu = document.getElementById('mobile-egitmenler-menu');
-  const kurumsalMenu = document.getElementById('mobile-kurumsal-menu');
-  
-  // Dropdown ikonları
-  const egitimlerIcon = document.getElementById('mobile-egitimler-icon');
-  const egitmenlerIcon = document.getElementById('mobile-egitmenler-icon');
-  const kurumsalIcon = document.getElementById('mobile-kurumsal-icon');
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    
+    // Dropdown butonları
+    const sehirlerBtn = document.getElementById('mobile-sehirler-btn');
+    const konutlarBtn = document.getElementById('mobile-konutlar-btn');
+    const turlarBtn = document.getElementById('mobile-turlar-btn');
+    
+    // Dropdown menüler
+    const sehirlerMenu = document.getElementById('mobile-sehirler-menu');
+    const konutlarMenu = document.getElementById('mobile-konutlar-menu');
+    const turlarMenu = document.getElementById('mobile-turlar-menu');
+    
+    // Dropdown ikonları
+    const sehirlerIcon = document.getElementById('mobile-sehirler-icon');
+    const konutlarIcon = document.getElementById('mobile-konutlar-icon');
+    const turlarIcon = document.getElementById('mobile-turlar-icon');
 
-  // Ana menü toggle
-  if (button && menu) {
-    button.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      
-      // Buton ikonunu değiştir
-      const icon = button.querySelector('svg');
-      if (icon) {
-        if (menu.classList.contains('hidden')) {
+    // Ana menü toggle
+    if (button && menu) {
+      button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        
+        // Buton ikonunu değiştir
+        const icon = button.querySelector('svg');
+        if (icon) {
+          if (menu.classList.contains('hidden')) {
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />';
+          } else {
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />';
+          }
+        }
+      });
+    }
+
+    // Şehirler dropdown toggle
+    if (sehirlerBtn && sehirlerMenu && sehirlerIcon) {
+      sehirlerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sehirlerMenu.classList.toggle('hidden');
+        sehirlerIcon.style.transform = sehirlerMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    }
+
+    // Konutlar dropdown toggle
+    if (konutlarBtn && konutlarMenu && konutlarIcon) {
+      konutlarBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        konutlarMenu.classList.toggle('hidden');
+        konutlarIcon.style.transform = konutlarMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    }
+
+    // Turlar dropdown toggle
+    if (turlarBtn && turlarMenu && turlarIcon) {
+      turlarBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        turlarMenu.classList.toggle('hidden');
+        turlarIcon.style.transform = turlarMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    }
+
+    // Dışarı tıklayınca mobil menüyü kapat
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#mobile-menu') && !e.target.closest('#mobile-menu-button') && menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        const icon = button?.querySelector('svg');
+        if (icon) {
           icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />';
-        } else {
-          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />';
         }
       }
     });
-  }
-
-  // Eğitimler dropdown toggle
-  if (egitimlerBtn && egitimlerMenu && egitimlerIcon) {
-    egitimlerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      egitimlerMenu.classList.toggle('hidden');
-      // İkonu döndür
-      if (egitimlerMenu.classList.contains('hidden')) {
-        egitimlerIcon.style.transform = 'rotate(0deg)';
-      } else {
-        egitimlerIcon.style.transform = 'rotate(180deg)';
-      }
-    });
-  }
-
-  // Eğitmenler dropdown toggle
-  if (egitmenlerBtn && egitmenlerMenu && egitmenlerIcon) {
-    egitmenlerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      egitmenlerMenu.classList.toggle('hidden');
-      if (egitmenlerMenu.classList.contains('hidden')) {
-        egitmenlerIcon.style.transform = 'rotate(0deg)';
-      } else {
-        egitmenlerIcon.style.transform = 'rotate(180deg)';
-      }
-    });
-  }
-
-  // Kurumsal dropdown toggle
-  if (kurumsalBtn && kurumsalMenu && kurumsalIcon) {
-    kurumsalBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      kurumsalMenu.classList.toggle('hidden');
-      if (kurumsalMenu.classList.contains('hidden')) {
-        kurumsalIcon.style.transform = 'rotate(0deg)';
-      } else {
-        kurumsalIcon.style.transform = 'rotate(180deg)';
-      }
-    });
-  }
+  });
 </script>

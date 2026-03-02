@@ -1,0 +1,295 @@
+---
+// src/pages/villa-ekle.astro
+import Layout from '../layouts/Layout.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+// Şehir listesi
+const sehirler = [
+  'İstanbul', 'Bursa', 'Balıkesir', 'Yalova', 'Sakarya', 
+  'Kocaeli', 'Tekirdağ', 'Çanakkale', 'Kırklareli', 'Edirne', 'Bilecik'
+];
+
+// Konut tipleri
+const konutTipleri = [
+  'Villa', 'Müstakil Ev', 'Yazlık', 'Bungalov', 'Daire', 'Bağ Evi', 'Çiftlik Evi', 'Köy Evi'
+];
+
+// Olanaklar
+const olanaklar = [
+  'Havuz', 'Jakuzi', 'Klima', 'Wifi', 'Özel Otopark', 'Mutfak', 
+  'Barbekü', 'Çamaşır Makinesi', 'Bulaşık Makinesi', 'Televizyon', 
+  'Şömine', 'Bahçe', 'Deniz Manzaralı', 'Sahile Yakın', 'Merkezi Konum'
+];
+
+// Villa ekleme mesajı
+const villaEklemeMesaji = `Merhaba, villamı eklemek istiyorum. Bilgi almak için iletişime geçebilir misiniz?`;
+---
+
+<Layout title="Villanızı Ekleyin - Villa Bungalov Tatil">
+    <!-- SLOGAN - En üstte, güzel bir font ile -->
+  <div class="bg-white py-6 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      
+      <p class="font-hand text-xl text-gray-500 mt-2">VillaBungalovTatil.com.tr</p>
+      <h1 class="font-hand text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Konutunuzu <span class="font-hand text-orange-600">Ekleyin</span>
+      </h1>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Başlık -->
+    <div class="text-center mb-10">
+      
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Konutunuzu tatilcilerle buluşturun, kazanmaya başlayın!
+      </p>
+    </div>
+
+    <!-- İletişim Butonları - En üstte -->
+    <div class="flex justify-center mb-12">
+      <ContactButtons message={villaEklemeMesaji} />
+    </div>
+
+    <!-- Ana İçerik Grid -->
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <!-- Sol Kolon: Neden Villa Ekle? -->
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+          <span class="text-3xl">✨</span> Neden Villanızı Eklemelisiniz?
+        </h2>
+        
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 text-xl mt-1">✓</span>
+            <div>
+              <span class="font-semibold text-gray-800">İlan Ekleme</span>
+              <p class="text-gray-600 text-sm">Konutunuzu sisteme ekleyip listeleyin</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 text-xl mt-1">✓</span>
+            <div>
+              <span class="font-semibold text-gray-800">Düşük Komisyon Yok</span>
+              <p class="text-gray-600 text-sm">Komisyonu en az ödeyin doğrudan kazanın</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 text-xl mt-1">✓</span>
+            <div>
+              <span class="font-semibold text-gray-800">Geniş Kitle</span>
+              <p class="text-gray-600 text-sm">Binlerce tatilci size ulaşsın</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 text-xl mt-1">✓</span>
+            <div>
+              <span class="font-semibold text-gray-800">Profesyonel Destek</span>
+              <p class="text-gray-600 text-sm">İlanınızı oluştururken size yardımcı olalım</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- İstatistikler -->
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold text-orange-600">500+</div>
+            <div class="text-sm text-gray-600">Aktif Villa</div>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold text-orange-600">10.000+</div>
+            <div class="text-sm text-gray-600">Mutlu Tatilci</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ Kolon: Sorulacak Sorular -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+          <span class="text-3xl">📝</span> Size Soracağımız Sorular
+        </h2>
+        
+        <!-- Bölge Sorusu -->
+        <div class="mb-6 pb-6 border-b border-gray-100">
+          <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+            Örnek Konum / Bölge
+          </h3>
+          <div class="flex flex-wrap gap-2 ml-8">
+            {sehirler.map(sehir => (
+              <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                {sehir}
+              </span>
+            ))}
+          </div>
+          <p class="text-sm text-gray-500 mt-2 ml-8">
+            Konutunuzun bulunduğu şehir ve ilçe bilgisi
+          </p>
+        </div>
+
+        <!-- Konut Tipi Sorusu -->
+        <div class="mb-6 pb-6 border-b border-gray-100">
+          <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+            Konut Tipi
+          </h3>
+          <div class="flex flex-wrap gap-2 ml-8">
+            {konutTipleri.map(tip => (
+              <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                {tip}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Detaylı Bilgiler -->
+        <div class="mb-6 pb-6 border-b border-gray-100">
+          <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+            Konutun Detaylı Bilgileri
+          </h3>
+          <ul class="space-y-2 ml-8 text-gray-600">
+            <li class="flex items-center gap-2">
+              <span>🛏️</span> Kaç kişilik?
+            </li>
+            <li class="flex items-center gap-2">
+              <span>🛌</span> Kaç yatak odası?
+            </li>
+            <li class="flex items-center gap-2">
+              <span>🚿</span> Kaç banyo?
+            </li>
+            <li class="flex items-center gap-2">
+              <span>💰</span> Gecelik fiyat?
+            </li>
+            <li class="flex items-center gap-2">
+              <span>📸</span> Villa fotoğrafları
+            </li>
+          </ul>
+        </div>
+
+        <!-- Olanaklar -->
+        <div>
+          <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+            Olanaklar (Çok önemlidir)
+          </h3>
+          <div class="flex flex-wrap gap-2 ml-8">
+            {olanaklar.slice(0, 8).map(olanak => (
+              <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                {olanak}
+              </span>
+            ))}
+            <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">
+              + daha fazlası
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nasıl Çalışır? -->
+    <div class="bg-gray-50 rounded-2xl p-8 mb-12">
+      <h2 class="text-2xl font-bold text-gray-800 text-center mb-8">Nasıl Çalışır?</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+            1
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Bize Ulaşın</h3>
+          <p class="text-gray-600 text-sm">WhatsApp veya telefonla bize ulaşın</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+            2
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Bilgileri Paylaşın</h3>
+          <p class="text-gray-600 text-sm">Villanızla ilgili tüm detayları anlatın</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+            3
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Yayına Alalım</h3>
+          <p class="text-gray-600 text-sm">İlanınızı sizin için oluşturup yayına alalım</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sık Sorulan Sorular -->
+    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Sık Sorulan Sorular</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <span class="text-orange-500">❓</span>
+            Ücretli mi?
+          </h3>
+          <p class="text-gray-600 text-sm ml-7">
+            Hayır, konut eklemek sadece bir defaya mahsus ekleme ücreti alınır. Sadece rezervasyon başına cüzi komisyon alınmaktadır.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <span class="text-orange-500">❓</span>
+            Ne zaman yayına alınıyor?
+          </h3>
+          <p class="text-gray-600 text-sm ml-7">
+            Bilgileri aldıktan sonra 2-3 saat içinde ilanınız yayına alınır.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <span class="text-orange-500">❓</span>
+            Kaç fotoğraf ekleyebilirim?
+          </h3>
+          <p class="text-gray-600 text-sm ml-7">
+            Konutunuzu en iyi şekilde tanıtmak için en az 10 en fazla 30 adet kadar fotoğraf ekleyebilirsiniz.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <span class="text-orange-500">❓</span>
+            Konut sahibi ödemesini nasıl alır?
+          </h3>
+          <p class="text-gray-600 text-sm ml-7">
+            Misafirler önden kaparo öderler kalan ödemeyi doğrudan konut sahibine öderler. Farklı kampanya fırsat gibi durumlar hariçtir.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Alt İletişim Butonu -->
+      <div class="text-center mt-8 pt-6 border-t border-gray-100">
+        <p class="text-gray-600 mb-4">Sorularınız mı var? Hemen iletişime geçin!</p>
+        <div class="flex justify-center">
+          <ContactButtons message="Villa ekleme hakkında bilgi almak istiyorum." />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Ekstra stiller */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  /* Özel fontlar */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&display=swap');
+  
+  .font-slogan {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  
+  .font-hand {
+    font-family: 'Caveat', cursive;
+  }
+</style>

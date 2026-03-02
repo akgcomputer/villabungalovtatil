@@ -1,369 +1,116 @@
 ---
-// src/pages/ders-kayit-form.astro
+// src/pages/iletisim.astro
 import Layout from '../layouts/Layout.astro';
-import ContactButtons from '../components/ContactButtons.astro';
-
-// Meta bilgiler
-const meta = {
-  title: 'Derse Kaydol / İletişim | İstanbul Eğitim Merkezi',
-  description: 'Ders kaydı ve iletişim formu. Size en uygun eğitmen ve ders programı için hemen başvurun.'
-};
-
-// Konular (iletişim formu için)
-const konular = [
-  'Genel Bilgi',
-  'Fiyat Bilgisi',
-  'Teknik Destek',
-  'Şikayet/Öneri',
-  'Diğer'
-];
+import PageTemplate from '../components/PageTemplate.astro';
+import ContactButtons, { iletisim } from '../components/ContactButtons.astro';
 ---
 
-<Layout title={meta.title} description={meta.description}>
-  <div class="max-w-3xl mx-auto px-4 py-12 md:py-16">
-    
-    <!-- Başlık -->
-    <div class="text-center mb-8">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Derse Kaydol / İletişim</h1>
-      <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Size en uygun eğitmen ve ders programı için hemen başvurun. 
-        Gün içinde sizi bilgilendireceğiz.
-      </p>
-    </div>
+<Layout title="İletişim - Villa Bungalov Tatil">
+  <PageTemplate 
+    title="İletişim" 
+    subtitle="Size yardımcı olmaktan mutluluk duyarız"
+  >
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Sol Kolon: İletişim Bilgileri -->
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-orange-600 text-xl">📞</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Telefon</h3>
+            <a href={`tel:${iletisim.phone}`} class="text-orange-600 hover:underline text-lg">
+              {iletisim.phone}
+            </a>
+            <p class="text-sm text-gray-500">Hafta içi 09:00 - 18:00</p>
+          </div>
+        </div>
 
-    <!-- Sekmeler -->
-    <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-      
-      <!-- Sekme Başlıkları -->
-      <div class="flex border-b border-gray-200">
-        <button 
-          id="tabDersKaydi" 
-          class="flex-1 py-4 px-6 text-center font-semibold text-lg transition-colors bg-indigo-600 text-white"
-          onclick="switchTab('ders')"
-        >
-          📝 Ders Kaydı
-        </button>
-        <button 
-          id="tabIletisim" 
-          class="flex-1 py-4 px-6 text-center font-semibold text-lg transition-colors bg-gray-50 text-gray-700 hover:bg-gray-100"
-          onclick="switchTab('iletisim')"
-        >
-          💬 İletişim
-        </button>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-green-600 text-xl">📱</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">WhatsApp</h3>
+            <a href={`https://wa.me/${iletisim.whatsapp}`} target="_blank" class="text-green-600 hover:underline text-lg">
+              {iletisim.whatsapp}
+            </a>
+            <p class="text-sm text-gray-500">7/24 anında destek</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-blue-600 text-xl">✉️</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">E-posta</h3>
+            <a href={`mailto:${iletisim.email}`} class="text-blue-600 hover:underline">
+              {iletisim.email}
+            </a>
+            <p class="text-sm text-gray-500">En geç 24 saat içinde dönüş</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-purple-600 text-xl">📍</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Adres</h3>
+            <p class="text-gray-600">İstanbul, Türkiye</p>
+            <p class="text-sm text-gray-500">Merkez ofisimiz İstanbul'da</p>
+          </div>
+        </div>
+
+        <!-- Sosyal Medya -->
+        <div class="pt-4">
+          <h3 class="font-semibold text-gray-800 mb-3">Bizi Takip Edin</h3>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+              <span>📘</span>
+            </a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+              <span>📷</span>
+            </a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+              <span>🐦</span>
+            </a>
+            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+              <span>🎵</span>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <!-- Ders Kaydı Formu -->
-      <div id="formDersKaydi" class="p-6 md:p-8">
-        <form id="dersKaydiForm" method="POST" action="/api/kayit" class="space-y-5">
-          
-          <!-- Ad Soyad -->
+      <!-- Sağ Kolon: İletişim Formu -->
+      <div class="bg-gray-50 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Bize Mesaj Gönderin</h3>
+        <form class="space-y-4">
           <div>
-            <label for="adSoyad" class="block text-sm font-medium text-gray-700 mb-1">
-              Ad Soyad <span class="text-red-500">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="adSoyad" 
-              name="adSoyad" 
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="Adınız ve soyadınız"
-            >
+            <label class="block text-sm font-medium text-gray-700 mb-1">Adınız Soyadınız</label>
+            <input type="text" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Adınız Soyadınız" />
           </div>
-
-          <!-- Telefon -->
           <div>
-            <label for="telefon" class="block text-sm font-medium text-gray-700 mb-1">
-              Telefon <span class="text-red-500">*</span>
-            </label>
-            <input 
-              type="tel" 
-              id="telefon" 
-              name="telefon" 
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="05XX XXX XX XX"
-            >
+            <label class="block text-sm font-medium text-gray-700 mb-1">E-posta Adresiniz</label>
+            <input type="email" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="ornek@email.com" />
           </div>
-
-          <!-- E-posta (zorunlu değil) -->
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-              E-posta Adresi
-            </label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="ornek@email.com (opsiyonel)"
-            >
-            <p class="text-xs text-gray-500 mt-1">E-posta girerseniz size bilgilendirme gönderebiliriz.</p>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+            <input type="tel" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="05XX XXX XX XX" />
           </div>
-
-          <!-- Ders Adı (Kullanıcı yazacak) -->
           <div>
-            <label for="dersAdi" class="block text-sm font-medium text-gray-700 mb-1">
-              Ders Adı <span class="text-red-500">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="dersAdi" 
-              name="dersAdi" 
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="Örn: İngilizce, Matematik, Python Programlama"
-            >
+            <label class="block text-sm font-medium text-gray-700 mb-1">Mesajınız</label>
+            <textarea rows="4" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Mesajınızı yazın..."></textarea>
           </div>
-
-          <!-- Eğitmen Adı (Kullanıcı yazacak - opsiyonel) -->
-          <div>
-            <label for="egitmenAdi" class="block text-sm font-medium text-gray-700 mb-1">
-              Eğitmen Adı (opsiyonel)
-            </label>
-            <input 
-              type="text" 
-              id="egitmenAdi" 
-              name="egitmenAdi" 
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="Varsa eğitmen adı yazın"
-            >
-          </div>
-
-          <!-- Eğitim Türü -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">
-              Eğitim Türü <span class="text-red-500">*</span>
-            </label>
-            <div class="grid sm:grid-cols-2 gap-3">
-              <label class="flex items-center gap-2 p-3 border border-gray-200 rounded-lg hover:bg-indigo-50 cursor-pointer">
-                <input type="radio" name="egitimTuru" value="yuz-yuze-birebir" required class="text-indigo-600 focus:ring-indigo-500">
-                <span class="text-sm">🎯 Yüz yüze - Birebir Özel Ders</span>
-              </label>
-              <label class="flex items-center gap-2 p-3 border border-gray-200 rounded-lg hover:bg-indigo-50 cursor-pointer">
-                <input type="radio" name="egitimTuru" value="yuz-yuze-grup" required class="text-indigo-600 focus:ring-indigo-500">
-                <span class="text-sm">👥 Yüz yüze - Grup Dersi</span>
-              </label>
-              <label class="flex items-center gap-2 p-3 border border-gray-200 rounded-lg hover:bg-indigo-50 cursor-pointer">
-                <input type="radio" name="egitimTuru" value="online-birebir" required class="text-indigo-600 focus:ring-indigo-500">
-                <span class="text-sm">💻 Online - Birebir Özel Ders</span>
-              </label>
-              <label class="flex items-center gap-2 p-3 border border-gray-200 rounded-lg hover:bg-indigo-50 cursor-pointer">
-                <input type="radio" name="egitimTuru" value="online-grup" required class="text-indigo-600 focus:ring-indigo-500">
-                <span class="text-sm">🌐 Online - Grup Dersi</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- Şehir (isteğe bağlı) -->
-          <div>
-            <label for="sehir" class="block text-sm font-medium text-gray-700 mb-1">
-              Şehir (opsiyonel)
-            </label>
-            <input 
-              type="text" 
-              id="sehir" 
-              name="sehir" 
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="Yüz yüze eğitim için şehir, Online için boş bırakabilirsiniz"
-            >
-          </div>
-
-          <!-- Gizli Alanlar -->
-          <input type="hidden" name="formTipi" value="ders">
-
-          <!-- Gönder Butonu -->
-          <div class="pt-4">
-            <button 
-              type="submit" 
-              class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Kaydol
-            </button>
-          </div>
+          <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 rounded-lg transition-colors">
+            Gönder
+          </button>
         </form>
-      </div>
-
-      <!-- İletişim Formu -->
-      <div id="formIletisim" class="p-6 md:p-8 hidden">
-        <form id="iletisimForm" method="POST" action="/api/kayit" class="space-y-5">
-          
-          <!-- Ad Soyad -->
-          <div>
-            <label for="iletisimAdSoyad" class="block text-sm font-medium text-gray-700 mb-1">
-              Ad Soyad <span class="text-red-500">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="iletisimAdSoyad" 
-              name="adSoyad" 
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="Adınız ve soyadınız"
-            >
-          </div>
-
-          <!-- Telefon -->
-          <div>
-            <label for="iletisimTelefon" class="block text-sm font-medium text-gray-700 mb-1">
-              Telefon <span class="text-red-500">*</span>
-            </label>
-            <input 
-              type="tel" 
-              id="iletisimTelefon" 
-              name="telefon" 
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="05XX XXX XX XX"
-            >
-          </div>
-
-          <!-- E-posta (zorunlu değil) -->
-          <div>
-            <label for="iletisimEmail" class="block text-sm font-medium text-gray-700 mb-1">
-              E-posta Adresi
-            </label>
-            <input 
-              type="email" 
-              id="iletisimEmail" 
-              name="email" 
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="ornek@email.com (opsiyonel)"
-            >
-          </div>
-
-          <!-- Konu -->
-          <div>
-            <label for="konu" class="block text-sm font-medium text-gray-700 mb-1">
-              Konu <span class="text-red-500">*</span>
-            </label>
-            <select 
-              id="konu" 
-              name="konu" 
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-            >
-              <option value="">Konu seçiniz</option>
-              {konular.map((konu) => (
-                <option value={konu}>{konu}</option>
-              ))}
-            </select>
-          </div>
-
-          <!-- Mesaj -->
-          <div>
-            <label for="mesaj" class="block text-sm font-medium text-gray-700 mb-1">
-              Mesajınız <span class="text-red-500">*</span>
-            </label>
-            <textarea 
-              id="mesaj" 
-              name="mesaj" 
-              rows="4"
-              required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-              placeholder="Mesajınızı yazın..."
-            ></textarea>
-          </div>
-
-          <!-- Gizli Alanlar -->
-          <input type="hidden" name="formTipi" value="iletisim">
-
-          <!-- Gönder Butonu -->
-          <div class="pt-4">
-            <button 
-              type="submit" 
-              class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-              </svg>
-              Gönder
-            </button>
-          </div>
-        </form>
+        <p class="text-xs text-gray-400 mt-3 text-center">
+          * Form doldurarak KVKK metnini kabul etmiş olursunuz.
+        </p>
       </div>
     </div>
-
-    <!-- Hızlı İletişim Butonları (ContactButtons) -->
-    <div class="mt-8 text-center">
-      <p class="text-gray-600 mb-4">Hızlı iletişim için:</p>
-      <ContactButtons courseTitle="Form" />
-    </div>
-
-    <!-- Web Sitesi Bilgisi -->
-    <div class="mt-6 text-center text-sm text-gray-500">
-      <p>istanbulegitimmerkezi.com</p>
-    </div>
-  </div>
+  </PageTemplate>
 </Layout>
-
-<!-- JavaScript: Sadece sekme geçişleri ve form gönderimi -->
-<script>
-  // Sekme geçişi
-  window.switchTab = function(tab) {
-    const dersForm = document.getElementById('formDersKaydi');
-    const iletisimForm = document.getElementById('formIletisim');
-    const tabDers = document.getElementById('tabDersKaydi');
-    const tabIletisim = document.getElementById('tabIletisim');
-    
-    if (tab === 'ders') {
-      dersForm.classList.remove('hidden');
-      iletisimForm.classList.add('hidden');
-      tabDers.className = 'flex-1 py-4 px-6 text-center font-semibold text-lg bg-indigo-600 text-white';
-      tabIletisim.className = 'flex-1 py-4 px-6 text-center font-semibold text-lg bg-gray-50 text-gray-700 hover:bg-gray-100';
-    } else {
-      dersForm.classList.add('hidden');
-      iletisimForm.classList.remove('hidden');
-      tabDers.className = 'flex-1 py-4 px-6 text-center font-semibold text-lg bg-gray-50 text-gray-700 hover:bg-gray-100';
-      tabIletisim.className = 'flex-1 py-4 px-6 text-center font-semibold text-lg bg-indigo-600 text-white';
-    }
-  };
-
-  // Form gönderim işleyicisi
-  async function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Gönderiliyor...';
-    
-    try {
-      const response = await fetch('/api/kayit', {
-        method: 'POST',
-        body: formData
-      });
-      
-      const result = await response.json();
-      
-      if (response.ok) {
-        alert('Başvurunuz alındı! Gün içinde sizi bilgilendireceğiz.');
-        form.reset();
-      } else {
-        alert(result.error || 'Bir hata oluştu. Lütfen tekrar deneyin.');
-      }
-    } catch (error) {
-      console.error('Form gönderim hatası:', error);
-      alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-    }
-  }
-
-  // Sayfa yüklendiğinde formları dinle
-  document.addEventListener('DOMContentLoaded', () => {
-    const dersForm = document.getElementById('dersKaydiForm');
-    const iletisimForm = document.getElementById('iletisimForm');
-    
-    if (dersForm) dersForm.addEventListener('submit', handleFormSubmit);
-    if (iletisimForm) iletisimForm.addEventListener('submit', handleFormSubmit);
-  });
-</script>

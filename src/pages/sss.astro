@@ -1,0 +1,102 @@
+---
+// src/pages/sss.astro
+import Layout from '../layouts/Layout.astro';
+import PageTemplate from '../components/PageTemplate.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+const sorular = [
+  {
+    kategori: 'Rezervasyon İşlemleri',
+    items: [
+      {
+        soru: 'Rezervasyon nasıl yapılır?',
+        cevap: 'İlgilendiğiniz villanın sayfasında giriş-çıkış tarihlerini seçip "Rezervasyon Yap" butonuna tıklayın. WhatsApp üzerinden villa sahibiyle iletişime geçip rezervasyonunuzu tamamlayabilirsiniz.'
+      },
+      {
+        soru: 'Kaparo ödemesi güvenli mi?',
+        cevap: 'Evet, kaparo ödemeleriniz güvence altındadır. Rezervasyon iptali durumunda kaparanız size iade edilir.'
+      },
+      {
+        soru: 'Rezervasyonumu iptal edebilir miyim?',
+        cevap: 'Evet, rezervasyonunuzu iptal edebilirsiniz. İptal koşulları villa sahibiyle yaptığınız anlaşmaya göre değişiklik gösterebilir.'
+      }
+    ]
+  },
+  {
+    kategori: 'Ödemeler',
+    items: [
+      {
+        soru: 'Ödeme nasıl yapılıyor?',
+        cevap: 'Rezervasyon sırasında %10 kaparo ödemesi yaparsınız. Kalan tutarı tesiste villa sahibine ödersiniz.'
+      },
+      {
+        soru: 'Hangi ödeme yöntemleri kabul ediliyor?',
+        cevap: 'Kaparo ödemeleri banka havalesi/EFT ile yapılır. Kalan tutarı tesiste nakit veya kredi kartı ile ödeyebilirsiniz.'
+      }
+    ]
+  },
+  {
+    kategori: 'Villa Sahipleri İçin',
+    items: [
+      {
+        soru: 'Villamı nasıl eklerim?',
+        cevap: '"Villa Ekle" butonuna tıklayıp WhatsApp üzerinden bizimle iletişime geçin. Villanızın bilgilerini paylaşın, size yardımcı olalım.'
+      },
+      {
+        soru: 'Komisyon oranı nedir?',
+        cevap: 'Rezervasyon başına sadece %10 komisyon alınmaktadır. İlan eklemek tamamen ücretsizdir.'
+      }
+    ]
+  },
+  {
+    kategori: 'Genel Sorular',
+    items: [
+      {
+        soru: 'Güvenli mi?',
+        cevap: 'Evet, platformumuz güvenli altyapı ile çalışır. Tüm villa sahipleri kimlik doğrulamasından geçer.'
+      },
+      {
+        soru: 'Müşteri hizmetlerine nasıl ulaşırım?',
+        cevap: 'WhatsApp hattımızdan 7/24 bize ulaşabilirsiniz. Ayrıca iletişim formunu da kullanabilirsiniz.'
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Sıkça Sorulan Sorular - Villa Bungalov Tatil">
+  <PageTemplate 
+    title="Sıkça Sorulan Sorular" 
+    subtitle="Merak ettiğiniz her şeyin cevabı burada"
+    lastUpdated="Mart 2026"
+  >
+    <div class="space-y-8">
+      {sorular.map((kategori) => (
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-100">
+            {kategori.kategori}
+          </h2>
+          <div class="space-y-4">
+            {kategori.items.map((item, index) => (
+              <div class="bg-gray-50 rounded-lg p-5">
+                <h3 class="font-medium text-gray-800 mb-2 flex items-start gap-2">
+                  <span class="text-orange-500 mt-1">Q{index + 1}.</span>
+                  <span>{item.soru}</span>
+                </h3>
+                <p class="text-gray-600 pl-6">
+                  {item.cevap}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Hala sorun varsa -->
+      <div class="border-t border-gray-100 pt-6 mt-6 text-center">
+        <p class="text-gray-600 mb-4">Aradığınız cevabı bulamadınız mı?</p>
+        <ContactButtons message="Sıkça sorulan sorularda cevabını bulamadığım bir sorum var" />
+      </div>
+    </div>
+  </PageTemplate>
+</Layout>

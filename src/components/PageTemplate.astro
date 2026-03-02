@@ -1,0 +1,36 @@
+---
+// src/components/PageTemplate.astro
+import type { AnyObject } from 'astro';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  lastUpdated?: string;
+}
+
+const { title, subtitle, lastUpdated } = Astro.props;
+---
+
+<div class="max-w-4xl mx-auto px-4 py-12">
+  <!-- Başlık -->
+  <div class="text-center mb-10">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+      {title}
+    </h1>
+    {subtitle && (
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    )}
+    {lastUpdated && (
+      <p class="text-sm text-gray-400 mt-2">
+        Son Güncelleme: {lastUpdated}
+      </p>
+    )}
+  </div>
+
+  <!-- İçerik Alanı -->
+  <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 md:p-10">
+    <slot />
+  </div>
+</div>
