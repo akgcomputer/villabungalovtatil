@@ -9,10 +9,7 @@ const sliderSlides = [
     image: '/images/tatil-adam-1.png',
     bgImages: ['/images/konum1.png', '/images/konum2.png'],
     title: 'Şehirden uzak ama yakın yerde 3 gün ne kadar güzel olurdu..',
-    buttons: [
-      { text: 'En Popüler Ev', type: 'random-listing' },
-      { text: 'En Popüler Tatil Yeri', type: 'random-city' }
-    ],
+    buttons: ['En Popüler Ev', 'En Popüler Tatil Yeri'],
     buttonColors: 'bg-orange-500 hover:bg-orange-600'
   },
   {
@@ -20,115 +17,64 @@ const sliderSlides = [
     image: '/images/tatil-kadin-1.png',
     bgImages: ['/images/konum2.png', '/images/konum3-explorer.png'],
     title: 'Neden yakın yerler..',
-    
+    titleIcon: '/images/soru-isareti.png',
     features: [
       {
-        
+        icon: '/images/saat-ikonu.png',
         title: 'Zamanımız Yok',
         desc: 'İstanbul ve tüm büyük şehirlerin kalabalığı ve stresinden kurtulmak için zaman kaybetmeden bazen 2-3 gün bazen de 4-5 günlüğüne kafamızı dinlemek isteriz ama uzağa gitmeye zaman YOK, araçla ya da toplu taşıma ile yakın yerlere gitmek daha mantıklı bir seçim oluyor.'
       },
       {
-        
+        icon: '/images/ekonomi-ikonu.png',
         title: 'Çok ekonomik',
         desc: 'Yakın yerlere gitmek başta zaman sonra da maliyet anlamında çok da yormuyor. Uzak yerlere gitmek araç-yakıt-uçak git gel masraf vs derken ekonomik olmuyor.'
       },
       {
-        
+        icon: '/images/doga-ikonu.png',
         title: 'Bozulmamış Doğa',
-        desc: "Başta İstanbul'a yakın yerlerde ve diğer büyükşehirlere yakın yerlerde halen doğası ile büyüleyen bir çok lokasyon bulunmakta, neden uzak yerlere gidesiniz ki!!"
+        desc: 'Başta İstanbul\'a yakın yerlerde ve diğer büyükşehirlere yakın yerlerde halen doğası ile büyüleyen bir çok lokasyon bulunmakta, neden uzak yerlere gidesiniz ki!!'
       }
     ],
-    buttons: [
-      { text: 'En Popüler Lokasyon', type: 'random-city' },
-      { text: 'En Merak Edilen Tatil Yeri', type: 'random-city' }
-    ],
+    buttons: ['En Popüler Lokasyon', 'En Merak Edilen Tatil Yeri'],
     buttonColors: 'bg-teal-500 hover:bg-teal-600'
   }
 ];
 
-// İleride kullanılmak üzere hazır slider şablonları (yorum satırı olarak)
-/* 
-// SLIDER 3 - Tek resimli tam genişlik örnek
-const slider3 = {
-  id: 'slide3',
-  image: '/images/tatil-manzara.jpg',
-  title: 'Doğayla Baş Başa Tatil',
-  description: 'Huzur dolu bir kaçamak için en güzel rotalar',
-  buttonText: 'Keşfet',
-  buttonLink: '/kesfet'
-};
-
-// SLIDER 4 - Çift slaytlı içerik örneği
-const slider4Slides = [
-  {
-    id: 'slide4-1',
-    image: '/images/tatil-havuz.jpg',
-    title: 'Havuzlu Villalar',
-    description: 'Özel havuzlu lüks villalar'
-  },
-  {
-    id: 'slide4-2',
-    image: '/images/tatil-doga.jpg',
-    title: 'Doğa Evleri',
-    description: 'Bungalov ve ahşap evler'
-  }
-];
-
-// SLIDER 5 - Butonlu tam ekran örnek
-const slider5 = {
-  id: 'slide5',
-  bgVideo: '/videos/tatil.mp4',
-  title: 'Hayalindeki Tatil',
-  subtitle: 'Özel fırsatlar seni bekliyor'
-};
-*/
-
 // Tur kartları verileri (4 kart - slider yok)
 const turKartlari1 = [
-  { name: 'Balkan Turları', image: '/images/balkan.jpg', slogan: 'Tarih ve kültür dolu bir yolculuk', locations: 'Bosna Hersek, Hırvatistan, Bulgaristan, Yunanistan, Makedonya, Sırbistan', link: '/tur/balkan' },
-  { name: 'Umre Turları', image: '/images/umre.jpg', slogan: 'Manevi bir yolculuk', locations: 'Mekke, Medine, Taif', link: '/tur/umre' },
-  { name: 'Avrupa Turları', image: '/images/avrupa.jpg', slogan: 'Rüya gibi şehirler', locations: 'Fransa, İtalya, İsviçre, İspanya', link: '/tur/avrupa' },
-  { name: 'Uzakdoğu Turları', image: '/images/uzakdogu.jpg', slogan: 'Egzotik bir macera', locations: 'Tayland, Vietnam, Japonya, Güney Kore', link: '/tur/uzakdogu' }
+  { name: 'Balkan Turları', image: '/images/balkan-tur.jpg', slogan: 'Tarih ve kültür dolu bir yolculuk', locations: 'Bulgaristan, Yunanistan, Makedonya, Sırbistan' },
+  { name: 'Umre Turları', image: '/images/umre-tur.jpg', slogan: 'Manevi bir yolculuk', locations: 'Mekke, Medine, Taif' },
+  { name: 'Avrupa Turları', image: '/images/avrupa-tur.jpg', slogan: 'Rüya gibi şehirler', locations: 'Fransa, İtalya, İsviçre, İspanya' },
+  { name: 'Uzakdoğu Turları', image: '/images/uzakdogu-tur.jpg', slogan: 'Egzotik bir macera', locations: 'Tayland, Vietnam, Japonya, Güney Kore' }
 ];
 
 const turKartlari2 = [
-  { name: 'Afrika Turları', image: '/images/afrika.jpg', slogan: 'Vahşi yaşam ve doğa', locations: 'Güney Afrika, Kenya, Tanzanya, Fas', link: '/tur/afrika' },
-  { name: 'Körfez Turları', image: '/images/korfez.jpg', slogan: 'Lüks ve modernlik', locations: 'BAE, Katar, Kuveyt, Umman', link: '/tur/korfez' },
-  { name: 'Cruiz - Gemi Turları', image: '/images/gemi.jpg', slogan: 'Denizde keyifli günler', locations: 'Akdeniz, Karayipler, Norveç Fiyordları', link: '/tur/gemi' },
-  { name: 'Ticari Turlar', image: '/images/ticari.jpg', slogan: 'İş ve fırsat bir arada', locations: 'Çin, Hindistan, Almanya, ABD', link: '/tur/avrupa' }
+  { name: 'Afrika Turları', image: '/images/afrika-tur.jpg', slogan: 'Vahşi yaşam ve doğa', locations: 'Güney Afrika, Kenya, Tanzanya, Fas' },
+  { name: 'Körfez Turları', image: '/images/korfez-tur.jpg', slogan: 'Lüks ve modernlik', locations: 'BAE, Katar, Kuveyt, Umman' },
+  { name: 'Cruiz - Gemi Turları', image: '/images/gemi-tur.jpg', slogan: 'Denizde keyifli günler', locations: 'Akdeniz, Karayipler, Norveç Fiyordları' },
+  { name: 'Ticari Turlar', image: '/images/ticari-tur.jpg', slogan: 'İş ve fırsat bir arada', locations: 'Çin, Hindistan, Almanya, ABD' }
 ];
 
-// Şehir logoları listesi (9 tane, DOĞRU LİNK FORMATI)
+// Şehir logoları listesi (10 tane, DOĞRU LİNK FORMATI)
 const sehirLogolari = [
-  { name: 'istanbul', label: 'İstanbul', page: '/sehir/i̇stanbul' },
-  { name: 'bursa', label: 'Bursa', page: '/sehir/bursa' },
-  { name: 'balikesir', label: 'Balıkesir', page: '/sehir/balikesir' },
-  { name: 'yalova', label: 'Yalova', page: '/sehir/yalova' },
-  { name: 'sakarya', label: 'Sakarya', page: '/sehir/sakarya' },
-  { name: 'kocaeli', label: 'Kocaeli', page: '/sehir/kocaeli' },
-  { name: 'tekirdag', label: 'Tekirdağ', page: '/sehir/tekirdag' },
-  { name: 'canakkale', label: 'Çanakkale', page: '/sehir/canakkale' },
-  { name: 'kirklareli', label: 'Kırklareli', page: '/sehir/kirklareli' }
+  { name: 'istanbul', label: 'İstanbul', page: '/istanbul' },
+  { name: 'bursa', label: 'Bursa', page: '/bursa' },
+  { name: 'balikesir', label: 'Balıkesir', page: '/balikesir' },
+  { name: 'yalova', label: 'Yalova', page: '/yalova' },
+  { name: 'sakarya', label: 'Sakarya', page: '/sakarya' },
+  { name: 'kocaeli', label: 'Kocaeli', page: '/kocaeli' },
+  { name: 'tekirdag', label: 'Tekirdağ', page: '/tekirdag' },
+  { name: 'canakkale', label: 'Çanakkale', page: '/canakkale' },
+  { name: 'kirklareli', label: 'Kırklareli', page: '/kirklareli' }
 ];
 
-// Popüler Yerler
-const populerYerler = [
-  { id: 1, img: '/images/populer-tatil-1.png', link: '/sehir/yalova' },
-  { id: 2, img: '/images/populer-tatil-2.png', link: '/sehir/sakarya' },
-  { id: 3, img: '/images/populer-tatil-3.png', link: '/sehir/kocaeli' },
-  { id: 4, img: '/images/populer-tatil-4.png', link: '/sehir/i̇stanbul' }
+// Popüler Evler
+const populerEvler = [
+  { id: 1, img: '/images/populer-tatil-1.png', link: '#' },
+  { id: 2, img: '/images/populer-tatil-2.png', link: '#' },
+  { id: 3, img: '/images/populer-tatil-3.png', link: '#' },
+  { id: 4, img: '/images/populer-tatil-4.png', link: '#' }
 ];
-
-// Rastgele link oluşturma fonksiyonları
-const getRandomListingLink = () => {
-  const randomId = Math.floor(Math.random() * 1000) + 1;
-  return `/villa-bul`;
-};
-
-const getRandomCityLink = () => {
-  const randomIndex = Math.floor(Math.random() * sehirLogolari.length);
-  return sehirLogolari[randomIndex].page;
-};
 ---
 
 <Layout title="Villa Bungalov Tatil - Şehrin Stresinden Uzak, Doğayla İç İçe Tatil">
@@ -189,10 +135,10 @@ const getRandomCityLink = () => {
                       </h2>
                       
                       <div class="space-y-6 mb-8">
-                        {slide.features.map((feature, i) => (
-                          <div class="flex gap-4 items-start" key={i}>
+                        {slide.features.map((feature) => (
+                          <div class="flex gap-4 items-start">
                             <img src={feature.icon} alt="" class="w-8 h-8 md:w-10 md:h-10 object-contain flex-shrink-0" />
-                            <div>  
+                            <div>
                               <h3 class="text-xl font-semibold mb-1">{feature.title}</h3>
                               <p class="text-gray-200 text-sm leading-relaxed">{feature.desc}</p>
                             </div>
@@ -203,25 +149,15 @@ const getRandomCityLink = () => {
                   )}
                   
                   <div class="flex flex-wrap gap-4">
-                    {slide.buttons.map((btn, i) => {
-                      // Buton tipine göre link belirle
-                      let link = '#';
-                      if (btn.type === 'random-listing') {
-                        link = getRandomListingLink();
-                      } else if (btn.type === 'random-city') {
-                        link = getRandomCityLink();
-                      }
-                      
-                      return (
-                        <a 
-                          href={link}
-                          class={`px-6 py-3 ${slide.buttonColors} text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl text-sm md:text-base`}
-                          key={i}
-                        >
-                          {btn.text}
-                        </a>
-                      );
-                    })}
+                    {slide.buttons.map((btn, i) => (
+                      <a 
+                        href="#" 
+                        class={`px-6 py-3 ${slide.buttonColors} text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl text-sm md:text-base`}
+                        key={i}
+                      >
+                        {btn}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -256,7 +192,7 @@ const getRandomCityLink = () => {
       <!-- Sabit duran logo grid -->
       <div class="flex flex-wrap justify-center gap-8 md:gap-10">
         {sehirLogolari.map((sehir) => (
-          <a href={sehir.page} class="group relative flex flex-col items-center" key={sehir.name}>
+          <a href={sehir.page} class="group relative flex flex-col items-center">
             <div class="relative w-20 h-20 md:w-24 md:h-24">
               <!-- Ana logo -->
               <img 
@@ -278,21 +214,21 @@ const getRandomCityLink = () => {
     </div>
   </section>
 
-  <!-- POPÜLER YERLER -->
+  <!-- POPÜLER EVLER -->
   <section class="py-16 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center md:text-left">
-        Popüler Yerler
+        Popüler Evler
       </h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {populerYerler.map((yer) => (
-          <a href={yer.link} class="group block" key={yer.id}>
+        {populerEvler.map((ev) => (
+          <a href={ev.link} class="group block">
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2">
               <div class="relative h-[530px] overflow-hidden">
                 <img 
-                  src={yer.img} 
-                  alt={`Popüler tatil yeri ${yer.id}`}
+                  src={ev.img} 
+                  alt={`Popüler tatil evi ${ev.id}`}
                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   loading="lazy"
                 />
@@ -308,29 +244,28 @@ const getRandomCityLink = () => {
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-center md:justify-start gap-3 mb-10">
-        
+        <img src="/images/kesfet-ikon.png" alt="" class="w-10 h-10 md:w-12 md:h-12 object-contain" />
         <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Keşfetmeye Hazır Mısın?</h2>
       </div>
       
       <!-- 4 kart grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  {turKartlari1.map((card, index) => (
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-100 h-full group" key={index}>
-      <!-- RESİM KISMI - TAM GÖSTERME -->
-      <div class="h-auto max-h-48 overflow-hidden">
-        <img src={card.image} alt={card.name} class="w-full object-contain bg-gray-50" loading="lazy" />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {turKartlari1.map((card) => (
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-100 h-full group">
+            <div class="h-40 overflow-hidden">
+              <img src={card.image} alt={card.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{card.name}</h3>
+              <p class="text-gray-600 text-sm mb-3">{card.slogan}</p>
+              <p class="text-xs text-gray-500 mb-4 line-clamp-2">📍 {card.locations}</p>
+              <a href="#" class="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition">
+                İncele
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
-      <div class="p-5">
-        <h3 class="text-xl font-bold text-gray-800 mb-2">{card.name}</h3>
-        <p class="text-gray-600 text-sm mb-3">{card.slogan}</p>
-        <p class="text-xs text-gray-500 mb-4 line-clamp-2">📍 {card.locations}</p>
-        <a href={card.link} class="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition">
-          İncele
-        </a>
-      </div>
-    </div>
-  ))}
-</div>
     </div>
   </section>
 
@@ -338,46 +273,27 @@ const getRandomCityLink = () => {
   <section class="py-16 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-center md:justify-start gap-3 mb-10">
-       
+        <img src="/images/deneyim-ikon.png" alt="" class="w-10 h-10 md:w-12 md:h-12 object-contain" />
         <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Farklı Deneyimler Seni Bekliyor</h2>
       </div>
       
       <!-- 4 kart grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {turKartlari2.map((card, index) => (
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-100 h-full group" key={index}>
-            <div class="h-auto max-h-48 overflow-hidden">
-        <img src={card.image} alt={card.name} class="w-full object-contain bg-gray-50" loading="lazy" />
-      </div>
-      <div class="p-5">
-        <h3 class="text-xl font-bold text-gray-800 mb-2">{card.name}</h3>
-        <p class="text-gray-600 text-sm mb-3">{card.slogan}</p>
-        <p class="text-xs text-gray-500 mb-4 line-clamp-2">📍 {card.locations}</p>
-        <a href={card.link} class="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition">
-          İncele
-        </a>
-      </div>
-    </div>
+        {turKartlari2.map((card) => (
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition border border-gray-100 h-full group">
+            <div class="h-40 overflow-hidden">
+              <img src={card.image} alt={card.name} class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{card.name}</h3>
+              <p class="text-gray-600 text-sm mb-3">{card.slogan}</p>
+              <p class="text-xs text-gray-500 mb-4 line-clamp-2">📍 {card.locations}</p>
+              <a href="#" class="block w-full text-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition">
+                İncele
+              </a>
+            </div>
+          </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ALT SLOGAN - Güven veren mesaj -->
-  <section class="py-16 md:py-20 bg-gradient-to-r from-orange-500 to-purple-600 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="font-hand text-4xl md:text-5xl lg:text-6xl mb-6">
-        Hayallerindeki Tatil<br />Bir Tık Uzağında
-      </h2>
-      <p class="text-xl md:text-2xl opacity-90 mb-8 font-light">
-VillaBungalovTatil.com.tr ile hayallerindeki tatil bir tık uzağında!      </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/konaklama" class="px-8 py-4 bg-white text-orange-600 font-semibold rounded-full hover:shadow-xl transition transform hover:-translate-y-1">
-          Evleri İncele
-        </a>
-        <a href="/sehir" class="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-orange-600 transition transform hover:-translate-y-1">
-          Şehirleri Keşfet
-        </a>
       </div>
     </div>
   </section>
@@ -515,11 +431,11 @@ VillaBungalovTatil.com.tr ile hayallerindeki tatil bir tık uzağında!      </p
       });
     });
     
-    // Otomatik geçiş - Hız düşürüldü (7 saniye)
+    // Otomatik geçiş
     const startAutoSlide = () => {
       autoSlideInterval = setInterval(() => {
         updateSlider(currentIndex + 1);
-      }, 7000); // 7 saniyede bir geç
+      }, 5000); // 5 saniyede bir geç
     };
     
     const resetAutoSlide = () => {

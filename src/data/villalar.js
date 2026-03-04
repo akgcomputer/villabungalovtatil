@@ -7247,7 +7247,7 @@ export const villalar = [
     "id": 142,
     "minGece": 2,
     "slug": "Evrensekiz-Isitmali-Havuzlu-Tas-Ev",
-    "tip": "tas-ev",
+    "tip": "taş-ev",
     "baslik": "Evrensekiz Isıtmalı Havuzlu Taş Ev",
     "konum": {
         "sehir": "Kırklareli",
