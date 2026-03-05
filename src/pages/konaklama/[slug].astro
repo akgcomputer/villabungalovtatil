@@ -1,0 +1,529 @@
+---
+// src/pages/konaklama/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+import VillaKarti from '../../components/VillaKarti.astro';
+import { villalar } from '../../data/villalar';
+
+// Tüm benzersiz konaklama tiplerini villa.js'den çıkar
+const tumTipler = [...new Set(villalar.map(v => v.tip).filter(Boolean))];
+
+// URL'deki slug'a göre tip adını bul
+// Örnek: /konaklama/villa -> villa
+// Örnek: /konaklama/daire -> daire
+export async function getStaticPaths() {
+  // Burada villalar'ı direkt kullan
+  const tipler = [...new Set(villalar.map(v => v.tip).filter(Boolean))];
+  
+  const paths = tipler.map(tipAdi => {
+    // Tip adını URL dostu hale getir (slug)
+    const slug = tipAdi.toLowerCase()
+      .replace(/ı/g, 'i')
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ş/g, 's')
+      .replace(/ö/g, 'o')
+      .replace(/ç/g, 'c')
+      .replace(/ /g, '-');
+    
+    return {
+      params: { slug },
+      props: { tipAdi }
+    };
+  });
+  
+  return paths;
+}
+
+const { tipAdi } = Astro.props;
+
+// Bu tipe ait villalar
+const tipVillalari = villalar.filter(v => v.tip === tipAdi);
+
+// Tip adını daha okunabilir hale getir (villa -> Villa, daire -> Daire)
+const tipAdiFormatli = tipAdi ? tipAdi.charAt(0).toUpperCase() + tipAdi.slice(1) : '';
+
+// Filtreleme için kullanılacak benzersiz değerler
+const sehirler = [...new Set(tipVillalari.map(v => v.konum?.sehir).filter(Boolean))].sort();
+const maxFiyat = tipVillalari.length > 0 ? Math.max(...tipVillalari.map(v => v.fiyat.gecelik)) : 0;
+const minFiyat = tipVillalari.length > 0 ? Math.min(...tipVillalari.map(v => v.fiyat.gecelik)) : 0;
+
+// Yıldız render fonksiyonu
+const renderStars = (rating) => {
+  if (!rating) return '';
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.3 && rating % 1 <= 0.7 ? '½' : '';
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+  return '★'.repeat(fullStars) + halfStar + '☆'.repeat(emptyStars);
+};
+
+// SEO açıklaması - tip'e özel
+const seoAciklama = tipAdi ? 
+  `${tipAdiFormatli} konaklama seçenekleri. Doğayla iç içe, konforlu ve unutulmaz bir tatil deneyimi sizi bekliyor!` 
+  : 'Konaklama seçeneklerini keşfedin';
+---
+
+<Layout 
+  title={tipAdi ? `${tipAdiFormatli} Konaklama - Villa Bungalov Tatil` : 'Konaklama Tipi'}
+  description={seoAciklama}
+>
+  <div class="max-w-7xl mx-auto px-4 py-6">
+    <!-- Başlık ve Açıklama -->
+    <div class="mb-6 text-center md:text-left">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+        {tipAdiFormatli} Konaklama
+      </h1>
+      <p class="text-gray-600 max-w-3xl">
+        {seoAciklama}
+      </p>
+      <p class="text-gray-500 mt-2">
+        <span class="font-semibold text-orange-600">{tipVillalari.length}</span> {tipAdi} seçeneği arasından size en uygununu bulun
+      </p>
+    </div>
+
+    <!-- FİLTRELER -->
+    {tipVillalari.length > 0 && (
+      <div class="bg-white border rounded-xl shadow-md p-4 mb-8 relative" style="z-index: 50;">
+        <!-- Üst Satır - Ana Filtreler -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Tip Butonu - Sabit tip gösterimi -->
+          <div class="relative group" style="z-index: 60;">
+            <button class="px-4 py-2.5 bg-orange-50 hover:bg-orange-100 border border-orange-200 rounded-lg text-sm font-medium flex items-center gap-2 whitespace-nowrap cursor-default">
+              <span>🏠 Sadece {tipAdiFormatli}</span>
+            </button>
+          </div>
+
+          <!-- Konum Butonu -->
+          <div class="relative group" style="z-index: 60;">
+            <button class="filtre-dropdown-btn px-4 py-2.5 bg-gray-50 hover:bg-gray-100 border rounded-lg text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+              <span>📍 Konum</span>
+              <span class="text-gray-400">▼</span>
+            </button>
+            <div class="filtre-dropdown absolute top-full left-0 mt-1 w-56 bg-white border rounded-xl shadow-xl p-3 hidden" style="z-index: 100;">
+              <div class="space-y-2 max-h-60 overflow-y-auto">
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="konum" value="tumu" class="filtre-konum text-orange-500" checked>
+                  <span class="text-sm">Tüm Konumlar</span>
+                </label>
+                {sehirler.map(sehir => (
+                  <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                    <input type="radio" name="konum" value={sehir} class="filtre-konum text-orange-500">
+                    <span class="text-sm flex-1">{sehir}</span>
+                    <span class="text-xs text-gray-400">({tipVillalari.filter(v => v.konum?.sehir === sehir).length})</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Kişi Butonu -->
+          <div class="relative group" style="z-index: 60;">
+            <button class="filtre-dropdown-btn px-4 py-2.5 bg-gray-50 hover:bg-gray-100 border rounded-lg text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+              <span>👥 Kişi</span>
+              <span class="text-gray-400">▼</span>
+            </button>
+            <div class="filtre-dropdown absolute top-full left-0 mt-1 w-48 bg-white border rounded-xl shadow-xl p-3 hidden" style="z-index: 100;">
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="kisi" value="0" class="filtre-kisi text-orange-500" checked>
+                  <span class="text-sm">Tümü</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="kisi" value="2" class="filtre-kisi text-orange-500">
+                  <span class="text-sm">2+ kişi</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="kisi" value="4" class="filtre-kisi text-orange-500">
+                  <span class="text-sm">4+ kişi</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="kisi" value="6" class="filtre-kisi text-orange-500">
+                  <span class="text-sm">6+ kişi</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="kisi" value="8" class="filtre-kisi text-orange-500">
+                  <span class="text-sm">8+ kişi</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Yatak Odası Butonu -->
+          <div class="relative group" style="z-index: 60;">
+            <button class="filtre-dropdown-btn px-4 py-2.5 bg-gray-50 hover:bg-gray-100 border rounded-lg text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+              <span>🛏️ Yatak</span>
+              <span class="text-gray-400">▼</span>
+            </button>
+            <div class="filtre-dropdown absolute top-full left-0 mt-1 w-48 bg-white border rounded-xl shadow-xl p-3 hidden" style="z-index: 100;">
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="yatak" value="0" class="filtre-yatak text-orange-500" checked>
+                  <span class="text-sm">Tümü</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="yatak" value="1" class="filtre-yatak text-orange-500">
+                  <span class="text-sm">1+ oda</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="yatak" value="2" class="filtre-yatak text-orange-500">
+                  <span class="text-sm">2+ oda</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="yatak" value="3" class="filtre-yatak text-orange-500">
+                  <span class="text-sm">3+ oda</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="yatak" value="4" class="filtre-yatak text-orange-500">
+                  <span class="text-sm">4+ oda</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fiyat Butonu -->
+          <div class="relative group" style="z-index: 60;">
+            <button class="filtre-dropdown-btn px-4 py-2.5 bg-gray-50 hover:bg-gray-100 border rounded-lg text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+              <span>💰 Fiyat</span>
+              <span class="text-gray-400">▼</span>
+            </button>
+            <div class="filtre-dropdown absolute top-full left-0 mt-1 w-64 bg-white border rounded-xl shadow-xl p-4 hidden" style="z-index: 100;">
+              <div class="space-y-3">
+                <div>
+                  <label class="text-xs text-gray-500">Min (₺)</label>
+                  <input type="number" id="fiyatMin" placeholder="Min" value={minFiyat} class="w-full border rounded-lg p-2 text-sm">
+                </div>
+                <div>
+                  <label class="text-xs text-gray-500">Maks (₺)</label>
+                  <input type="number" id="fiyatMax" placeholder="Maks" value={maxFiyat} class="w-full border rounded-lg p-2 text-sm">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Puan Butonu -->
+          <div class="relative group" style="z-index: 60;">
+            <button class="filtre-dropdown-btn px-4 py-2.5 bg-gray-50 hover:bg-gray-100 border rounded-lg text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+              <span>⭐ Puan</span>
+              <span class="text-gray-400">▼</span>
+            </button>
+            <div class="filtre-dropdown absolute top-full left-0 mt-1 w-40 bg-white border rounded-xl shadow-xl p-3 hidden" style="z-index: 100;">
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="puan" value="0" class="filtre-puan text-orange-500" checked>
+                  <span class="text-sm">Tümü</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="puan" value="4" class="filtre-puan text-orange-500">
+                  <span class="text-sm">4+ ★</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="puan" value="4.5" class="filtre-puan text-orange-500">
+                  <span class="text-sm">4.5+ ★</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg">
+                  <input type="radio" name="puan" value="5" class="filtre-puan text-orange-500">
+                  <span class="text-sm">5 ★</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Uygula Butonu -->
+          <button id="filtreUygula" class="px-6 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg text-sm transition-all whitespace-nowrap" style="z-index: 55;">
+            Uygula
+          </button>
+          
+          <!-- Temizle Butonu -->
+          <button id="filtreleriTemizle" class="px-4 py-2.5 border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-lg text-sm transition-all whitespace-nowrap" style="z-index: 55;">
+            Temizle
+          </button>
+        </div>
+
+        <!-- Alt Satır - Olanak Butonları -->
+        <div class="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t" style="z-index: 55;">
+          <span class="text-sm font-medium text-gray-600 mr-1">Olanaklar:</span>
+          <button class="olanak-btn px-3 py-1.5 rounded-full border text-sm transition-all" data-olanak="havuz">🏊 Havuz</button>
+          <button class="olanak-btn px-3 py-1.5 rounded-full border text-sm transition-all" data-olanak="jakuzi">🛁 Jakuzi</button>
+          <button class="olanak-btn px-3 py-1.5 rounded-full border text-sm transition-all" data-olanak="klima">❄️ Klima</button>
+          <button class="olanak-btn px-3 py-1.5 rounded-full border text-sm transition-all" data-olanak="wifi">📶 WiFi</button>
+          <button class="olanak-btn px-3 py-1.5 rounded-full border text-sm transition-all" data-olanak="otopark">🅿️ Otopark</button>
+          <button class="olanak-btn px-3 py-1.5 rounded-full border text-sm transition-all" data-olanak="mutfak">🍳 Mutfak</button>
+        </div>
+      </div>
+    )}
+
+    <!-- Sıralama ve Sonuç -->
+    {tipVillalari.length > 0 && (
+      <div class="flex items-center justify-between mb-6 relative" style="z-index: 45;">
+        <div class="text-gray-600">
+          <span id="sonucSayisi" class="font-bold text-orange-600 text-lg">{tipVillalari.length}</span> {tipAdi} bulundu
+        </div>
+        <div class="flex items-center gap-3">
+          <select id="siralama" class="border rounded-lg p-2 text-sm pr-8 bg-white">
+            <option value="fiyat-artan">💰 Fiyat (Düşükten)</option>
+            <option value="fiyat-azalan">💰 Fiyat (Yüksekten)</option>
+            <option value="puan">⭐ Puana Göre</option>
+            <option value="degerlendirme">📊 En Çok Değ.</option>
+          </select>
+        </div>
+      </div>
+    )}
+
+    <!-- Villa Listesi - 3'lü Grid -->
+    {tipVillalari.length > 0 ? (
+      <div id="villaListesi" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative" style="z-index: 40;">
+        {tipVillalari.map((villa) => (
+          <VillaKarti villa={villa} renderStars={renderStars} />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-16 bg-gray-50 rounded-2xl">
+        <span class="text-6xl mb-4 block">🏠</span>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Bu tipte henüz konaklama bulunmuyor</h3>
+        <p class="text-gray-600">Diğer konaklama tiplerini keşfedebilirsiniz.</p>
+        <a href="/konaklama" class="inline-block mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition">
+          Tüm Konaklama Tiplerini Gör
+        </a>
+      </div>
+    )}
+  </div>
+</Layout>
+
+<!-- Hidden data div - Filtreleme için -->
+{tipVillalari.length > 0 && (
+  <div id="konaklama-verileri" 
+       data-villalar={JSON.stringify(tipVillalari)}
+       data-minfiyat={minFiyat}
+       data-maksfiyat={maxFiyat}
+       class="hidden">
+  </div>
+)}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const dataDiv = document.getElementById('konaklama-verileri');
+    if (!dataDiv) return;
+    
+    const tumVillalar = JSON.parse(dataDiv.dataset.villalar || '[]');
+    const minFiyatGlobal = parseInt(dataDiv.dataset.minfiyat) || 0;
+    const maxFiyatGlobal = parseInt(dataDiv.dataset.maksfiyat) || 100000;
+    
+    let seciliOlanaklar = [];
+    
+    // DOM elementleri
+    const villaListesi = document.getElementById('villaListesi');
+    const sonucSayisi = document.getElementById('sonucSayisi');
+    const siralamaSelect = document.getElementById('siralama');
+    const filtreUygula = document.getElementById('filtreUygula');
+    const filtreleriTemizle = document.getElementById('filtreleriTemizle');
+    const fiyatMin = document.getElementById('fiyatMin');
+    const fiyatMax = document.getElementById('fiyatMax');
+    
+    // Dropdown butonları
+    document.querySelectorAll('.filtre-dropdown-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        document.querySelectorAll('.filtre-dropdown').forEach(d => {
+          if (d !== btn.nextElementSibling) {
+            d.classList.add('hidden');
+          }
+        });
+        
+        const dropdown = btn.nextElementSibling;
+        dropdown.classList.toggle('hidden');
+      });
+    });
+
+    // Dışarı tıklandığında dropdownları kapat
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.relative.group')) {
+        document.querySelectorAll('.filtre-dropdown').forEach(d => {
+          d.classList.add('hidden');
+        });
+      }
+    });
+    
+    // Yıldız render
+    function renderStars(rating) {
+      if (!rating) return '';
+      const fullStars = Math.floor(rating);
+      const halfStar = rating % 1 >= 0.3 && rating % 1 <= 0.7 ? '½' : '';
+      const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+      return '★'.repeat(fullStars) + halfStar + '☆'.repeat(emptyStars);
+    }
+    
+    // Villa kartlarını render et
+    function renderVillalar(villalarDizisi) {
+      if (!villaListesi) return;
+      
+      if (villalarDizisi.length === 0) {
+        villaListesi.innerHTML = `
+          <div class="col-span-full text-center py-16 bg-gray-50 rounded-2xl">
+            <span class="text-6xl mb-4 block">🏠❌</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Konaklama Bulunamadı</h3>
+            <p class="text-gray-600">Seçtiğiniz filtrelere uygun konaklama bulunmamaktadır.</p>
+          </div>
+        `;
+        if (sonucSayisi) sonucSayisi.textContent = '0';
+        return;
+      }
+      
+      let html = '';
+      villalarDizisi.forEach(villa => {
+        const puan = villa.puan?.ortalama || 0;
+        const yildizlar = renderStars(puan);
+        const degerlendirmeSayisi = villa.puan?.degerlendirmeSayisi || 0;
+        
+        html += `
+          <a href="/villa/${villa.slug}" class="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 block">
+            <div class="relative h-48 overflow-hidden">
+              <img src="${villa.resimler[0]}" alt="${villa.baslik}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
+              ${villa.oneCikanSunduklar?.ozelJakuzi ? '<span class="absolute top-2 right-2 bg-purple-600 text-white text-xs px-2 py-1 rounded-full">🛁 Jakuzili</span>' : ''}
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-800 group-hover:text-orange-600 text-lg line-clamp-1 mb-1">${villa.baslik}</h3>
+              <p class="text-sm text-gray-500 mb-2">${villa.konum.ilce || ''} / ${villa.konum.sehir || ''}</p>
+              <div class="flex items-center gap-2 text-sm text-gray-600 mb-3">
+                <span>👥 ${villa.ozetBilgiler.misafir}</span>
+                <span>•</span>
+                <span>🛏️ ${villa.ozetBilgiler.yatakOdasi}</span>
+                <span>•</span>
+                <span>🚿 ${villa.ozetBilgiler.banyo}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <span class="text-yellow-400 text-lg tracking-wider">${yildizlar}</span>
+                  <span class="ml-1 font-medium text-gray-800">${puan > 0 ? puan.toFixed(1) : 'Yeni'}</span>
+                  ${degerlendirmeSayisi > 0 ? `<span class="text-gray-400 text-sm ml-1">(${degerlendirmeSayisi})</span>` : ''}
+                </div>
+                <div class="text-right">
+                  <span class="text-orange-600 font-bold">${villa.fiyat.paraBirimi} ${villa.fiyat.gecelik.toLocaleString('tr-TR')}</span>
+                  <span class="text-xs text-gray-500 block">/gece</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        `;
+      });
+      
+      villaListesi.innerHTML = html;
+      if (sonucSayisi) sonucSayisi.textContent = villalarDizisi.length;
+    }
+    
+    // Olanak butonları
+    document.querySelectorAll('.olanak-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const olanak = btn.dataset.olanak;
+        btn.classList.toggle('bg-orange-500');
+        btn.classList.toggle('text-white');
+        btn.classList.toggle('border-orange-500');
+        
+        if (seciliOlanaklar.includes(olanak)) {
+          seciliOlanaklar = seciliOlanaklar.filter(o => o !== olanak);
+        } else {
+          seciliOlanaklar.push(olanak);
+        }
+      });
+    });
+    
+    // Filtreleme
+    function filtrele() {
+      const seciliKonum = document.querySelector('input[name="konum"]:checked')?.value || 'tumu';
+      const seciliKisi = parseInt(document.querySelector('input[name="kisi"]:checked')?.value) || 0;
+      const seciliYatak = parseInt(document.querySelector('input[name="yatak"]:checked')?.value) || 0;
+      const seciliPuan = parseFloat(document.querySelector('input[name="puan"]:checked')?.value) || 0;
+      
+      const minFiyat = parseInt(fiyatMin?.value) || minFiyatGlobal;
+      const maxFiyat = parseInt(fiyatMax?.value) || maxFiyatGlobal;
+      
+      let sonuc = tumVillalar.filter(villa => {
+        if (seciliKonum !== 'tumu' && villa.konum?.sehir !== seciliKonum) return false;
+        if (seciliKisi > 0 && villa.ozetBilgiler.misafir < seciliKisi) return false;
+        if (seciliYatak > 0 && villa.ozetBilgiler.yatakOdasi < seciliYatak) return false;
+        if (seciliPuan > 0 && (villa.puan?.ortalama || 0) < seciliPuan) return false;
+        if (villa.fiyat.gecelik < minFiyat || villa.fiyat.gecelik > maxFiyat) return false;
+        
+        if (seciliOlanaklar.length > 0) {
+          for (const olanak of seciliOlanaklar) {
+            if (olanak === 'havuz' && !villa.oneCikanSunduklar?.ozelJakuzi && !villa.aciklama?.toLowerCase().includes('havuz')) return false;
+            if (olanak === 'jakuzi' && !villa.oneCikanSunduklar?.ozelJakuzi) return false;
+            if (olanak === 'klima' && !villa.oneCikanSunduklar?.klima) return false;
+            if (olanak === 'wifi' && !villa.oneCikanSunduklar?.wifi) return false;
+            if (olanak === 'otopark' && !villa.oneCikanSunduklar?.ucretsizOtopark) return false;
+            if (olanak === 'mutfak' && !villa.oneCikanSunduklar?.mutfak) return false;
+          }
+        }
+        
+        return true;
+      });
+      
+      const seciliSiralama = siralamaSelect?.value || 'fiyat-artan';
+      
+      if (seciliSiralama === 'fiyat-artan') {
+        sonuc.sort((a, b) => a.fiyat.gecelik - b.fiyat.gecelik);
+      } else if (seciliSiralama === 'fiyat-azalan') {
+        sonuc.sort((a, b) => b.fiyat.gecelik - a.fiyat.gecelik);
+      } else if (seciliSiralama === 'puan') {
+        sonuc.sort((a, b) => (b.puan?.ortalama || 0) - (a.puan?.ortalama || 0));
+      } else if (seciliSiralama === 'degerlendirme') {
+        sonuc.sort((a, b) => (b.puan?.degerlendirmeSayisi || 0) - (a.puan?.degerlendirmeSayisi || 0));
+      }
+      
+      renderVillalar(sonuc);
+    }
+    
+    // Event listeners
+    if (filtreUygula) {
+      filtreUygula.addEventListener('click', (e) => {
+        e.preventDefault();
+        filtrele();
+        document.querySelectorAll('.filtre-dropdown').forEach(d => d.classList.add('hidden'));
+      });
+    }
+    
+    if (filtreleriTemizle) {
+      filtreleriTemizle.addEventListener('click', () => {
+        document.querySelector('input[name="konum"][value="tumu"]').checked = true;
+        document.querySelector('input[name="kisi"][value="0"]').checked = true;
+        document.querySelector('input[name="yatak"][value="0"]').checked = true;
+        document.querySelector('input[name="puan"][value="0"]').checked = true;
+        
+        if (fiyatMin) fiyatMin.value = minFiyatGlobal;
+        if (fiyatMax) fiyatMax.value = maxFiyatGlobal;
+        
+        seciliOlanaklar = [];
+        document.querySelectorAll('.olanak-btn').forEach(btn => {
+          btn.classList.remove('bg-orange-500', 'text-white', 'border-orange-500');
+        });
+        
+        if (siralamaSelect) siralamaSelect.value = 'fiyat-artan';
+        
+        renderVillalar(tumVillalar);
+      });
+    }
+    
+    if (siralamaSelect) {
+      siralamaSelect.addEventListener('change', () => {
+        filtrele();
+      });
+    }
+    
+    [fiyatMin, fiyatMax].forEach(input => {
+      input?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          filtrele();
+          document.querySelectorAll('.filtre-dropdown').forEach(d => d.classList.add('hidden'));
+        }
+      });
+    });
+    
+    // İlk yükleme
+    renderVillalar(tumVillalar);
+    
+  } catch (error) {
+    console.error('Hata:', error);
+  }
+});
+</script>

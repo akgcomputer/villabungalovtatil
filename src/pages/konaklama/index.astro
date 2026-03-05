@@ -4,7 +4,16 @@ import Layout from '../../layouts/Layout.astro';
 import { villalar } from '../../data/villalar';
 
 // Tüm benzersiz konaklama tiplerini villa.js'den çıkar
-const tumTipler = [...new Set(villalar.map(v => v.tip).filter(Boolean))].sort();
+const tumTipler = [...new Set(villalar.map(v => v.tip).filter(Boolean))];
+
+// Her tip için villa sayısını hesapla
+const tipVillaSayisi = {};
+tumTipler.forEach(tip => {
+  tipVillaSayisi[tip] = villalar.filter(v => v.tip === tip).length;
+});
+
+// Tipleri villa sayısına göre AZALAN şekilde sırala (en çoktan en aza)
+const siraliTipler = tumTipler.sort((a, b) => tipVillaSayisi[b] - tipVillaSayisi[a]);
 
 // Tip adını slug'a çeviren fonksiyon
 function tipToSlug(tipAdi) {
@@ -20,31 +29,27 @@ function tipToSlug(tipAdi) {
     .replace(/\./g, '');
 }
 
-// Her tip için villa sayısını hesapla
-const tipVillaSayisi = {};
-tumTipler.forEach(tip => {
-  tipVillaSayisi[tip] = villalar.filter(v => v.tip === tip).length;
-});
-
 // Tip adını formatla (villa -> Villa, daire -> Daire)
 function formatTipAdi(tip) {
   return tip.charAt(0).toUpperCase() + tip.slice(1);
 }
 
-// Tip ikonları
+// Tip ikonları - Güncellenmiş hali
 const tipIkonlari = {
-  'villa': '🏡',
+  'villa': '🏖️',
   'daire': '🏢',
-  'bungalov': '🏠',
+  'Bungalov': '🌴',
   'otel': '🏨',
   'yazlık': '🏖️',
-  'kır evi': '🌳',
+  'Kır-evi': '🌳',
   'çiftlik evi': '🐄',
   'tatil köyü': '🌴',
   'apart': '🏘️',
   'rezidans': '🏢',
   'bağ evi': '🍇',
-  'kayak evi': '⛷️'
+  'kayak evi': '⛷️',
+  'tekne': '⛵',
+  'Tiny-house': '🏕️'  // Karavan / Tiny-house için ideal
 };
 
 // Renk paleti
@@ -57,6 +62,16 @@ const renkPaleti = [
   { bg: 'bg-gradient-to-br from-green-500 to-lime-500' },
   { bg: 'bg-gradient-to-br from-cyan-500 to-sky-500' },
   { bg: 'bg-gradient-to-br from-fuchsia-500 to-purple-500' },
+];
+
+// Popüler tipler için renkler
+const populerRenkler = [
+  'bg-red-100 text-red-700 border-red-200 hover:bg-red-200',
+  'bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-200',
+  'bg-green-100 text-green-700 border-green-200 hover:bg-green-200',
+  'bg-purple-100 text-purple-700 border-purple-200 hover:bg-purple-200',
+  'bg-yellow-100 text-yellow-700 border-yellow-200 hover:bg-yellow-200',
+  'bg-pink-100 text-pink-700 border-pink-200 hover:bg-pink-200',
 ];
 ---
 
@@ -72,9 +87,9 @@ const renkPaleti = [
       </p>
     </div>
 
-    <!-- Tip Kartları Grid -->
+    <!-- Tip Kartları Grid - Villa sayısına göre sıralanmış -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {tumTipler.map((tip, index) => {
+      {siraliTipler.map((tip, index) => {
         const renk = renkPaleti[index % renkPaleti.length];
         const slug = tipToSlug(tip);
         const villaSayisi = tipVillaSayisi[tip];
@@ -104,7 +119,7 @@ const renkPaleti = [
               {/* İkon ve sayı */}
               <div class="flex items-start justify-between mb-4">
                 <span class="text-5xl filter drop-shadow-lg">{ikon}</span>
-                <span class="inline-flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full text-white font-bold text-lg">
+                <span class="inline-flex items-center justify-center w-10 h-10 bg-black/60 backdrop-blur-sm rounded-full text-white font-bold text-lg">
                   {villaSayisi}
                 </span>
               </div>
@@ -120,7 +135,7 @@ const renkPaleti = [
               </p>
               
               {/* İncele linki */}
-              <div class="flex items-center text-white/90 text-sm group-hover:translate-x-2 transition-transform duration-300">
+              <div class="flex items-center text-black/70 text-sm group-hover:translate-x-2 transition-transform duration-300">
                 <span>İncele</span>
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -135,7 +150,7 @@ const renkPaleti = [
     <!-- İstatistikler -->
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
       <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">
-        <div class="text-3xl font-bold text-orange-600 mb-2">{tumTipler.length}</div>
+        <div class="text-3xl font-bold text-orange-600 mb-2">{siraliTipler.length}</div>
         <div class="text-gray-700 font-medium">Konaklama Tipi</div>
       </div>
       <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
@@ -144,34 +159,23 @@ const renkPaleti = [
       </div>
       <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100">
         <div class="text-3xl font-bold text-green-600 mb-2">
-          {Math.round(villalar.length / tumTipler.length)}
+          {Math.round(villalar.length / siraliTipler.length)}
         </div>
         <div class="text-gray-700 font-medium">Tip Başına Ortalama</div>
       </div>
     </div>
 
-    <!-- Popüler tipler -->
-    {tumTipler.length > 0 && (
+    <!-- Popüler tipler - En çok olan ilk 6 -->
+    {siraliTipler.length > 0 && (
       <div class="mt-16">
         <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Popüler Konaklama Tipleri</h2>
         <div class="flex flex-wrap justify-center gap-4">
-          {tumTipler.slice(0, 6).map((tip, index) => {
-            const renkler = [
-              'bg-red-100 text-red-700 border-red-200 hover:bg-red-200',
-              'bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-200',
-              'bg-green-100 text-green-700 border-green-200 hover:bg-green-200',
-              'bg-purple-100 text-purple-700 border-purple-200 hover:bg-purple-200',
-              'bg-yellow-100 text-yellow-700 border-yellow-200 hover:bg-yellow-200',
-              'bg-pink-100 text-pink-700 border-pink-200 hover:bg-pink-200',
-            ];
-            const slug = tipToSlug(tip);
-            const ikon = tipIkonlari[tip] || '🏠';
-            
+          {siraliTipler.slice(0, 6).map((tip, index) => {
             return (
               <a
-                href={`/konaklama/${slug}`}
+                href={`/konaklama/${tipToSlug(tip)}`}
                 class={`
-                  ${renkler[index % renkler.length]}
+                  ${populerRenkler[index % populerRenkler.length]}
                   px-6 py-3 rounded-full
                   border-2 font-medium
                   transition-all duration-300
@@ -179,7 +183,7 @@ const renkPaleti = [
                   flex items-center gap-2
                 `}
               >
-                <span>{ikon}</span>
+                <span>{tipIkonlari[tip] || '🏠'}</span>
                 <span>{formatTipAdi(tip)}</span>
                 <span class="text-xs opacity-75">({tipVillaSayisi[tip]})</span>
               </a>

@@ -1,0 +1,273 @@
+---
+// src/pages/villa-sahibi-rehberi.astro
+import Layout from '../layouts/Layout.astro';
+import PageTemplate from '../components/PageTemplate.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+---
+
+<Layout 
+  title="Villa Sahibi Rehberi - Villa Bungalov Tatil" 
+  description="Villanızı kiraya vermek mi istiyorsunuz? Adım adım villa sahibi rehberi: fotoğraf çekimi, fiyat belirleme, ilan oluşturma ve reklam stratejileri."
+>
+  <PageTemplate 
+    title="Villa Sahibi Rehberi" 
+    subtitle="Villanızı kiraya vermek hiç bu kadar kolay olmamıştı"
+  >
+    <div class="space-y-8">
+      
+      <!-- Giriş Mesajı -->
+      <div class="text-center py-4">
+        <span class="text-6xl mb-4 block">🏡</span>
+        <h2 class="text-2xl font-bold text-gray-800 mb-3">
+          Konutunuz/Tekneniz Artık Size Daha Çok Gelir Getirsin
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Villa Bungalov Tatil'de villanızı listeleyin, binlerce tatilciyle buluşturun. 
+          <br>İşte size adım adım villa sahibi rehberi.
+        </p>
+      </div>
+
+      <!-- 3 Adımda Villa Ekleme -->
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100">
+        <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">3 Adımda Villa Sahibi Olun</h3>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">1</div>
+            <h4 class="font-semibold text-gray-800 mb-2">Fotoğraf & Özellikler</h4>
+            <p class="text-sm text-gray-600">Villanızın güzel fotoğraflarını çekin, özelliklerini belirleyin (havuz, jakuzi, wifi, kaç kişilik vb.)</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">2</div>
+            <h4 class="font-semibold text-gray-800 mb-2">Fiyat Belirleyin</h4>
+            <p class="text-sm text-gray-600">Gecelik fiyatınızı belirleyin. Piyasa araştırması yaparak rekabetçi bir fiyat belirleyebilirsiniz.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">3</div>
+            <h4 class="font-semibold text-gray-800 mb-2">Bize Ulaşın</h4>
+            <p class="text-sm text-gray-600">Topladığınız tüm bilgilerle bize WhatsApp'tan ulaşın, ilanınızı hemen yayına alalım.</p>
+          </div>
+        </div>
+        
+        <div class="text-center mt-6">
+          <ContactButtons message="Villa eklemek istiyorum, rehberi okudum" />
+        </div>
+      </div>
+
+      <!-- Detaylı Rehber -->
+      <div class="grid md:grid-cols-2 gap-6 mt-8">
+        
+        <!-- Sol Kolon: Fotoğraf & Özellikler -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">
+              📸
+            </div>
+            <h3 class="text-lg font-bold text-gray-800">Fotoğraf & Özellikler</h3>
+          </div>
+          
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Fotoğraflar:</strong> Villanızın tüm odalarını, bahçesini, havuzunu ve manzarasını gösteren kaliteli fotoğraflar çekin. 
+                <br>En az 5-10 fotoğraf idealdir.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Kapasite:</strong> Kaç kişilik? Kaç yatak odası, kaç yatak, kaç banyo olduğunu belirtin.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Olanaklar:</strong> Havuz, jakuzi, klima, wifi, otopark, mutfak, barbekü gibi özellikleri listeleyin.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Konum:</strong> İl, ilçe ve varsa mahalle bilgisi. Popüler yerlere yakınlık (göl, deniz, kayak merkezi vb.)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Açıklama:</strong> Villanızın öne çıkan özelliklerini anlatan kısa ve etkileyici bir açıklama yazın.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sağ Kolon: Fiyat Belirleme -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">
+              💰
+            </div>
+            <h3 class="text-lg font-bold text-gray-800">Fiyat Belirleme</h3>
+          </div>
+          
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Gecelik fiyat:</strong> Bölgenizdeki benzer villaların fiyatlarını araştırın. Rekabetçi bir fiyat belirleyin.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Sezonluk fiyat:</strong> Yaz, kış, hafta sonu gibi dönemler için farklı fiyatlar belirleyebilirsiniz.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Minimum gece:</strong> En az kaç gecelik rezervasyon kabul edeceğinizi belirleyin (genelde 2 gece).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 text-lg">ℹ️</span>
+              <span><strong>Komisyon:</strong> <a href="/komisyon-oranlari" class="text-orange-600 hover:underline">Komisyon oranımız için tıklayınız</a>, sadece rezervasyon başına kesilir. Konut eklemek sadece bir defaya mahsus ekleme ücreti alınır..</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- İkinci Satır: İlan Oluşturma & Reklam -->
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- İlan Oluşturma -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-2xl">
+              📋
+            </div>
+            <h3 class="text-lg font-bold text-gray-800">İlan Oluşturma</h3>
+          </div>
+          
+          <p class="text-gray-700 mb-3">
+            Tüm bilgileri topladıktan sonra bize WhatsApp'tan ulaşın. Biz sizin için:
+          </p>
+          
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span>Profesyonel ilan sayfası oluşturalım</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span>Fotoğraflarınızı düzenleyip yerleştirelim</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span>Villanızı uygun kategorilere ekleyelim</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span>24 saat içinde yayına alalım</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Reklam Stratejileri -->
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">
+              📢
+            </div>
+            <h3 class="text-lg font-bold text-gray-800">Reklam Stratejileri</h3>
+          </div>
+          
+          <p class="text-gray-700 mb-3">
+            İlanınızın boş kalmaması için size özel reklam çözümlerimiz var:
+          </p>
+          
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Site içi:</strong> Ana sayfada, kategorilerde üst sıralarda gösterim</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Google Ads:</strong> Arama motorlarında üst sıralarda çıkın</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 text-lg">✓</span>
+              <span><strong>Sosyal medya:</strong> Instagram, Facebook, TikTok'ta tanıtım</span>
+            </li>
+          </ul>
+          
+          <div class="mt-4 pt-3 border-t border-gray-100">
+            <a href="/reklam-ver" class="text-orange-600 hover:underline font-medium flex items-center gap-1">
+              Reklam paketlerimizi inceleyin →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Villa Sahibi İpuçları -->
+      <div class="bg-blue-50 rounded-xl p-6 border border-blue-100 mt-4">
+        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <span class="text-2xl">💡</span>
+          Villa Sahipleri İçin İpuçları
+        </h3>
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex items-start gap-2">
+            <span class="text-blue-600 text-xl">•</span>
+            <span class="text-sm text-gray-700"><strong>Fotoğraflar çok önemli:</strong> Profesyonel çekim yaptırın, güneşli havada çekin.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-blue-600 text-xl">•</span>
+            <span class="text-sm text-gray-700"><strong>Açıklama etkileyici olsun:</strong> "Muhteşem manzara, sıcak havuz, huzur dolu bahçe" gibi.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-blue-600 text-xl">•</span>
+            <span class="text-sm text-gray-700"><strong>Fiyatı doğru belirleyin:</strong> Çok yüksek fiyat rezervasyonu düşürür, çok düşük fiyat güven sarsar.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-blue-600 text-xl">•</span>
+            <span class="text-sm text-gray-700"><strong>Hızlı dönüş:</strong> Misafir sorularına hızlı cevap verin, rezervasyon şansınız artsın.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-blue-600 text-xl">•</span>
+            <span class="text-sm text-gray-700"><strong>Takvim güncelleyin:</strong> Boş günlerinizi mutlaka güncel tutun.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-blue-600 text-xl">•</span>
+            <span class="text-sm text-gray-700"><strong>Reklam verin:</strong> Özellikle sezon öncesi reklamla görünürlüğünüzü artırın.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sık Sorulan Sorular (Kısa) -->
+      <div class="mt-6">
+        <h3 class="text-lg font-bold text-gray-800 mb-4">Sık Sorulan Sorular</h3>
+        <div class="space-y-3">
+          <details class="group bg-gray-50 rounded-lg p-4">
+            <summary class="font-semibold text-gray-800 cursor-pointer flex items-center justify-between">
+              Konaklama eklemek ücretli mi?
+              <span class="text-orange-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-3 text-gray-600 text-sm">Aylık yada yıllık ücret yoktur, konut eklemek sadece bir defaya mahsus ekleme ücreti alınır. Sadece rezervasyon başına <a href="/komisyon-oranlari" class="text-orange-600 hover:underline">komisyon</a> alınmaktadır.</p>
+          </details>
+          <details class="group bg-gray-50 rounded-lg p-4">
+            <summary class="font-semibold text-gray-800 cursor-pointer flex items-center justify-between">
+              Rezervasyonlar nasıl yapılıyor?
+              <span class="text-orange-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-3 text-gray-600 text-sm">Misafir bize WhatsApp üzerinden ulaşır, siz rezervasyonu onaylarsınız. Kaparo ödemesi tarafımıza yapılır, kalanını tesiste siz tahsil edersiniz.</p>
+          </details>
+          <details class="group bg-gray-50 rounded-lg p-4">
+            <summary class="font-semibold text-gray-800 cursor-pointer flex items-center justify-between">
+              Reklam vermek zorunlu mu?
+              <span class="text-orange-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-3 text-gray-600 text-sm">Tabii ki hayır, zorunlu değil. Ancak <a href="/reklam-ver" class="text-orange-600 hover:underline">reklam paketlerimizle</a> villanızın görünürlüğünü artırabilir, daha çok rezervasyon alabilirsiniz.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Harekete Geçirici Mesaj -->
+      <div class="bg-orange-600 rounded-xl p-8 text-white text-center mt-8">
+        <h3 class="text-2xl font-bold mb-3">Meskeninizi Hemen Ekleyin!</h3>
+        <p class="text-white/90 mb-6 max-w-2xl mx-auto">
+          Fotoğraflarınızı hazırlayın, fiyatınızı belirleyin ve bize ulaşın. 
+          24 saat içinde ilanınız yayında!
+        </p>
+        <ContactButtons message="Villa eklemek istiyorum, rehberi okudum" />
+        <p class="text-sm text-white/70 mt-4">
+          Sorularınız mı var? <a href="/sss" class="underline hover:text-white">SSS</a> sayfamıza göz atın.
+        </p>
+      </div>
+    </div>
+  </PageTemplate>
+</Layout>
