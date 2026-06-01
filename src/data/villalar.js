@@ -4494,7 +4494,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 3590,
+        "gecelik": 13590,
         "paraBirimi": "₺"
     },
     "resimler": [
