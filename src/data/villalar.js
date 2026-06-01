@@ -2,7 +2,7 @@
 export const villalar = [
     {
     "id": 1,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Isitmali-havuzlu-Seyr-i-Sapanca-Bungalov",
     "tip": "bungalov",
     "baslik": "Isıtmalı havuzlu Seyr-i Sapanca Bungalov",
@@ -37,7 +37,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 6999,
+        "gecelik": 12999,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -53,7 +53,7 @@ export const villalar = [
   },
   {
     "id": 2,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Marrakech-Bungalow-Sapanca-1-Sicak-Havuzlu",
     "tip": "bungalov",
     "baslik": "Marrakech Bungalow Sapanca 1 ( Sıcak havuzlu )",
@@ -89,7 +89,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7777,
+        "gecelik": 17777,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -113,7 +113,7 @@ export const villalar = [
   
    {
     "id": 3,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Yesil-Ev-Kartepe",
     "tip": "ev",
     "baslik": "Bu tatil bir yeşil evde",
@@ -148,7 +148,7 @@ export const villalar = [
       "ozelJakuzi": false
     },
     "fiyat": {
-      "gecelik": 2800,
+      "gecelik": 12800,
       "paraBirimi": "₺"
     },
     "resimler": [
@@ -168,7 +168,7 @@ export const villalar = [
   },
   {
     "id": 8,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mehmetbey-Bungovilla-Sicak-Havuz-Villa",
     "tip": "villa",
     "baslik": "Mehmetbey Bungovilla Sıcak Havuzlu Villa",
@@ -204,7 +204,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6500,
+        "gecelik": 16500,
         "paraBirimi": "₺"
     },
     
@@ -228,7 +228,7 @@ export const villalar = [
 },
 {
     "id": 9,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sapanca-Inci-Suit",
     "tip": "ev",
     "baslik": "Sapanca İnci Suit",
@@ -264,7 +264,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8500,
+        "gecelik": 18500,
         "paraBirimi": "₺"
     },
     
@@ -301,7 +301,7 @@ export const villalar = [
 },
 {
     "id": 10,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-jeshile-Korunakli-sicak-havuz",
     "tip": "villa",
     "baslik": "Villa jeshile Korunaklı sıcak havuz",
@@ -337,7 +337,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7200,
+        "gecelik": 17200,
         "paraBirimi": "₺"
     },
     
@@ -393,7 +393,7 @@ export const villalar = [
 },
 {
     "id": 11,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Deep-Luxury-Bungalov",
     "tip": "bungalov",
     "baslik": "Deep Luxury Bungalov",
@@ -429,7 +429,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6999,
+        "gecelik": 16999,
         "paraBirimi": "₺"
     },
     
@@ -454,7 +454,7 @@ export const villalar = [
 },
 {
     "id": 13,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Gol-Manazarali-Sicak-Havuzlu-Bahce-Jakuzili-B2",
     "tip": "agac-ev",
     "baslik": "Göl Manzaralı Sıcak havuzlu ,bahçe jakuzili B2",
@@ -490,7 +490,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 6900,
+        "gecelik": 16900,
         "paraBirimi": "₺"
     },
     
@@ -532,7 +532,7 @@ export const villalar = [
 },
 {
     "id": 14,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Casa-Vera-Sapanca-Sicak-Havuzlu",
     "tip": "villa",
     "baslik": "Casa Vera Sapanca (sıcak havuzlu)",
@@ -568,7 +568,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 12500,
+        "gecelik": 19500,
         "paraBirimi": "₺"
   },
 
@@ -605,7 +605,7 @@ export const villalar = [
 },
 {
     "id": 15,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Gol-Manazarali-Sicak-Havuzlu-Kutuk-Ev-A1",
     "tip": "agac-ev",
     "baslik": "Göl Manzaralı Sıcak havuzlu Kütük Ev A1",
@@ -641,7 +641,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7200,
+        "gecelik": 27200,
         "paraBirimi": "₺"
     },
     
@@ -675,7 +675,7 @@ export const villalar = [
 
 {
     "id": 16,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Deep-Luxury-Sapanca",
     "tip": "bungalov",
     "baslik": "Deep Luxury Sapanca",
@@ -710,7 +710,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6690,
+        "gecelik": 16690,
         "paraBirimi": "₺"
     },
     
@@ -730,7 +730,7 @@ export const villalar = [
 },
 {
     "id": 17,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sapancada-villa",
     "tip": "villa",
     "baslik": "Sapancada villa",
@@ -765,7 +765,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4999,
+        "gecelik": 14999,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -789,7 +789,7 @@ export const villalar = [
 
 {
     "id": 18,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mehmetbey-Bungovilla-Sicak-Havuz-Villa-2",
     "tip": "villa",
     "baslik": "Mehmetbey Bungovilla sıcak havuz (villa 2)",
@@ -825,7 +825,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9999,
+        "gecelik": 29999,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -855,7 +855,7 @@ export const villalar = [
 },
 {
     "id": 19,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sin-Do-Ma-Dag-Evi",
     "tip": "villa",
     "baslik": "SİN DO MA Dağ Evi",
@@ -891,7 +891,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5500,
+        "gecelik": 15500,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -914,7 +914,7 @@ export const villalar = [
 
 {
     "id": 20,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Bg-Sapanca-Alkolsuz-Muhafazakar-Tesis",
     "tip": "villa",
     "baslik": "Bg Sapanca- Alkolsüz Muhafazakar Tesis",
@@ -950,7 +950,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     
@@ -967,7 +967,7 @@ export const villalar = [
 },
 {
     "id": 21,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Eviniz-rahatliginda-essiz-doga-manzarali-dag-evi",
     "tip": "ev",
     "baslik": "Eviniz rahatlığında, eşsiz doğa manzaralı dağ evi",
@@ -1003,7 +1003,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 5390,
+        "gecelik": 25390,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1019,7 +1019,7 @@ export const villalar = [
 },
 {
     "id": 22,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Golcuk-Eriklitepe-Milli-Parki-yolu-uzerinde-Dagevi",
     "tip": "dağ-evi",
     "baslik": "Gölcük Eriklitepe Milli Parkı yolu üzerinde Dağevi",
@@ -1055,7 +1055,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 14900,
+        "gecelik": 24900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1071,7 +1071,7 @@ export const villalar = [
 },
 {
     "id": 23,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Moon-Valley-House-u-kesfedin",
     "tip": "ev",
     "baslik": "Moon Valley House'u keşfedin",
@@ -1107,7 +1107,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 11990,
+        "gecelik": 21990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1123,7 +1123,7 @@ export const villalar = [
 },
 {
     "id": 24,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Pine-House-Villa",
     "tip": "villa",
     "baslik": "Pine House Villa",
@@ -1159,7 +1159,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 14900,
+        "gecelik": 24900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1175,7 +1175,7 @@ export const villalar = [
 },
 {
     "id": 25,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ciftlik-Evi-ve-Ormanda-bir-Kabin",
     "tip": "Kır-evi",
     "baslik": "Çiftlik Evi ve Ormanda bir Kabin",
@@ -1211,7 +1211,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9999,
+        "gecelik": 29999,
         "paraBirimi": "₺"
     },
     
@@ -1231,7 +1231,7 @@ export const villalar = [
 },
 {
     "id": 26,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mooboo-suit-1",
     "tip": "ev",
     "baslik": "Mooboo suit 1",
@@ -1267,7 +1267,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7900,
+        "gecelik": 17900,
         "paraBirimi": "₺"
     },
     
@@ -1294,7 +1294,7 @@ export const villalar = [
 },
 {
     "id": 27,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "HAVEN-Dag-ve-orman-manzarali-telassiz-villa",
     "tip": "villa",
     "baslik": "HAVEN Dağ ve orman manzaralı, telaşsız villa",
@@ -1330,7 +1330,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 17599,
+        "gecelik": 27599,
         "paraBirimi": "₺"
     },
    "resimler": [
@@ -1348,7 +1348,7 @@ export const villalar = [
 },
 {
     "id": 28,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "CinarTasmahall-Doga-ve-Denizin-Bulusmasi",
     "tip": "villa",
     "baslik": "ÇınarTaşmahall Doğa ve Denizin Buluşması",
@@ -1383,7 +1383,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1399,7 +1399,7 @@ export const villalar = [
 },
 {
     "id": 31,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Size-Ozel-Tatil-Evi-Bahcede-Isitmali-Jakuzi-Keyfi",
     "tip": "Kır-evi",
     "baslik": "Size Özel Tatil Evi Bahçede ısıtmalı jakuzi keyfi",
@@ -1435,7 +1435,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 8200,
+        "gecelik": 38200,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1489,7 +1489,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9900,
+        "gecelik": 29900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1507,7 +1507,7 @@ export const villalar = [
 },
 {
     "id": 33,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Tepe-Ev",
     "tip": "dağ-evi",
     "baslik": "Tepe Ev",
@@ -1542,7 +1542,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8800,
+        "gecelik": 18800,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1560,7 +1560,7 @@ export const villalar = [
 },
 {
     "id": 34,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Nefes-Kesen-Nehir-Manarali-Kabin",
     "tip": "bungalov",
     "baslik": "Nefes Kesen Nehir Manzaralı Kabin",
@@ -1596,7 +1596,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 16900,
+        "gecelik": 26900,
         "paraBirimi": "₺"
     },
    
@@ -1615,7 +1615,7 @@ export const villalar = [
 },
 {
     "id": 35,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Yalova-da-deniz-manzarali-konforlu-4-yatak-odali-villa",
     "tip": "villa",
     "baslik": "Yalova'da deniz manzaralı konforlu 4 yatak odalı villa",
@@ -1651,7 +1651,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 38900,
         "paraBirimi": "₺"
     },
     
@@ -1707,7 +1707,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 29500,
+        "gecelik": 39500,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1725,7 +1725,7 @@ export const villalar = [
 },
 {
     "id": 37,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "King-Suit",
     "tip": "ev",
     "baslik": "Kıng Suit",
@@ -1761,7 +1761,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 16900,
+        "gecelik": 26900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1775,7 +1775,7 @@ export const villalar = [
 
 {
     "id": 38,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "D-3-1-Villa-Kapali-ve-Isitmali-Havuz-Secretvalley",
     "tip": "villa",
     "baslik": "D-3+1 Villa-Kapalı ve Isıtmalı Havuz-Secretvalley",
@@ -1811,7 +1811,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9900,
+        "gecelik": 39900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1829,7 +1829,7 @@ export const villalar = [
 },
 {
     "id": 39,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Doga-Deniz-ve-Huzur-Birarada-benzersiz-bir-deneyim",
     "tip": "ev",
     "baslik": "Doğa,Deniz ve Huzur Birarada benzersiz bir deneyim",
@@ -1865,7 +1865,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4200,
+        "gecelik": 14200,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1883,7 +1883,7 @@ export const villalar = [
 },
 {
     "id": 40,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "No-1-Dogayla-Ic-Ice-Sakin-ve-Sirin-Kucuk-Ev",
     "tip": "ev",
     "baslik": "No:1 Doğayla İç İçe, Sakin ve Şirin Küçük Ev",
@@ -1919,7 +1919,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5999,
+        "gecelik": 25999,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1937,7 +1937,7 @@ export const villalar = [
 },
 {
     "id": 41,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Aski-memnu-tas-ev-Denize-sifir",
     "tip": "taş-ev",
     "baslik": "Aşkı-memnu taş ev. Denize sıfır",
@@ -1973,7 +1973,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 15900,
+        "gecelik": 25900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -1991,7 +1991,7 @@ export const villalar = [
 },
 {
     "id": 42,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sile-de-Bahceli-Mustakil-Villa",
     "tip": "villa",
     "baslik": "Şile'de Bahçeli Müstakil Villa",
@@ -2025,7 +2025,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4900,
+        "gecelik": 34900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2043,7 +2043,7 @@ export const villalar = [
 },
 {
     "id": 43,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "silede-6-1-odali-havuzlu-villa-Secretvalley",
     "tip": "villa",
     "baslik": "Şilede 6+1 odalı , havuzlu villa-Secretvalley",
@@ -2078,7 +2078,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2096,7 +2096,7 @@ export const villalar = [
 },
 {
     "id": 44,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-Riva-Garden-ozel-havuz-Beykoz-Istanbul",
     "tip": "villa",
     "baslik": "Villa Riva Garden (özel havuz) Beykoz-İstanbul",
@@ -2132,7 +2132,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 21900,
+        "gecelik": 29900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2148,7 +2148,7 @@ export const villalar = [
 },
 {
     "id": 45,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "No-2-Sehirden-Kacis-Dogada-Konaklama",
     "tip": "bungalov",
     "baslik": "No:2 Şehirden Kaçış, Doğada Konaklama",
@@ -2184,7 +2184,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9900,
+        "gecelik": 39900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2200,7 +2200,7 @@ export const villalar = [
 },
 {
     "id": 46,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Denise-Koza-Bungalow",
     "tip": "agac-ev",
     "baslik": "Denise Koza Bungalow",
@@ -2234,7 +2234,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2990,
+        "gecelik": 39990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2247,7 +2247,7 @@ export const villalar = [
 },
 {
     "id": 47,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sile-Sahilkoy-Plaja-300-mt-Villa",
     "tip": "villa",
     "baslik": "Şile Sahilköy Plaja 300 mt Villa",
@@ -2281,7 +2281,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 17900,
+        "gecelik": 27900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2297,7 +2297,7 @@ export const villalar = [
 },
 {
     "id": 48,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Tiny-House-4-Kisilik",
     "tip": "Tiny-house",
     "baslik": "Tiny House 4 Kişilik",
@@ -2331,7 +2331,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 17900,
+        "gecelik": 27900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2349,7 +2349,7 @@ export const villalar = [
 },
 {
     "id": 49,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "2-1-Lotus-Villa-Secretvalley",
     "tip": "villa",
     "baslik": "2+1 Lotus Villa - Secretvalley",
@@ -2385,7 +2385,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4990,
+        "gecelik": 14990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2403,7 +2403,7 @@ export const villalar = [
 },
 {
     "id": 50,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kumsal-Suiti",
     "tip": "ev",
     "baslik": "Kumsal Süiti",
@@ -2437,7 +2437,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 7900,
+        "gecelik": 17900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2455,7 +2455,7 @@ export const villalar = [
 },
 {
     "id": 51,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kendi-evinizde-hissedeceginiz-tatil-deneyimi",
     "tip": "ev",
     "baslik": "Kendi evinizde hissedeceğiniz tatil deneyimi",
@@ -2490,7 +2490,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 22900,
+        "gecelik": 29900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2508,7 +2508,7 @@ export const villalar = [
 },
 {
     "id": 52,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Woodstock-Dag-Evi",
     "tip": "dağ-evi",
     "baslik": "Woodstock Dağ Evi",
@@ -2543,7 +2543,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 29900,
+        "gecelik": 39900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2561,7 +2561,7 @@ export const villalar = [
 },
 {
     "id": 53,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Velara-Villalari",
     "tip": "ev",
     "baslik": "Velara Villaları",
@@ -2596,7 +2596,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6900,
+        "gecelik": 46900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2612,7 +2612,7 @@ export const villalar = [
 },
 {
     "id": 54,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Yesil-Panjurlu-Bahceli-Villa",
     "tip": "villa",
     "baslik": "Yeşil Panjurlu Bahçeli Villa",
@@ -2648,7 +2648,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 9990,
+        "gecelik": 19990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2666,7 +2666,7 @@ export const villalar = [
 },
 {
     "id": 55,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mukemmel-konumda-dag-evi",
     "tip": "dağ-evi",
     "baslik": "Mükemmel konumda dağ evi",
@@ -2701,7 +2701,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 38900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2717,7 +2717,7 @@ export const villalar = [
 },
 {
     "id": 56,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Jakuzinin-ve-Rahat-Verandanin-Keyfini-Cikarin",
     "tip": "agac-ev",
     "baslik": "Jakuzinin ve Rahat Verandanın Keyfini Çıkarın",
@@ -2753,7 +2753,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 8200,
+        "gecelik": 18200,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2771,7 +2771,7 @@ export const villalar = [
 },
 {
     "id": 57,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Uludag-ve-Bursa-manzarali-Luks-Calikusu-Dag-Evi",
     "tip": "dağ-evi",
     "baslik": "Uludağ ve Bursa manzaralı Lüks Çalıkuşu Dağ Evi",
@@ -2807,7 +2807,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5900,
+        "gecelik": 15900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2825,7 +2825,7 @@ export const villalar = [
 },
 {
     "id": 58,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "VillaInn-8-2-odali-doganin-icinde-Villa",
     "tip": "villa",
     "baslik": "VillaInn 8+2 odalı doğanın içinde Villa",
@@ -2861,7 +2861,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11500,
+        "gecelik": 21500,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2880,7 +2880,7 @@ export const villalar = [
 },
 {
     "id": 59,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "aj-konuk-evi",
     "tip": "ev",
     "baslik": "Aj Konuk Evi",
@@ -2916,7 +2916,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6300,
+        "gecelik": 26300,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2936,7 +2936,7 @@ export const villalar = [
 
 {
     "id": 60,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Cunda-Adam-da-denize-50-metre-no-2",
     "tip": "villa",
     "baslik": "Cunda Adası'nda denize 50 metre no:2",
@@ -2972,7 +2972,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4900,
+        "gecelik": 14900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -2990,7 +2990,7 @@ export const villalar = [
 },
 {
     "id": 61,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kozak-Bungalov-Begonvil-Evi",
     "tip": "bungalov",
     "baslik": "Kozak Bungalov Begonvil Evi.",
@@ -3026,7 +3026,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4100,
+        "gecelik": 14100,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -3044,7 +3044,7 @@ export const villalar = [
 },
 {
     "id": 62,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-Bella",
     "tip": "ev",
     "baslik": "Villa Bella",
@@ -3079,7 +3079,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6666,
+        "gecelik": 16666,
         "paraBirimi": "₺"
     },
     
@@ -3099,7 +3099,7 @@ export const villalar = [
 
 {
     "id": 63,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Akçay-merkeze-500-metre-sesiz-sakin-ozel-bir-mekan",
     "tip": "ev",
     "baslik": "Akçay merkeze 500 metre sesiz sakin özel bir mekan",
@@ -3135,7 +3135,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8890,
+        "gecelik": 18890,
         "paraBirimi": "₺"
     },
     
@@ -3154,7 +3154,7 @@ export const villalar = [
 },
 {
     "id": 64,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kazdaglarinda-malikanede-oksijen-tatili",
     "tip": "villa",
     "baslik": "Kazdağlarında malikanede oksijen tatili",
@@ -3190,7 +3190,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 15500,
+        "gecelik": 25500,
         "paraBirimi": "₺"
     },
     
@@ -3210,7 +3210,7 @@ export const villalar = [
 },
 {
     "id": 65,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Akkiz-Han-Otel",
     "tip": "apart",
     "baslik": "Akkız Han Otel",
@@ -3246,7 +3246,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 10990,
+        "gecelik": 20990,
         "paraBirimi": "₺"
     },
     
@@ -3266,7 +3266,7 @@ export const villalar = [
 },
 {
     "id": 66,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Havuzlu-Denize-Karsi-Sicak-Havuz",
     "tip": "ev",
     "baslik": "Havuzlu Denize Karşı Sıcak Havuz",
@@ -3300,7 +3300,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 14900,
+        "gecelik": 24900,
         "paraBirimi": "₺"
     },
     
@@ -3320,7 +3320,7 @@ export const villalar = [
 },
 {
     "id": 67,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-Havuzlu-Villa",
     "tip": "villa",
     "baslik": "Özel Havuzlu Villa",
@@ -3356,7 +3356,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 22900,
+        "gecelik": 32900,
         "paraBirimi": "₺"
     },
     
@@ -3376,7 +3376,7 @@ export const villalar = [
 },
 {
     "id": 68,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villamiz-full-esyalidir",
     "tip": "villa",
     "baslik": "Villamız full eşyalıdır.",
@@ -3410,7 +3410,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6900,
+        "gecelik": 16900,
         "paraBirimi": "₺"
     },
     
@@ -3430,7 +3430,7 @@ export const villalar = [
 },
 {
     "id": 69,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sesiz-sakin-ozel-bir-mekan",
     "tip": "ev",
     "baslik": "Sesiz sakin özel bir mekan",
@@ -3466,7 +3466,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8990,
+        "gecelik": 28990,
         "paraBirimi": "₺"
     },
     
@@ -3486,7 +3486,7 @@ export const villalar = [
 },
 {
     "id": 70,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Havuzlu-Deniz-Manzali-Sicak-Havuz",
     "tip": "ev",
     "baslik": "Havuzlu Deniz Manzaralı Sicak Havuz",
@@ -3520,7 +3520,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 14990,
+        "gecelik": 24990,
         "paraBirimi": "₺"
     },
     
@@ -3538,7 +3538,7 @@ export const villalar = [
 },
 {
     "id": 71,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Elies-Residences-Apartmani-Sykamia",
     "tip": "villa",
     "baslik": "Elies Residences Apartmanı Sykamia",
@@ -3573,7 +3573,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7290,
+        "gecelik": 17290,
         "paraBirimi": "₺"
     },
     
@@ -3591,7 +3591,7 @@ export const villalar = [
 },
 {
     "id": 64,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kazdaglarinda-malikanede-oksijen-tatili",
     "tip": "villa",
     "baslik": "Kazdağlarında malikanede oksijen tatili",
@@ -3627,7 +3627,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 25800,
+        "gecelik": 35800,
         "paraBirimi": "₺"
     },
     
@@ -3645,7 +3645,7 @@ export const villalar = [
 },
 {
     "id": 72,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Havuzlu-kendine-ait-lux-villa",
     "tip": "villa",
     "baslik": "Havuzlu kendine ait lüx villa",
@@ -3679,7 +3679,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7900,
+        "gecelik": 17900,
         "paraBirimi": "₺"
     },
   
@@ -3702,7 +3702,7 @@ export const villalar = [
 },
 {
     "id": 73,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Myosotis-Villa-Foca",
     "tip": "villa",
     "baslik": "Myosotis Villa - Foça",
@@ -3737,7 +3737,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 20990,
+        "gecelik": 30990,
         "paraBirimi": "₺"
     },
     
@@ -3755,7 +3755,7 @@ export const villalar = [
 },
 {
     "id": 74,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mustakil-bahce-ve-havuzlu-dublex-tas-ev-3-1",
     "tip": "villa",
     "baslik": "Müstakil bahçe ve havuzlu dublex taş ev. (3+1)",
@@ -3791,7 +3791,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 48900,
         "paraBirimi": "₺"
     },
     
@@ -3811,7 +3811,7 @@ export const villalar = [
 },
 {
     "id": 75,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-Love-Candarli",
     "tip": "villa",
     "baslik": "Villa Love Çandarlı",
@@ -3846,7 +3846,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 12900,
+        "gecelik": 32900,
         "paraBirimi": "₺"
     },
     
@@ -3864,7 +3864,7 @@ export const villalar = [
 },
 {
     "id": 76,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Sehrin-Gobeginde-Doga-Manazarli-Harika-Villa",
     "tip": "villa",
     "baslik": "Şehrin Göbeğinde Doğa Manzaralı Harika Villa",
@@ -3916,7 +3916,7 @@ export const villalar = [
 },
 {
     "id": 77,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Karina-Villa-Kozbeyli-Reva-Konaklari-Mustakil-Havuz",
     "tip": "villa",
     "baslik": "Karina Villa Kozbeyli Reva Konakları Müstakil Havuz",
@@ -3950,7 +3950,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 19900,
+        "gecelik": 29900,
         "paraBirimi": "₺"
     },
     
@@ -3967,7 +3967,7 @@ export const villalar = [
 },
 {
     "id": 79,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Akropol-un-Eteginde-Tas-Ev-Evin-Tamami",
     "tip": "taş-ev",
     "baslik": "Akropol'ün Eteğinde Taş Ev.(Evin Tamamı)",
@@ -4003,7 +4003,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 18900,
         "paraBirimi": "₺"
     },
     
@@ -4020,7 +4020,7 @@ export const villalar = [
 },
 {
     "id": 80,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Foca-Tas-Villa-Terapi-Jakuzili",
     "tip": "villa",
     "baslik": "Foça Taş Villa - Terapi Jakuzili",
@@ -4056,7 +4056,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 12500,
+        "gecelik": 22500,
         "paraBirimi": "₺"
     },
     
@@ -4072,7 +4072,7 @@ export const villalar = [
   ]
 },{
     "id": 81,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Izmir-Yeni-Focada-Lux-Havuzlu-Triplex-Villar",
     "tip": "villa",
     "baslik": "İzmir Yeni Foçada Lüx Havuzlu Triplex Villar",
@@ -4108,7 +4108,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7777,
+        "gecelik": 17777,
         "paraBirimi": "₺"
     },
     
@@ -4127,7 +4127,7 @@ export const villalar = [
 },
 {
     "id": 82,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mustakil-havuzlu-muhtesem-deniz-manzarali-villa",
     "tip": "villa",
     "baslik": "Müstakil havuzlu muhteşem deniz manzaralı villa",
@@ -4163,7 +4163,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     
@@ -4182,7 +4182,7 @@ export const villalar = [
 },
 {
     "id": 83,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-villa-isitmali-havuz-benzersiz-tatil",
     "tip": "villa",
     "baslik": "Özel villa, ısıtmalı havuz, benzersiz tatil.",
@@ -4218,7 +4218,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 13900,
+        "gecelik": 23900,
         "paraBirimi": "₺"
     },
     
@@ -4237,7 +4237,7 @@ export const villalar = [
 },
 {
     "id": 84,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-Havuzlu-Kir-evi-Zeytin",
     "tip": "Kır-evi",
     "baslik": "Özel Havuzlu Kır Evi Zeytin",
@@ -4273,7 +4273,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 3999,
+        "gecelik": 13999,
         "paraBirimi": "₺"
     },
     
@@ -4293,7 +4293,7 @@ export const villalar = [
 },
 {
     "id": 85,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "YeniNesilKoyEvi-IsitmaliHavuz-Barbeku-Somine",
     "tip": "Kır-evi",
     "baslik": "YeniNesilKöyEvi/IsıtmalıHavuz/Barbekü/Şömine",
@@ -4329,7 +4329,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5299,
+        "gecelik": 15299,
         "paraBirimi": "₺"
     },
     
@@ -4349,7 +4349,7 @@ export const villalar = [
 },
 {
     "id": 86,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Fenomen-Ev-Urla",
     "tip": "villa",
     "baslik": "Fenomen Ev Urla",
@@ -4385,7 +4385,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 15799,
+        "gecelik": 25799,
         "paraBirimi": "₺"
     },
     
@@ -4405,7 +4405,7 @@ export const villalar = [
 },
 {
     "id": 87,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Urla-da-Havuzlu-Somineli-Mustakil-Ev",
     "tip": "ev",
     "baslik": "Urla'da Havuzlu Şömineli Müstakil Ev",
@@ -4441,7 +4441,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2900,
+        "gecelik": 12900,
         "paraBirimi": "₺"
     },
     
@@ -4494,7 +4494,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2590,
+        "gecelik": 3590,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4509,7 +4509,7 @@ export const villalar = [
 },
 {
     "id": 89,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-Havuzlu-Doganin-ve-Dogalligin-icinde-Mustakil",
     "tip": "ev",
     "baslik": "Özel Havuzlu Doğanın ve Doğallığın içinde Müstakil",
@@ -4545,7 +4545,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6490,
+        "gecelik": 16490,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4560,7 +4560,7 @@ export const villalar = [
 },
 {
     "id": 90,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Home104-Isitmali-havuzlu-genis-bahceli-villa",
     "tip": "villa",
     "baslik": "Home104 - 1+1 Isıtmalı havuzlu geniş bahçeli villa",
@@ -4596,7 +4596,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 17900,
+        "gecelik": 27900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4613,7 +4613,7 @@ export const villalar = [
 
 {
     "id": 91,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-Havuzlu-Kir-evi-Zeytin",
     "tip": "Kır-evi",
     "baslik": "Özel Havuzlu Kır evi Zeytin",
@@ -4649,7 +4649,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4100,
+        "gecelik": 24100,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4666,7 +4666,7 @@ export const villalar = [
 },
 {
     "id": 92,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Havuzlu-Kir-Evi-Nar",
     "tip": "Kır-evi",
     "baslik": "Havuzlu Kır Evi Nar",
@@ -4702,7 +4702,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2990,
+        "gecelik": 12990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4718,7 +4718,7 @@ export const villalar = [
 },
 {
     "id": 93,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "sicak-havuzlu-jakuzili-bungalov",
     "tip": "bungalov",
     "baslik": "sıcak havuzlu jakuzili bungalov",
@@ -4752,7 +4752,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 9990,
+        "gecelik": 29990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4764,7 +4764,7 @@ export const villalar = [
 },
 {
     "id": 94,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Avokado-Bungalov-ev",
     "tip": "bungalov",
     "baslik": "Avokado Bungalov Ev",
@@ -4799,7 +4799,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6100,
+        "gecelik": 26100,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4817,7 +4817,7 @@ export const villalar = [
 },
 {
     "id": 95,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mandalin-agaclari-icersinde-isitmali-havuz-keyfi",
     "tip": "ev",
     "baslik": "Mandalin ağaçları içersinde ısıtmalı havuz keyfi",
@@ -4852,7 +4852,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7900,
+        "gecelik": 37900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4869,7 +4869,7 @@ export const villalar = [
 },
 {
     "id": 96,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Erdem-in-villalari",
     "tip": "villa",
     "baslik": "Erdem'in villaları",
@@ -4904,7 +4904,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 48900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4920,7 +4920,7 @@ export const villalar = [
 },
 {
     "id": 97,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-Viba-Elite",
     "tip": "villa",
     "baslik": "Villa Viba Elite",
@@ -4954,7 +4954,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 10900,
+        "gecelik": 20900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -4970,7 +4970,7 @@ export const villalar = [
 },
 {
     "id": 98,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Deniz-kenarinda-havuz-kenarinda-Villa-Blue",
     "tip": "villa",
     "baslik": "Deniz kenarında, havuz kenarında Villa Blue",
@@ -5006,7 +5006,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11790,
+        "gecelik": 21790,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5022,7 +5022,7 @@ export const villalar = [
 },
 {
     "id": 99,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "KUSADASI-HAVUZLU-3-1-VILLA",
     "tip": "villa",
     "baslik": "KUŞADASI HAVUZLU 3+1 VİLLA",
@@ -5056,7 +5056,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5900,
+        "gecelik": 35900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5072,7 +5072,7 @@ export const villalar = [
 },
 {
     "id": 100,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kadinlar-plajina-50-metre-bahceli-1-1",
     "tip": "ev",
     "baslik": "Kadınlar plajına 50 metre bahçeli 1+1",
@@ -5108,7 +5108,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6900,
+        "gecelik": 46900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5126,7 +5126,7 @@ export const villalar = [
 },
 {
     "id": 101,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kusadasi-Villa-Ceylan2",
     "tip": "villa",
     "baslik": "Kuşadası Villa Ceylan II",
@@ -5160,7 +5160,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 17590,
+        "gecelik": 27590,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5178,7 +5178,7 @@ export const villalar = [
 },
 {
     "id": 102,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-havuzlu-Deniz-manzarali-villa-Somineli",
     "tip": "villa",
     "baslik": "Özel havuzlu, Deniz manzaralı villa, Şömineli",
@@ -5214,7 +5214,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 7900,
+        "gecelik": 47900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5232,7 +5232,7 @@ export const villalar = [
 },
 {
     "id": 103,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Menderes-White-House-Isitmali-Havuz",
     "tip": "villa",
     "baslik": "Menderes White House Isıtmalı Havuz",
@@ -5268,7 +5268,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5286,7 +5286,7 @@ export const villalar = [
 },
 {
     "id": 104,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Fuul-Denizi-Manarali",
     "tip": "ev",
     "baslik": "Fuul Denizi Manzaralı",
@@ -5322,7 +5322,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5800,
+        "gecelik": 25800,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5340,7 +5340,7 @@ export const villalar = [
 },
 {
     "id": 105,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Adavillas-Superior-Villa-2",
     "tip": "villa",
     "baslik": "Adavillas Süperior Villa 2",
@@ -5376,7 +5376,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 16500,
+        "gecelik": 26500,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5394,7 +5394,7 @@ export const villalar = [
 },
 {
     "id": 106,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ozel-havuzlu-aile-villasi-Genis-bahce-ve-somine",
     "tip": "villa",
     "baslik": "Özel havuzlu aile villası Geniş bahçe ve şömine",
@@ -5430,7 +5430,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 58900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5448,7 +5448,7 @@ export const villalar = [
 },
 {
     "id": 108,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kusadasi-Havuzlu-4-1-Villa",
     "tip": "villa",
     "baslik": "Kuşadası Havuzlu 4 + 1 Villa",
@@ -5482,7 +5482,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9990,
+        "gecelik": 39990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5499,7 +5499,7 @@ export const villalar = [
 },
 {
     "id": 109,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Deniz-manzarali-orman-icinde-gurultuden-uzak-huzur",
     "tip": "villa",
     "baslik": "Deniz manzaralı orman içinde gürültüden uzak huzur",
@@ -5533,7 +5533,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 52900,
+        "gecelik": 62900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5551,7 +5551,7 @@ export const villalar = [
 },
 {
     "id": 110,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Grand-View-Villalari-Nefeli-Suiti",
     "tip": "villa",
     "baslik": "Grand View Villaları (Nefeli Süiti)",
@@ -5587,7 +5587,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8390,
+        "gecelik": 38390,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5605,7 +5605,7 @@ export const villalar = [
 },
 {
     "id": 111,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Didim-Akbuk-te-7-Kisilik-Havuzlu-Villa",
     "tip": "villa",
     "baslik": "Didim Akbük'te 7 Kişilik Havuzlu Villa",
@@ -5639,7 +5639,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4900,
+        "gecelik": 14900,
         "paraBirimi": "₺"
     },
 
@@ -5659,7 +5659,7 @@ export const villalar = [
 },
 {
     "id": 112,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Adyton-Guest-House-Apollon-un-Golgesinde",
     "tip": "ev",
     "baslik": "Adyton Guest House – Apollon'un Gölgesinde",
@@ -5695,7 +5695,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5990,
+        "gecelik": 4990,
         "paraBirimi": "₺"
     },
     
@@ -5715,7 +5715,7 @@ export const villalar = [
 },
 {
     "id": 113,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Vista-Mare",
     "tip": "ev",
     "baslik": "Vista Mare",
@@ -5750,7 +5750,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 58900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5768,7 +5768,7 @@ export const villalar = [
 },
 {
     "id": 114,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kusadasi4-Kayitli-Mustakil-Ozel-Havuzlu-4-1-Villa",
     "tip": "villa",
     "baslik": "Kuşadası4 Kayıtlı,Müstakil, Özel Havuzlu 4+1 Villa",
@@ -5804,7 +5804,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 16900,
+        "gecelik": 26900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5822,7 +5822,7 @@ export const villalar = [
 },
 {
     "id": 115,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "2-katli-ozel-misafir-evi",
     "tip": "ev",
     "baslik": "2 katlı özel misafir evi",
@@ -5858,7 +5858,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 7900,
+        "gecelik": 17900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5877,7 +5877,7 @@ export const villalar = [
 
 {
     "id": 116,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Havuzu-denize-iskelesi-olan-nadir-yerlerden-biri",
     "tip": "ev",
     "baslik": "Havuzu denize iskelesı olan nadır yerlerden biri",
@@ -5913,7 +5913,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2390,
+        "gecelik": 12390,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5932,7 +5932,7 @@ export const villalar = [
 
 {
     "id": 117,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Gurece-Havuzlu-Tas-Villa",
     "tip": "villa",
     "baslik": "Gürece Havuzlu Taş Villa",
@@ -5968,7 +5968,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6690,
+        "gecelik": 16690,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -5986,7 +5986,7 @@ export const villalar = [
 },
 {
     "id": 118,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "bavulunuzu-alip-gelin-Bahce-kati",
     "tip": "ev",
     "baslik": "bavulunuzu alıp gelin. Bahçe katı",
@@ -6022,7 +6022,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 3490,
+        "gecelik": 13490,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6040,7 +6040,7 @@ export const villalar = [
 },
 {
     "id": 119,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Kale-manzarali-site-icinde-havuzlu-luks-villa",
     "tip": "villa",
     "baslik": "Kale manzaralı site içinde havuzlu lüks villa",
@@ -6075,7 +6075,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8900,
+        "gecelik": 18900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6093,7 +6093,7 @@ export const villalar = [
 },
 {
     "id": 120,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Dogayla-Ic-Ice-Zarif-Villa-Sonsuzluk-Havuzu",
     "tip": "villa",
     "baslik": "Doğayla İç İçe Zarif Villa | Sonsuzluk Havuzu",
@@ -6129,7 +6129,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 25900,
+        "gecelik": 35900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6147,7 +6147,7 @@ export const villalar = [
 },
 {
     "id": 121,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Bodrum-English-Walton-s-Home",
     "tip": "daire",
     "baslik": "Bodrum English Walton's Home",
@@ -6183,7 +6183,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6201,7 +6201,7 @@ export const villalar = [
 },
 {
     "id": 122,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Pirgali-Tas-Ev",
     "tip": "daire",
     "baslik": "Pirgali Taş Ev",
@@ -6237,7 +6237,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6390,
+        "gecelik": 36390,
         "paraBirimi": "₺"
     },
   "resimler": [
@@ -6257,7 +6257,7 @@ export const villalar = [
 
   {
     "id": 123,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Datca-Cinar-Evleri-1-1-Balkonlu",
     "tip": "ev",
     "baslik": "Datça Çınar Evleri 1+1 Balkonlu",
@@ -6293,7 +6293,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2990,
+        "gecelik": 12990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6311,7 +6311,7 @@ export const villalar = [
 },
 {
     "id": 124,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Palaemondatca-Yelken-havuzlu-villa",
     "tip": "villa",
     "baslik": "Palaemondatça Yelken havuzlu villa",
@@ -6347,7 +6347,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 4690,
+        "gecelik": 34690,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6363,7 +6363,7 @@ export const villalar = [
 },
 {
     "id": 125,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-Ceviz",
     "tip": "villa",
     "baslik": "Villa Ceviz",
@@ -6398,7 +6398,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5300,
+        "gecelik": 15300,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6414,7 +6414,7 @@ export const villalar = [
 },
 {
     "id": 126,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Marmaris-Bozburun-C2",
     "tip": "apart",
     "baslik": "Marmaris (Bozburun) C2",
@@ -6449,7 +6449,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4690,
+        "gecelik": 44690,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6465,7 +6465,7 @@ export const villalar = [
 },
 {
     "id": 127,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-Alin-Sogut",
     "tip": "villa",
     "baslik": "Villa Alin Söğüt",
@@ -6499,7 +6499,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 12900,
+        "gecelik": 22900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6515,7 +6515,7 @@ export const villalar = [
 },
 {
     "id": 128,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Dalyan-Ekincik-mustakil-villa",
     "tip": "villa",
     "baslik": "Dalyan Ekincik müstakil villa",
@@ -6550,7 +6550,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 14800,
+        "gecelik": 24800,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6567,7 +6567,7 @@ export const villalar = [
 
 {
     "id": 129,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Ege-Villalari-1",
     "tip": "villa",
     "baslik": "Ege Villaları 1",
@@ -6603,7 +6603,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9490,
+        "gecelik": 19490,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6621,7 +6621,7 @@ export const villalar = [
 },
 {
     "id": 130,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Denize-100-metre-Dim-Cayi-Yaninda-2-1",
     "tip": "daire",
     "baslik": "Denize 100 metre Dim Çayı Yanında 2+1",
@@ -6657,7 +6657,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8890,
+        "gecelik": 48890,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6675,7 +6675,7 @@ export const villalar = [
 },
 {
     "id": 131,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Havuzlu-daire",
     "tip": "apart",
     "baslik": "Havuzlu daire",
@@ -6711,7 +6711,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 8890,
+        "gecelik": 58890,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6727,7 +6727,7 @@ export const villalar = [
 },
 {
     "id": 132,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Portacal-bungalov-2",
     "tip": "bungalov",
     "baslik": "Portacal bungalov 2",
@@ -6763,7 +6763,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 8890,
+        "gecelik": 68890,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6779,7 +6779,7 @@ export const villalar = [
 },
 {
     "id": 133,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Antalya-Merkeze-Havuzlu-Bungalov",
     "tip": "bungalov",
     "baslik": "Antalya Merkeze Havuzlu Bungalov",
@@ -6815,7 +6815,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2390,
+        "gecelik": 12390,
         "paraBirimi": "₺"
     },
    "resimler": [
@@ -6831,7 +6831,7 @@ export const villalar = [
 },
 {
     "id": 134,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Deniz-kenarinda-ev-ve-havuz",
     "tip": "daire",
     "baslik": "Deniz kenarında ev ve havuz",
@@ -6867,7 +6867,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5390,
+        "gecelik": 25390,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6883,7 +6883,7 @@ export const villalar = [
 },
 {
     "id": 135,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Riviera-Havuz-Kenari-Bungalovlari",
     "tip": "bungalov",
     "baslik": "Riviera Havuz Kenarı Bungalovları",
@@ -6918,7 +6918,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 4990,
+        "gecelik": 24990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6934,7 +6934,7 @@ export const villalar = [
 },
 {
     "id": 136,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Dag-ve-deniz-manzarali-guzel-bir-daire",
     "tip": "daire",
     "baslik": "Dağ ve deniz manzaralı güzel bir daire! (Beautiful apartment with mountain)",
@@ -6970,7 +6970,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6890,
+        "gecelik": 16890,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -6987,7 +6987,7 @@ export const villalar = [
 },
 {
     "id": 137,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Isitmali-havuz-Deniz-manzarali-spa-bolumu-haric",
     "tip": "ev",
     "baslik": "Isıtmalı havuz Deniz manzaralı (spa bölümü hariç)",
@@ -7021,7 +7021,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 19900,
+        "gecelik": 29900,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7039,7 +7039,7 @@ export const villalar = [
 },
 {
     "id": 138,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Villa-North-Gumusyaka",
     "tip": "villa",
     "baslik": "Villa North Gümüşyaka",
@@ -7073,7 +7073,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 9990,
+        "gecelik": 39990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7089,7 +7089,7 @@ export const villalar = [
 },
 {
     "id": 139,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mustakil-Girisli-Klimali-1-0-Studyoo",
     "tip": "ev",
     "baslik": "Müstakil Girişli, Klimalı 1+0 Stüdyo",
@@ -7125,7 +7125,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 3500,
+        "gecelik": 13500,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7141,7 +7141,7 @@ export const villalar = [
 },
 {
     "id": 140,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Mustakil-Girisli-Tek-Katli-1-1",
     "tip": "ev",
     "baslik": "Müstakil Girişli Tek Katlı 1+1",
@@ -7177,7 +7177,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 3500,
+        "gecelik": 23500,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7193,7 +7193,7 @@ export const villalar = [
 },
 {
     "id": 141,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Demirkaya-Plazada-2-1-Klimali",
     "tip": "daire",
     "baslik": "Demirkaya Plazada 2+1 Klimalı",
@@ -7229,7 +7229,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 5890,
+        "gecelik": 15890,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7245,7 +7245,7 @@ export const villalar = [
 },
 {
     "id": 142,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Evrensekiz-Isitmali-Havuzlu-Tas-Ev",
     "tip": "taş-ev",
     "baslik": "Evrensekiz Isıtmalı Havuzlu Taş Ev",
@@ -7281,7 +7281,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 12390,
+        "gecelik": 22390,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7297,7 +7297,7 @@ export const villalar = [
 },
 {
     "id": 143,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "istanbul-da-keyifli-bir-deneyim",
     "tip": "tekne",
     "baslik": "İstanbul’da keyifli bir deneyim",
@@ -7331,7 +7331,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 10200,
+        "gecelik": 20200,
         "paraBirimi": "₺"
     },
     
@@ -7351,7 +7351,7 @@ export const villalar = [
 },
 {
     "id": 144,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Marina-da-Konforlu-Tekne",
     "tip": "tekne",
     "baslik": "Marina da Konforlu Tekne.",
@@ -7387,7 +7387,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 6190,
+        "gecelik": 16190,
         "paraBirimi": "₺"
     },
     
@@ -7407,7 +7407,7 @@ export const villalar = [
 },
 {
     "id": 145,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Muhtesem-Yatcilik-Deneyimi",
     "tip": "tekne",
     "baslik": "Muhteşem Yatçılık Deneyimi",
@@ -7443,7 +7443,7 @@ export const villalar = [
         "ozelJakuzi": true
     },
     "fiyat": {
-        "gecelik": 95500,
+        "gecelik": 125500,
         "paraBirimi": "₺"
     },
     
@@ -7462,7 +7462,7 @@ export const villalar = [
 },
 {
     "id": 146,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Bogaz-Turu-Yat-Kiralama",
     "tip": "tekne",
     "baslik": "Boğaz Turu Yat Kiralama",
@@ -7498,7 +7498,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 11900,
+        "gecelik": 21900,
         "paraBirimi": "₺"
     },
     
@@ -7518,7 +7518,7 @@ export const villalar = [
 {
 
     "id": 29,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "izmit-Sehir-Merkezinde-1-1-Ve-2-1-Lux-Evler",
     "tip": "ev",
     "baslik": "İzmit Şehir Merkezinde 1+1 Ve 2+1 Lüx Evler",
@@ -7552,7 +7552,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 3200,
+        "gecelik": 13200,
         "paraBirimi": "₺"
     },
     
@@ -7605,7 +7605,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 2990,
+        "gecelik": 12990,
         "paraBirimi": "₺"
     },
     "resimler": [
@@ -7623,7 +7623,7 @@ export const villalar = [
 },
 {
     "id": 147,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Exclusive-2-Teknesi",
     "tip": "tekne",
     "baslik": "Exclusive 2 Teknesi",
@@ -7657,7 +7657,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 70200,
+        "gecelik": 80200,
         "paraBirimi": "₺"
     },
     
@@ -7712,7 +7712,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 41000,
+        "gecelik": 51000,
         "paraBirimi": "₺"
     },
     
@@ -7731,7 +7731,7 @@ export const villalar = [
 },
 {
     "id": 149,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "LAODIKYA-MOTORYAT-TEKNE-TURU",
     "tip": "tekne",
     "baslik": "LAODİKYA MOTORYAT TEKNE TURU",
@@ -7767,7 +7767,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 29300,
+        "gecelik": 39300,
         "paraBirimi": "₺"
     },
     
@@ -7823,7 +7823,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 13300,
+        "gecelik": 23300,
         "paraBirimi": "€"
     },
     
@@ -7843,7 +7843,7 @@ export const villalar = [
 },
 {
     "id": 151,
-    "minGece": 2,
+    "minGece": 4,
     "slug": "Gocek-Yelkenli-Tekne-Kiralik-Bavaria-45-crusier",
     "tip": "tekne",
     "baslik": "Göcek Yelkenli Tekne Kiralık Bavaria 45 crusier",
@@ -7877,7 +7877,7 @@ export const villalar = [
         "ozelJakuzi": false
     },
     "fiyat": {
-        "gecelik": 47000,
+        "gecelik": 57000,
         "paraBirimi": "₺"
     },
     
