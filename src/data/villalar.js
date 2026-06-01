@@ -434,7 +434,6 @@ export const villalar = [
     },
     
   "resimler": [
-    "https://a0.muscache.com/im/pictures/hosting/Hosting-1506489436693203876/original/2d13eebb-2013-49cd-8572-5d864cf9df05.jpeg",
     "https://a0.muscache.com/im/pictures/hosting/Hosting-1506489436693203876/original/eb7a75f5-0dff-4944-a97b-5e25927bd090.jpeg",
     "https://a0.muscache.com/im/pictures/hosting/Hosting-1506489436693203876/original/375e8b0c-4fd1-4287-b57d-b4dbc47f827a.jpeg",
     "https://a0.muscache.com/im/pictures/hosting/Hosting-1506489436693203876/original/4a415709-0535-41cf-bc1b-c583c523c0e7.jpeg",
@@ -2082,7 +2081,6 @@ export const villalar = [
         "paraBirimi": "₺"
     },
     "resimler": [
-"https://a0.muscache.com/im/pictures/hosting/Hosting-1443277108351113717/original/0365fa2d-93cc-4aea-97ca-c3230c8b19b9.jpeg",
 "https://a0.muscache.com/im/pictures/hosting/Hosting-1415741875892479414/original/f08227e8-eb81-496a-96cb-567f24c6af3b.jpeg",
 "https://a0.muscache.com/im/pictures/hosting/Hosting-1415741875892479414/original/c48bf946-075e-4874-98a2-38e509685328.jpeg",
 "https://a0.muscache.com/im/pictures/hosting/Hosting-1415741875892479414/original/202fd217-c1aa-4b28-a2fd-cca1f00949ed.jpeg",
@@ -2494,7 +2492,6 @@ export const villalar = [
         "paraBirimi": "₺"
     },
     "resimler": [
-"https://a0.muscache.com/im/pictures/hosting/Hosting-1610206320393904213/original/5871d2ff-d969-4be1-87d0-10b86bb6e3a8.jpeg",
 "https://a0.muscache.com/im/pictures/hosting/Hosting-1610206320393904213/original/010c6ac4-69be-47fd-8fd1-9949a0d73bd3.jpeg",
 "https://a0.muscache.com/im/pictures/hosting/Hosting-1610206320393904213/original/bf9882b8-a82c-4e11-8f3c-27548451872e.jpeg",
 "https://a0.muscache.com/im/pictures/hosting/Hosting-1610206320393904213/original/962e3e6d-60d1-46b0-9444-91c8c00e7367.jpeg",
@@ -4460,7 +4457,7 @@ export const villalar = [
 },
 {
     "id": 88,
-    "minGece": 1,
+    "minGece": 4,
     "slug": "escape-karavan-otel",
     "tip": "Tiny-house",
     "baslik": "Escape karavan otel",
@@ -6922,7 +6919,6 @@ export const villalar = [
         "paraBirimi": "₺"
     },
     "resimler": [
-"https://a0.muscache.com/im/pictures/0d47b293-a968-4878-a249-36fd8671c382.jpg",
 "https://a0.muscache.com/im/pictures/79f53c80-756f-4fc4-aeaf-386591ef1e2a.jpg",
 "https://a0.muscache.com/im/pictures/5d837397-8bb3-4741-85e1-77255a97b9c1.jpg",
 "https://a0.muscache.com/im/pictures/7af6abd5-2f71-4946-933a-d78a065d9e00.jpg",
@@ -7181,7 +7177,6 @@ export const villalar = [
         "paraBirimi": "₺"
     },
     "resimler": [
-  "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/9762c5a7-fd6e-4af9-83e3-128d58d7827e.jpeg",
   "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/0ab25c2e-9d82-4dcb-a931-2ee7c2197e49.jpeg",
   "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/f5d89aef-be51-41ff-a754-ab9ad3562c18.jpeg",
   "https://a0.muscache.com/im/pictures/hosting/Hosting-1224751527751151363/original/ef093fab-f9d9-4f71-ac46-eaf47034988b.jpeg",
